@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TMSWinForms
+namespace TMSWinForms.Model
 {
-    internal class Program
+    internal class Benutzer
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

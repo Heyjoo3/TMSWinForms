@@ -1,0 +1,74 @@
+﻿ //LoginGUI loginForm = new LoginGUI();
+
+            //if (loginForm.ShowDialog() == DialogResult.OK)
+
+            //if (loginForm.ShowDialog() == DialogResult.OK)
+            //{
+            //    // Benutzer hat sich erfolgreich angemeldet, öffne das TicketGUI-Formular
+            //    TicketGUI ticketForm = new TicketGUI();
+            //    Application.Run(ticketForm);
+            //}
+
+            //else if (loginForm.ShowDialog() == DialogResult.Cancel)
+            //{
+            //    // RegisterForm anzeigen
+            //    RegisterGUI registerForm = new RegisterGUI();
+
+            //    // Wenn das RegisterForm geschlossen wird und das Dialogresultat OK ist, öffne das MainForm
+            //    if (registerForm.ShowDialog() == DialogResult.OK)
+            //    {
+            //        TicketGUI ticketForm = new TicketGUI();
+            //        Application.Run(ticketForm);
+            //    }
+            //    else if (registerForm.ShowDialog() == DialogResult.Cancel)
+            //    {
+            //        LoginGUI loginForm2 = new LoginGUI();
+            //        if (loginForm2.ShowDialog() == DialogResult.OK)
+            //        {
+            //            TicketGUI ticketForm = new TicketGUI();
+            //            Application.Run(ticketForm);
+            //        }
+
+            //    }
+
+            //}
+
+            //bool loggedIn = false;
+            //bool loginFormOpen = true; 
+
+            //while (!loggedIn)
+            //{   
+            //    if (loginFormOpen) 
+            //    {
+            //        LoginGUI loginForm = new LoginGUI();
+            //        if (loginForm.ShowDialog() == DialogResult.OK)
+            //        {
+            //            loggedIn = true;
+            //        }
+            //        else if (loginForm.ShowDialog() == DialogResult.Cancel)
+            //        {
+
+            //            loginFormOpen = false;
+            //            loginForm.Close();
+            //        }
+            //    } else
+            //    {
+            //        RegisterGUI registerForm = new RegisterGUI();
+            //        if (registerForm.ShowDialog() == DialogResult.OK)
+            //        {
+            //            loggedIn = true;
+            //        }
+            //        else if (registerForm.ShowDialog() == DialogResult.Cancel)
+            //        {
+            //            loginFormOpen = true;
+            //            registerForm.Close();
+            //        }
+            //    }
+            //}
+
+            //// Benutzer hat sich erfolgreich angemeldet, öffne das TicketGUI-Formular
+            //if (loggedIn)
+            //{
+            //    TicketGUI ticketForm = new TicketGUI();
+            //    Application.Run(ticketForm);
+            //}
