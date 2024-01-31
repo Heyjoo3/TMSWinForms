@@ -37,6 +37,7 @@
             this.changeStatusButton = new System.Windows.Forms.Button();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.detailsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +54,7 @@
             // assignedUserLabel
             // 
             this.assignedUserLabel.AutoSize = true;
-            this.assignedUserLabel.Location = new System.Drawing.Point(15, 39);
+            this.assignedUserLabel.Location = new System.Drawing.Point(15, 47);
             this.assignedUserLabel.Name = "assignedUserLabel";
             this.assignedUserLabel.Size = new System.Drawing.Size(100, 17);
             this.assignedUserLabel.TabIndex = 1;
@@ -62,7 +63,7 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(15, 56);
+            this.dateLabel.Location = new System.Drawing.Point(15, 73);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(38, 17);
             this.dateLabel.TabIndex = 2;
@@ -71,7 +72,7 @@
             // priorityLabel
             // 
             this.priorityLabel.AutoSize = true;
-            this.priorityLabel.Location = new System.Drawing.Point(15, 73);
+            this.priorityLabel.Location = new System.Drawing.Point(15, 102);
             this.priorityLabel.Name = "priorityLabel";
             this.priorityLabel.Size = new System.Drawing.Size(52, 17);
             this.priorityLabel.TabIndex = 3;
@@ -124,11 +125,21 @@
             this.Root.Size = new System.Drawing.Size(20, 20);
             this.Root.TextVisible = false;
             // 
+            // detailsButton
+            // 
+            this.detailsButton.Location = new System.Drawing.Point(141, 102);
+            this.detailsButton.Name = "detailsButton";
+            this.detailsButton.Size = new System.Drawing.Size(75, 23);
+            this.detailsButton.TabIndex = 8;
+            this.detailsButton.Text = "Details";
+            this.detailsButton.UseVisualStyleBackColor = true;
+            // 
             // TicketTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.detailsButton);
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.changeStatusButton);
             this.Controls.Add(this.editTicketButton);
@@ -140,7 +151,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TicketTile";
-            this.Size = new System.Drawing.Size(230, 123);
+            this.Size = new System.Drawing.Size(230, 142);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             this.ResumeLayout(false);
@@ -159,5 +170,6 @@
         private System.Windows.Forms.Button changeStatusButton;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private System.Windows.Forms.Button detailsButton;
     }
 }

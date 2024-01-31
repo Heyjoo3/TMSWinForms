@@ -40,7 +40,8 @@ namespace TMSWinForms.View
 
         private void editTicketButton_Click(object sender, EventArgs e)
         {
-
+            EditTicketForm editTicketForm = new EditTicketForm();
+            editTicketForm.ShowDialog();
         }
     }
 }

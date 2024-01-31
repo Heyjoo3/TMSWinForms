@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.newTicketButton = new System.Windows.Forms.Button();
-            this.newUserButton = new System.Windows.Forms.Button();
+            this.editAccountButton = new System.Windows.Forms.Button();
             this.userListBox = new System.Windows.Forms.ListBox();
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.assingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -42,7 +42,9 @@
             this.unassingedLabel = new System.Windows.Forms.Label();
             this.assingedLabel = new System.Windows.Forms.Label();
             this.finishedLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.header.SuspendLayout();
+            this.footer.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +66,7 @@
             this.pageTitle.AutoSize = true;
             this.pageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.pageTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pageTitle.Location = new System.Drawing.Point(295, 24);
+            this.pageTitle.Location = new System.Drawing.Point(295, 23);
             this.pageTitle.Name = "pageTitle";
             this.pageTitle.Size = new System.Drawing.Size(411, 37);
             this.pageTitle.TabIndex = 0;
@@ -73,6 +75,7 @@
             // footer
             // 
             this.footer.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.footer.Controls.Add(this.logoutButton);
             this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.footer.Location = new System.Drawing.Point(0, 589);
             this.footer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -98,11 +101,11 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.RosyBrown;
-            this.flowLayoutPanel1.Controls.Add(this.newTicketButton);
-            this.flowLayoutPanel1.Controls.Add(this.newUserButton);
             this.flowLayoutPanel1.Controls.Add(this.userListBox);
+            this.flowLayoutPanel1.Controls.Add(this.editAccountButton);
+            this.flowLayoutPanel1.Controls.Add(this.newTicketButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 501);
@@ -111,31 +114,34 @@
             // newTicketButton
             // 
             this.newTicketButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.newTicketButton.Location = new System.Drawing.Point(3, 456);
+            this.newTicketButton.Location = new System.Drawing.Point(3, 437);
             this.newTicketButton.Name = "newTicketButton";
-            this.newTicketButton.Size = new System.Drawing.Size(189, 42);
+            this.newTicketButton.Size = new System.Drawing.Size(182, 42);
             this.newTicketButton.TabIndex = 0;
-            this.newTicketButton.Text = "new Ticket";
+            this.newTicketButton.Text = "New Ticket";
             this.newTicketButton.UseVisualStyleBackColor = true;
+            this.newTicketButton.Click += new System.EventHandler(this.newTicketButton_Click);
             // 
-            // newUserButton
+            // editAccountButton
             // 
-            this.newUserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.newUserButton.Location = new System.Drawing.Point(3, 408);
-            this.newUserButton.Name = "newUserButton";
-            this.newUserButton.Size = new System.Drawing.Size(189, 42);
-            this.newUserButton.TabIndex = 1;
-            this.newUserButton.Text = "new User";
-            this.newUserButton.UseVisualStyleBackColor = true;
-            this.newUserButton.Click += new System.EventHandler(this.newUserButton_Click);
+            this.editAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editAccountButton.Location = new System.Drawing.Point(3, 389);
+            this.editAccountButton.Name = "editAccountButton";
+            this.editAccountButton.Size = new System.Drawing.Size(182, 42);
+            this.editAccountButton.TabIndex = 1;
+            this.editAccountButton.Text = "Edit Account";
+            this.editAccountButton.UseVisualStyleBackColor = true;
+            this.editAccountButton.Click += new System.EventHandler(this.newUserButton_Click);
             // 
             // userListBox
             // 
+            this.userListBox.BackColor = System.Drawing.Color.Brown;
+            this.userListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userListBox.FormattingEnabled = true;
             this.userListBox.ItemHeight = 20;
-            this.userListBox.Location = new System.Drawing.Point(3, 318);
+            this.userListBox.Location = new System.Drawing.Point(3, 3);
             this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(120, 84);
+            this.userListBox.Size = new System.Drawing.Size(182, 380);
             this.userListBox.TabIndex = 2;
             // 
             // unassingedflowLayoutPanel
@@ -192,6 +198,15 @@
             this.finishedLabel.TabIndex = 0;
             this.finishedLabel.Text = "Finished";
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(879, 18);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(93, 42);
+            this.logoutButton.TabIndex = 0;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            // 
             // TicketGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -206,6 +221,7 @@
             this.Text = "Form1";
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
+            this.footer.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -218,7 +234,7 @@
         private System.Windows.Forms.Panel header;
         private System.Windows.Forms.Panel footer;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button newUserButton;
+        private System.Windows.Forms.Button editAccountButton;
         private System.Windows.Forms.Button newTicketButton;
         private System.Windows.Forms.Label pageTitle;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -229,5 +245,6 @@
         private System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
         private System.Windows.Forms.Label assingedLabel;
         private System.Windows.Forms.Label finishedLabel;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

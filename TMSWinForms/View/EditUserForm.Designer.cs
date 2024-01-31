@@ -1,0 +1,182 @@
+﻿namespace TMSWinForms.View
+{
+    partial class EditUserForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.editAccountLabel = new System.Windows.Forms.Label();
+            this.editEmailLabel = new System.Windows.Forms.Label();
+            this.editNameLabel = new System.Windows.Forms.Label();
+            this.changePasswordLabel = new System.Windows.Forms.Label();
+            this.repeatPasswordLabel = new System.Windows.Forms.Label();
+            this.saveAccountEditButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.repeatPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // editAccountLabel
+            // 
+            this.editAccountLabel.AutoSize = true;
+            this.editAccountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.editAccountLabel.Location = new System.Drawing.Point(21, 9);
+            this.editAccountLabel.Name = "editAccountLabel";
+            this.editAccountLabel.Size = new System.Drawing.Size(87, 17);
+            this.editAccountLabel.TabIndex = 0;
+            this.editAccountLabel.Text = "Edit Account";
+            // 
+            // editEmailLabel
+            // 
+            this.editEmailLabel.AutoSize = true;
+            this.editEmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.editEmailLabel.Location = new System.Drawing.Point(21, 44);
+            this.editEmailLabel.Name = "editEmailLabel";
+            this.editEmailLabel.Size = new System.Drawing.Size(42, 17);
+            this.editEmailLabel.TabIndex = 1;
+            this.editEmailLabel.Text = "Email";
+            // 
+            // editNameLabel
+            // 
+            this.editNameLabel.AutoSize = true;
+            this.editNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.editNameLabel.Location = new System.Drawing.Point(21, 70);
+            this.editNameLabel.Name = "editNameLabel";
+            this.editNameLabel.Size = new System.Drawing.Size(71, 17);
+            this.editNameLabel.TabIndex = 2;
+            this.editNameLabel.Text = "Full Name";
+            // 
+            // changePasswordLabel
+            // 
+            this.changePasswordLabel.AutoSize = true;
+            this.changePasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.changePasswordLabel.Location = new System.Drawing.Point(21, 96);
+            this.changePasswordLabel.Name = "changePasswordLabel";
+            this.changePasswordLabel.Size = new System.Drawing.Size(69, 17);
+            this.changePasswordLabel.TabIndex = 3;
+            this.changePasswordLabel.Text = "Password";
+            this.changePasswordLabel.Click += new System.EventHandler(this.changePasswordLabel_Click);
+            // 
+            // repeatPasswordLabel
+            // 
+            this.repeatPasswordLabel.AutoSize = true;
+            this.repeatPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.repeatPasswordLabel.Location = new System.Drawing.Point(21, 122);
+            this.repeatPasswordLabel.Name = "repeatPasswordLabel";
+            this.repeatPasswordLabel.Size = new System.Drawing.Size(119, 17);
+            this.repeatPasswordLabel.TabIndex = 4;
+            this.repeatPasswordLabel.Text = "Repeat Password";
+            // 
+            // saveAccountEditButton
+            // 
+            this.saveAccountEditButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.saveAccountEditButton.Location = new System.Drawing.Point(24, 147);
+            this.saveAccountEditButton.Name = "saveAccountEditButton";
+            this.saveAccountEditButton.Size = new System.Drawing.Size(368, 23);
+            this.saveAccountEditButton.TabIndex = 5;
+            this.saveAccountEditButton.Text = "Save Changes";
+            this.saveAccountEditButton.UseVisualStyleBackColor = false;
+            this.saveAccountEditButton.Click += new System.EventHandler(this.saveAccountEditButton_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Firebrick;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(24, 176);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(368, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Delete Account";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(151, 43);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(241, 20);
+            this.emailTextBox.TabIndex = 7;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(151, 69);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(241, 20);
+            this.nameTextBox.TabIndex = 8;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(151, 95);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(241, 20);
+            this.passwordTextBox.TabIndex = 9;
+            // 
+            // repeatPasswordTextBox
+            // 
+            this.repeatPasswordTextBox.Location = new System.Drawing.Point(151, 121);
+            this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
+            this.repeatPasswordTextBox.Size = new System.Drawing.Size(241, 20);
+            this.repeatPasswordTextBox.TabIndex = 10;
+            // 
+            // EditUserForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(413, 217);
+            this.Controls.Add(this.repeatPasswordTextBox);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.saveAccountEditButton);
+            this.Controls.Add(this.repeatPasswordLabel);
+            this.Controls.Add(this.changePasswordLabel);
+            this.Controls.Add(this.editNameLabel);
+            this.Controls.Add(this.editEmailLabel);
+            this.Controls.Add(this.editAccountLabel);
+            this.Name = "EditUserForm";
+            this.Text = "EditUserForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label editAccountLabel;
+        private System.Windows.Forms.Label editEmailLabel;
+        private System.Windows.Forms.Label editNameLabel;
+        private System.Windows.Forms.Label changePasswordLabel;
+        private System.Windows.Forms.Label repeatPasswordLabel;
+        private System.Windows.Forms.Button saveAccountEditButton;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.TextBox repeatPasswordTextBox;
+    }
+}

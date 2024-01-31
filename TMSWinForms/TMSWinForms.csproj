@@ -36,11 +36,14 @@
     <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -60,6 +63,24 @@
     <Compile Include="Model\TicketManager.cs" />
     <Compile Include="MyApp\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\EditTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditTicketForm.Designer.cs">
+      <DependentUpon>EditTicketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewTicketForm.Designer.cs">
+      <DependentUpon>NewTicketForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +117,20 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="View\EditTicketForm.resx">
+      <DependentUpon>EditTicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginReigsterGUI.resx">
       <DependentUpon>LoginReigsterGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewTicketForm.resx">
+      <DependentUpon>NewTicketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegisterGUI.resx">
       <DependentUpon>RegisterGUI.cs</DependentUpon>
