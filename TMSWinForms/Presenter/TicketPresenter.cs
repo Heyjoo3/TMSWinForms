@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TMSWinForms.Controller
 {
-    internal class TicketController
+    internal class TicketPresenter
     {
     }
 }

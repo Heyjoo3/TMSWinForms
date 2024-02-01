@@ -73,5 +73,10 @@ namespace TMSWinForms.View
             NewTicketForm newTicketForm = new NewTicketForm();
             newTicketForm.ShowDialog();
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

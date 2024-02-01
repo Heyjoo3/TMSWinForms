@@ -32,8 +32,6 @@
             this.assignedUserLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.priorityLabel = new System.Windows.Forms.Label();
-            this.deleteTicketButton = new System.Windows.Forms.Button();
-            this.editTicketButton = new System.Windows.Forms.Button();
             this.changeStatusButton = new System.Windows.Forms.Button();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -78,34 +76,19 @@
             this.priorityLabel.TabIndex = 3;
             this.priorityLabel.Text = "Priority";
             // 
-            // deleteTicketButton
-            // 
-            this.deleteTicketButton.Location = new System.Drawing.Point(141, 15);
-            this.deleteTicketButton.Name = "deleteTicketButton";
-            this.deleteTicketButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteTicketButton.TabIndex = 4;
-            this.deleteTicketButton.Text = "Delete";
-            this.deleteTicketButton.UseVisualStyleBackColor = true;
-            this.deleteTicketButton.Click += new System.EventHandler(this.deleteTicketButton_Click);
-            // 
-            // editTicketButton
-            // 
-            this.editTicketButton.Location = new System.Drawing.Point(141, 44);
-            this.editTicketButton.Name = "editTicketButton";
-            this.editTicketButton.Size = new System.Drawing.Size(75, 23);
-            this.editTicketButton.TabIndex = 5;
-            this.editTicketButton.Text = "Edit";
-            this.editTicketButton.UseVisualStyleBackColor = true;
-            this.editTicketButton.Click += new System.EventHandler(this.editTicketButton_Click);
-            // 
             // changeStatusButton
             // 
-            this.changeStatusButton.Location = new System.Drawing.Point(141, 73);
+            this.changeStatusButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.changeStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.changeStatusButton.FlatAppearance.BorderSize = 0;
+            this.changeStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeStatusButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.changeStatusButton.Location = new System.Drawing.Point(141, 21);
             this.changeStatusButton.Name = "changeStatusButton";
             this.changeStatusButton.Size = new System.Drawing.Size(75, 23);
             this.changeStatusButton.TabIndex = 6;
             this.changeStatusButton.Text = "Status";
-            this.changeStatusButton.UseVisualStyleBackColor = true;
+            this.changeStatusButton.UseVisualStyleBackColor = false;
             this.changeStatusButton.Click += new System.EventHandler(this.changeStatusButton_Click);
             // 
             // dataLayoutControl1
@@ -127,23 +110,28 @@
             // 
             // detailsButton
             // 
-            this.detailsButton.Location = new System.Drawing.Point(141, 102);
+            this.detailsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.detailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.detailsButton.FlatAppearance.BorderSize = 0;
+            this.detailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailsButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.detailsButton.Location = new System.Drawing.Point(141, 96);
             this.detailsButton.Name = "detailsButton";
             this.detailsButton.Size = new System.Drawing.Size(75, 23);
             this.detailsButton.TabIndex = 8;
             this.detailsButton.Text = "Details";
-            this.detailsButton.UseVisualStyleBackColor = true;
+            this.detailsButton.UseVisualStyleBackColor = false;
+            this.detailsButton.Click += new System.EventHandler(this.detailsButton_Click);
             // 
             // TicketTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.Controls.Add(this.detailsButton);
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.changeStatusButton);
-            this.Controls.Add(this.editTicketButton);
-            this.Controls.Add(this.deleteTicketButton);
             this.Controls.Add(this.priorityLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.assignedUserLabel);
@@ -165,8 +153,6 @@
         private System.Windows.Forms.Label assignedUserLabel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label priorityLabel;
-        private System.Windows.Forms.Button deleteTicketButton;
-        private System.Windows.Forms.Button editTicketButton;
         private System.Windows.Forms.Button changeStatusButton;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;

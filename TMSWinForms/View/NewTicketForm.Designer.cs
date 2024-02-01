@@ -33,13 +33,13 @@
             this.assignedUserLabel = new System.Windows.Forms.Label();
             this.ticketTitleLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.assingedUserTextBox = new System.Windows.Forms.TextBox();
             this.dateTextBox = new System.Windows.Forms.TextBox();
             this.priorityTextBox = new System.Windows.Forms.TextBox();
             this.dialogTitleLabel = new System.Windows.Forms.Label();
             this.saveNewTicketButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // priorityLabel
@@ -91,79 +91,90 @@
             this.descriptionLabel.TabIndex = 8;
             this.descriptionLabel.Text = "Description";
             // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(196, 159);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 23);
-            this.descriptionTextBox.TabIndex = 9;
-            // 
             // titleTextBox
             // 
+            this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleTextBox.Location = new System.Drawing.Point(196, 43);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(100, 23);
+            this.titleTextBox.Size = new System.Drawing.Size(240, 16);
             this.titleTextBox.TabIndex = 11;
             // 
             // assingedUserTextBox
             // 
+            this.assingedUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.assingedUserTextBox.Location = new System.Drawing.Point(196, 72);
             this.assingedUserTextBox.Name = "assingedUserTextBox";
-            this.assingedUserTextBox.Size = new System.Drawing.Size(100, 23);
+            this.assingedUserTextBox.Size = new System.Drawing.Size(240, 16);
             this.assingedUserTextBox.TabIndex = 12;
             // 
             // dateTextBox
             // 
-            this.dateTextBox.Location = new System.Drawing.Point(196, 101);
+            this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dateTextBox.Location = new System.Drawing.Point(196, 104);
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(100, 23);
+            this.dateTextBox.Size = new System.Drawing.Size(240, 16);
             this.dateTextBox.TabIndex = 13;
             // 
             // priorityTextBox
             // 
-            this.priorityTextBox.Location = new System.Drawing.Point(196, 130);
+            this.priorityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.priorityTextBox.Location = new System.Drawing.Point(196, 133);
             this.priorityTextBox.Name = "priorityTextBox";
-            this.priorityTextBox.Size = new System.Drawing.Size(100, 23);
+            this.priorityTextBox.Size = new System.Drawing.Size(240, 16);
             this.priorityTextBox.TabIndex = 14;
             // 
             // dialogTitleLabel
             // 
             this.dialogTitleLabel.AutoSize = true;
-            this.dialogTitleLabel.Location = new System.Drawing.Point(13, 20);
+            this.dialogTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.dialogTitleLabel.Location = new System.Drawing.Point(12, 9);
             this.dialogTitleLabel.Name = "dialogTitleLabel";
-            this.dialogTitleLabel.Size = new System.Drawing.Size(71, 17);
+            this.dialogTitleLabel.Size = new System.Drawing.Size(95, 24);
             this.dialogTitleLabel.TabIndex = 15;
             this.dialogTitleLabel.Text = "AddTicket";
             // 
             // saveNewTicketButton
             // 
-            this.saveNewTicketButton.Location = new System.Drawing.Point(16, 188);
+            this.saveNewTicketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.saveNewTicketButton.FlatAppearance.BorderSize = 0;
+            this.saveNewTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveNewTicketButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.saveNewTicketButton.Location = new System.Drawing.Point(16, 293);
             this.saveNewTicketButton.Name = "saveNewTicketButton";
-            this.saveNewTicketButton.Size = new System.Drawing.Size(280, 23);
+            this.saveNewTicketButton.Size = new System.Drawing.Size(420, 23);
             this.saveNewTicketButton.TabIndex = 16;
             this.saveNewTicketButton.Text = "Save";
-            this.saveNewTicketButton.UseVisualStyleBackColor = true;
+            this.saveNewTicketButton.UseVisualStyleBackColor = false;
             this.saveNewTicketButton.Click += new System.EventHandler(this.saveNewTicketButton_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(17, 182);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(419, 96);
+            this.richTextBox1.TabIndex = 17;
+            this.richTextBox1.Text = "";
             // 
             // NewTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 237);
+            this.ClientSize = new System.Drawing.Size(448, 328);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.saveNewTicketButton);
             this.Controls.Add(this.dialogTitleLabel);
             this.Controls.Add(this.priorityTextBox);
             this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.assingedUserTextBox);
             this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.priorityLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.assignedUserLabel);
             this.Controls.Add(this.ticketTitleLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewTicketForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -178,12 +189,12 @@
         private System.Windows.Forms.Label assignedUserLabel;
         private System.Windows.Forms.Label ticketTitleLabel;
         private System.Windows.Forms.Label descriptionLabel;
-        private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.TextBox assingedUserTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox priorityTextBox;
         private System.Windows.Forms.Label dialogTitleLabel;
         private System.Windows.Forms.Button saveNewTicketButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

@@ -34,67 +34,70 @@
             this.dateTextBox = new System.Windows.Forms.TextBox();
             this.assingedUserTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.priorityLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.assignedUserLabel = new System.Windows.Forms.Label();
             this.ticketTitleLabel = new System.Windows.Forms.Label();
+            this.deleteTicketbutton = new System.Windows.Forms.Button();
+            this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // saveNewTicketButton
             // 
-            this.saveNewTicketButton.Location = new System.Drawing.Point(16, 191);
+            this.saveNewTicketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.saveNewTicketButton.FlatAppearance.BorderSize = 0;
+            this.saveNewTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveNewTicketButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.saveNewTicketButton.Location = new System.Drawing.Point(16, 298);
             this.saveNewTicketButton.Name = "saveNewTicketButton";
-            this.saveNewTicketButton.Size = new System.Drawing.Size(280, 23);
+            this.saveNewTicketButton.Size = new System.Drawing.Size(212, 23);
             this.saveNewTicketButton.TabIndex = 28;
             this.saveNewTicketButton.Text = "Save";
-            this.saveNewTicketButton.UseVisualStyleBackColor = true;
+            this.saveNewTicketButton.UseVisualStyleBackColor = false;
             this.saveNewTicketButton.Click += new System.EventHandler(this.saveNewTicketButton_Click);
             // 
             // dialogTitleLabel
             // 
             this.dialogTitleLabel.AutoSize = true;
-            this.dialogTitleLabel.Location = new System.Drawing.Point(13, 23);
+            this.dialogTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dialogTitleLabel.Location = new System.Drawing.Point(12, 9);
             this.dialogTitleLabel.Name = "dialogTitleLabel";
-            this.dialogTitleLabel.Size = new System.Drawing.Size(74, 17);
+            this.dialogTitleLabel.Size = new System.Drawing.Size(113, 26);
             this.dialogTitleLabel.TabIndex = 27;
             this.dialogTitleLabel.Text = "Edit Ticket";
             // 
             // priorityTextBox
             // 
-            this.priorityTextBox.Location = new System.Drawing.Point(196, 133);
+            this.priorityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.priorityTextBox.Location = new System.Drawing.Point(192, 136);
             this.priorityTextBox.Name = "priorityTextBox";
-            this.priorityTextBox.Size = new System.Drawing.Size(100, 23);
+            this.priorityTextBox.Size = new System.Drawing.Size(251, 16);
             this.priorityTextBox.TabIndex = 26;
             // 
             // dateTextBox
             // 
-            this.dateTextBox.Location = new System.Drawing.Point(196, 104);
+            this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dateTextBox.Location = new System.Drawing.Point(192, 107);
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(100, 23);
+            this.dateTextBox.Size = new System.Drawing.Size(251, 16);
             this.dateTextBox.TabIndex = 25;
             // 
             // assingedUserTextBox
             // 
-            this.assingedUserTextBox.Location = new System.Drawing.Point(196, 75);
+            this.assingedUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.assingedUserTextBox.Location = new System.Drawing.Point(192, 78);
             this.assingedUserTextBox.Name = "assingedUserTextBox";
-            this.assingedUserTextBox.Size = new System.Drawing.Size(100, 23);
+            this.assingedUserTextBox.Size = new System.Drawing.Size(251, 16);
             this.assingedUserTextBox.TabIndex = 24;
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(196, 46);
+            this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.titleTextBox.Location = new System.Drawing.Point(192, 49);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(100, 23);
+            this.titleTextBox.Size = new System.Drawing.Size(251, 16);
             this.titleTextBox.TabIndex = 23;
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(196, 162);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 23);
-            this.descriptionTextBox.TabIndex = 22;
             // 
             // descriptionLabel
             // 
@@ -145,25 +148,48 @@
             this.ticketTitleLabel.TabIndex = 17;
             this.ticketTitleLabel.Text = "Title";
             // 
+            // deleteTicketbutton
+            // 
+            this.deleteTicketbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.deleteTicketbutton.FlatAppearance.BorderSize = 0;
+            this.deleteTicketbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteTicketbutton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.deleteTicketbutton.Location = new System.Drawing.Point(234, 298);
+            this.deleteTicketbutton.Name = "deleteTicketbutton";
+            this.deleteTicketbutton.Size = new System.Drawing.Size(209, 23);
+            this.deleteTicketbutton.TabIndex = 29;
+            this.deleteTicketbutton.Text = "Delete";
+            this.deleteTicketbutton.UseVisualStyleBackColor = false;
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.descriptionTextBox.Location = new System.Drawing.Point(16, 185);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(427, 96);
+            this.descriptionTextBox.TabIndex = 30;
+            this.descriptionTextBox.Text = "";
+            // 
             // EditTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 267);
+            this.ClientSize = new System.Drawing.Size(455, 339);
+            this.Controls.Add(this.descriptionTextBox);
+            this.Controls.Add(this.deleteTicketbutton);
             this.Controls.Add(this.saveNewTicketButton);
             this.Controls.Add(this.dialogTitleLabel);
             this.Controls.Add(this.priorityTextBox);
             this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.assingedUserTextBox);
             this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.priorityLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.assignedUserLabel);
             this.Controls.Add(this.ticketTitleLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditTicketForm";
             this.Text = "EditTicketForm";
             this.ResumeLayout(false);
@@ -179,11 +205,12 @@
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox assingedUserTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label priorityLabel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label assignedUserLabel;
         private System.Windows.Forms.Label ticketTitleLabel;
+        private System.Windows.Forms.Button deleteTicketbutton;
+        private System.Windows.Forms.RichTextBox descriptionTextBox;
     }
 }

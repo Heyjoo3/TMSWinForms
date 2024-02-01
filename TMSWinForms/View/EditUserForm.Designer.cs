@@ -44,10 +44,10 @@
             // editAccountLabel
             // 
             this.editAccountLabel.AutoSize = true;
-            this.editAccountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.editAccountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.editAccountLabel.Location = new System.Drawing.Point(21, 9);
             this.editAccountLabel.Name = "editAccountLabel";
-            this.editAccountLabel.Size = new System.Drawing.Size(87, 17);
+            this.editAccountLabel.Size = new System.Drawing.Size(117, 24);
             this.editAccountLabel.TabIndex = 0;
             this.editAccountLabel.Text = "Edit Account";
             // 
@@ -94,7 +94,12 @@
             // 
             // saveAccountEditButton
             // 
-            this.saveAccountEditButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.saveAccountEditButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.saveAccountEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.saveAccountEditButton.FlatAppearance.BorderSize = 0;
+            this.saveAccountEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveAccountEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.saveAccountEditButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.saveAccountEditButton.Location = new System.Drawing.Point(24, 147);
             this.saveAccountEditButton.Name = "saveAccountEditButton";
             this.saveAccountEditButton.Size = new System.Drawing.Size(368, 23);
@@ -105,7 +110,11 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Firebrick;
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(24, 176);
             this.button2.Name = "button2";
@@ -116,30 +125,34 @@
             // 
             // emailTextBox
             // 
+            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailTextBox.Location = new System.Drawing.Point(151, 43);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(241, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(241, 13);
             this.emailTextBox.TabIndex = 7;
             // 
             // nameTextBox
             // 
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nameTextBox.Location = new System.Drawing.Point(151, 69);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(241, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(241, 13);
             this.nameTextBox.TabIndex = 8;
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTextBox.Location = new System.Drawing.Point(151, 95);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(241, 20);
+            this.passwordTextBox.Size = new System.Drawing.Size(241, 13);
             this.passwordTextBox.TabIndex = 9;
             // 
             // repeatPasswordTextBox
             // 
+            this.repeatPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.repeatPasswordTextBox.Location = new System.Drawing.Point(151, 121);
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
-            this.repeatPasswordTextBox.Size = new System.Drawing.Size(241, 20);
+            this.repeatPasswordTextBox.Size = new System.Drawing.Size(241, 13);
             this.repeatPasswordTextBox.TabIndex = 10;
             // 
             // EditUserForm

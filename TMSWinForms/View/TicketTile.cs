@@ -43,5 +43,11 @@ namespace TMSWinForms.View
             EditTicketForm editTicketForm = new EditTicketForm();
             editTicketForm.ShowDialog();
         }
+
+        private void detailsButton_Click(object sender, EventArgs e)
+        {
+            TicketDetailsForm ticketDetailsForm = new TicketDetailsForm();  
+            ticketDetailsForm.ShowDialog();
+        }
     }
 }

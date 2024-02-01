@@ -8,5 +8,9 @@ namespace TMSWinForms.Model
 {
     internal class Ticket
     {
+        // fields
+        private int ticketID;
+        private int userID;
+
     }
 }

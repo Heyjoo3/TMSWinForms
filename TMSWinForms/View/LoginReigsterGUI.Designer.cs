@@ -49,6 +49,9 @@
             this.footer = new System.Windows.Forms.Panel();
             this.registerPanel = new System.Windows.Forms.Panel();
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.pageTitle = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.header.SuspendLayout();
             this.registerPanel.SuspendLayout();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
@@ -84,13 +87,17 @@
             // 
             // loginButton
             // 
+            this.loginButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.loginButton.FlatAppearance.BorderSize = 0;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Location = new System.Drawing.Point(11, 201);
             this.loginButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(313, 64);
             this.loginButton.TabIndex = 21;
             this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // textBox2
@@ -106,13 +113,13 @@
             this.textBox1.Location = new System.Drawing.Point(11, 99);
             this.textBox1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 26);
+            this.textBox1.Size = new System.Drawing.Size(313, 26);
             this.textBox1.TabIndex = 19;
             // 
             // passwordRepeatRegisterInput
             // 
             this.passwordRepeatRegisterInput.AutoSize = true;
-            this.passwordRepeatRegisterInput.Location = new System.Drawing.Point(4, 259);
+            this.passwordRepeatRegisterInput.Location = new System.Drawing.Point(4, 254);
             this.passwordRepeatRegisterInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordRepeatRegisterInput.Name = "passwordRepeatRegisterInput";
             this.passwordRepeatRegisterInput.Size = new System.Drawing.Size(135, 20);
@@ -121,7 +128,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 287);
+            this.textBox4.Location = new System.Drawing.Point(8, 282);
             this.textBox4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(309, 26);
@@ -167,13 +174,17 @@
             // 
             // registerButton
             // 
+            this.registerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.registerButton.FlatAppearance.BorderSize = 0;
+            this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerButton.Location = new System.Drawing.Point(8, 326);
             this.registerButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(309, 64);
             this.registerButton.TabIndex = 27;
             this.registerButton.Text = "Register";
-            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // textBox5
@@ -195,37 +206,41 @@
             // registerTitle
             // 
             this.registerTitle.AutoSize = true;
-            this.registerTitle.Location = new System.Drawing.Point(102, 17);
+            this.registerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.registerTitle.Location = new System.Drawing.Point(4, 17);
             this.registerTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.registerTitle.Name = "registerTitle";
-            this.registerTitle.Size = new System.Drawing.Size(113, 20);
+            this.registerTitle.Size = new System.Drawing.Size(154, 26);
             this.registerTitle.TabIndex = 34;
             this.registerTitle.Text = "Register here: ";
             // 
             // loginTitle
             // 
             this.loginTitle.AutoSize = true;
-            this.loginTitle.Location = new System.Drawing.Point(122, 17);
+            this.loginTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.loginTitle.Location = new System.Drawing.Point(6, 17);
             this.loginTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginTitle.Name = "loginTitle";
-            this.loginTitle.Size = new System.Drawing.Size(92, 20);
+            this.loginTitle.Size = new System.Drawing.Size(126, 26);
             this.loginTitle.TabIndex = 35;
             this.loginTitle.Text = "Login here: ";
             // 
             // header
             // 
             this.header.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.header.BackColor = System.Drawing.Color.SlateBlue;
+            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.header.Controls.Add(this.pageTitle);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(984, 88);
             this.header.TabIndex = 36;
+            this.header.Tag = "";
             // 
             // footer
             // 
-            this.footer.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.footer.Location = new System.Drawing.Point(0, 589);
             this.footer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -235,7 +250,7 @@
             // 
             // registerPanel
             // 
-            this.registerPanel.BackColor = System.Drawing.Color.RosyBrown;
+            this.registerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.registerPanel.Controls.Add(this.registerTitle);
             this.registerPanel.Controls.Add(this.passwordRepeatRegisterInput);
             this.registerPanel.Controls.Add(this.textBox4);
@@ -246,30 +261,53 @@
             this.registerPanel.Controls.Add(this.registerButton);
             this.registerPanel.Controls.Add(this.textBox5);
             this.registerPanel.Controls.Add(this.textBox6);
+            this.registerPanel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.registerPanel.Location = new System.Drawing.Point(533, 116);
             this.registerPanel.Name = "registerPanel";
-            this.registerPanel.Size = new System.Drawing.Size(329, 416);
+            this.registerPanel.Size = new System.Drawing.Size(325, 416);
             this.registerPanel.TabIndex = 38;
             // 
             // loginPanel
             // 
-            this.loginPanel.BackColor = System.Drawing.Color.RosyBrown;
+            this.loginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.loginPanel.Controls.Add(this.loginTitle);
             this.loginPanel.Controls.Add(this.passwordLoginInput);
             this.loginPanel.Controls.Add(this.emailLoginInput);
             this.loginPanel.Controls.Add(this.loginButton);
             this.loginPanel.Controls.Add(this.textBox2);
             this.loginPanel.Controls.Add(this.textBox1);
+            this.loginPanel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.loginPanel.Location = new System.Drawing.Point(119, 116);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(334, 414);
             this.loginPanel.TabIndex = 39;
             // 
+            // pageTitle
+            // 
+            this.pageTitle.AutoSize = true;
+            this.pageTitle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold);
+            this.pageTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pageTitle.Location = new System.Drawing.Point(266, 23);
+            this.pageTitle.Name = "pageTitle";
+            this.pageTitle.Size = new System.Drawing.Size(459, 39);
+            this.pageTitle.TabIndex = 1;
+            this.pageTitle.Text = "Ticket Management System";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.panel1.Location = new System.Drawing.Point(-1, 87);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(985, 10);
+            this.panel1.TabIndex = 40;
+            // 
             // LoginReigsterGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.footer);
@@ -279,6 +317,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoginReigsterGUI";
             this.Text = "LoginReigsterGUI";
+            this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             this.registerPanel.ResumeLayout(false);
             this.registerPanel.PerformLayout();
             this.loginPanel.ResumeLayout(false);
@@ -311,5 +351,7 @@
         private System.Windows.Forms.Panel footer;
         private System.Windows.Forms.Panel registerPanel;
         private System.Windows.Forms.Panel loginPanel;
+        private System.Windows.Forms.Label pageTitle;
+        private System.Windows.Forms.Panel panel1;
     }
 }
