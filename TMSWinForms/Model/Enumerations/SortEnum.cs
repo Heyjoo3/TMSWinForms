@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TMSWinForms.Model.Enumerations
 {
-    internal class SortEnum
+    internal enum SortEnum
     {
+        Date,
+        Priority,
+        Name,
     }
 }

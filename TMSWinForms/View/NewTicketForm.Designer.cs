@@ -34,12 +34,12 @@
             this.ticketTitleLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.assingedUserTextBox = new System.Windows.Forms.TextBox();
+            this.assignedUserTextBox = new System.Windows.Forms.TextBox();
             this.dateTextBox = new System.Windows.Forms.TextBox();
             this.priorityTextBox = new System.Windows.Forms.TextBox();
             this.dialogTitleLabel = new System.Windows.Forms.Label();
             this.saveNewTicketButton = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // priorityLabel
@@ -99,13 +99,13 @@
             this.titleTextBox.Size = new System.Drawing.Size(240, 16);
             this.titleTextBox.TabIndex = 11;
             // 
-            // assingedUserTextBox
+            // assignedUserTextBox
             // 
-            this.assingedUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.assingedUserTextBox.Location = new System.Drawing.Point(196, 72);
-            this.assingedUserTextBox.Name = "assingedUserTextBox";
-            this.assingedUserTextBox.Size = new System.Drawing.Size(240, 16);
-            this.assingedUserTextBox.TabIndex = 12;
+            this.assignedUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.assignedUserTextBox.Location = new System.Drawing.Point(196, 72);
+            this.assignedUserTextBox.Name = "assignedUserTextBox";
+            this.assignedUserTextBox.Size = new System.Drawing.Size(240, 16);
+            this.assignedUserTextBox.TabIndex = 12;
             // 
             // dateTextBox
             // 
@@ -147,26 +147,26 @@
             this.saveNewTicketButton.UseVisualStyleBackColor = false;
             this.saveNewTicketButton.Click += new System.EventHandler(this.saveNewTicketButton_Click);
             // 
-            // richTextBox1
+            // descriptionTextBox
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(17, 182);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(419, 96);
-            this.richTextBox1.TabIndex = 17;
-            this.richTextBox1.Text = "";
+            this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.descriptionTextBox.Location = new System.Drawing.Point(17, 182);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(419, 96);
+            this.descriptionTextBox.TabIndex = 17;
+            this.descriptionTextBox.Text = "";
             // 
             // NewTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 328);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.saveNewTicketButton);
             this.Controls.Add(this.dialogTitleLabel);
             this.Controls.Add(this.priorityTextBox);
             this.Controls.Add(this.dateTextBox);
-            this.Controls.Add(this.assingedUserTextBox);
+            this.Controls.Add(this.assignedUserTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.priorityLabel);
@@ -190,11 +190,11 @@
         private System.Windows.Forms.Label ticketTitleLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox assingedUserTextBox;
+        private System.Windows.Forms.TextBox assignedUserTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox priorityTextBox;
         private System.Windows.Forms.Label dialogTitleLabel;
         private System.Windows.Forms.Button saveNewTicketButton;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox descriptionTextBox;
     }
 }

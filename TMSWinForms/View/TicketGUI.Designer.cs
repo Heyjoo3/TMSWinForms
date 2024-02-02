@@ -212,7 +212,7 @@
             this.userListBox.ItemHeight = 20;
             this.userListBox.Location = new System.Drawing.Point(3, 3);
             this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(197, 300);
+            this.userListBox.Size = new System.Drawing.Size(197, 380);
             this.userListBox.TabIndex = 2;
             // 
             // editAccountButton
@@ -223,7 +223,7 @@
             this.editAccountButton.FlatAppearance.BorderSize = 0;
             this.editAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editAccountButton.Location = new System.Drawing.Point(3, 309);
+            this.editAccountButton.Location = new System.Drawing.Point(3, 389);
             this.editAccountButton.Name = "editAccountButton";
             this.editAccountButton.Size = new System.Drawing.Size(191, 42);
             this.editAccountButton.TabIndex = 1;
@@ -239,7 +239,7 @@
             this.newTicketButton.FlatAppearance.BorderSize = 0;
             this.newTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newTicketButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newTicketButton.Location = new System.Drawing.Point(3, 357);
+            this.newTicketButton.Location = new System.Drawing.Point(3, 437);
             this.newTicketButton.Name = "newTicketButton";
             this.newTicketButton.Size = new System.Drawing.Size(191, 42);
             this.newTicketButton.TabIndex = 0;

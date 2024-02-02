@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TMSWinForms.Model;
 using TMSWinForms.View;
 
 namespace TMSWinForms
@@ -11,7 +12,9 @@ namespace TMSWinForms
     internal class Program
     {
         static void Main()
-        {
+        {   
+            TicketManager ticketManager = new TicketManager();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             LoginReigsterGUI loginForm = new LoginReigsterGUI();

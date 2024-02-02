@@ -55,8 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\UserManager.cs" />
     <Compile Include="Presenter\TicketPresenter.cs" />
-    <Compile Include="Model\Benutzer.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Enumerations\SortEnum.cs" />
     <Compile Include="Model\Enumerations\StatusEnum.cs" />
     <Compile Include="Model\Ticket.cs" />

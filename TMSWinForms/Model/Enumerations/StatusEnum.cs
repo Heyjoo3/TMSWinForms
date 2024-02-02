@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TMSWinForms.Model.Enumerations
 {
-    internal class StatusEnum
+    enum StatusEnum
     {
+        Unassigned,
+        Assigned,
+        Finished,
     }
 }
