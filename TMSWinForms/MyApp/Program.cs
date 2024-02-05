@@ -9,11 +9,17 @@ using TMSWinForms.View;
 
 namespace TMSWinForms
 {
-    internal class Program
+     internal class Program
     {
+        // Declare the ticketManager variable as a static field
+        internal static TicketManager ticketManager;
+
+       
+
         static void Main()
-        {   
-            TicketManager ticketManager = new TicketManager();
+        {
+            // Initialize the ticketManager variable
+            ticketManager = new TicketManager();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -25,11 +31,7 @@ namespace TMSWinForms
                 TicketGUI ticketForm = new TicketGUI();
                 Application.Run(ticketForm);
             }
-
-           
-
         }
-
     }
 
     

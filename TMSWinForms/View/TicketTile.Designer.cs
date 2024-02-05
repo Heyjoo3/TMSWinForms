@@ -36,6 +36,7 @@
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.detailsButton = new System.Windows.Forms.Button();
+            this.ticketIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             this.SuspendLayout();
@@ -123,12 +124,22 @@
             this.detailsButton.UseVisualStyleBackColor = false;
             this.detailsButton.Click += new System.EventHandler(this.detailsButton_Click);
             // 
+            // ticketIDLabel
+            // 
+            this.ticketIDLabel.AutoSize = true;
+            this.ticketIDLabel.Location = new System.Drawing.Point(178, 60);
+            this.ticketIDLabel.Name = "ticketIDLabel";
+            this.ticketIDLabel.Size = new System.Drawing.Size(21, 17);
+            this.ticketIDLabel.TabIndex = 9;
+            this.ticketIDLabel.Text = "ID";
+            // 
             // TicketTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.ticketIDLabel);
             this.Controls.Add(this.detailsButton);
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.changeStatusButton);
@@ -157,5 +168,6 @@
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private System.Windows.Forms.Button detailsButton;
+        private System.Windows.Forms.Label ticketIDLabel;
     }
 }

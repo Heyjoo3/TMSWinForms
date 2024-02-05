@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TMSWinForms.Model;
 using TMSWinForms.Model.Enumerations;
+using TMSWinForms;
 
 namespace TMSWinForms.View
 {
@@ -26,30 +27,31 @@ namespace TMSWinForms.View
             string description = this.descriptionTextBox.Text;
             string assignedUser = this.assignedUserTextBox.Text;
             string date = this.dateTextBox.Text;
-            int priority = int.Parse(this.priorityTextBox.Text);
+            string priorityString = this.priorityTextBox.Text;
             StatusEnum status = StatusEnum.Unassigned;
             bool  isAssigned = false;
-            int ticketID = 0;
-    
+            
 
-            if (title == "" || description == "" || assignedUser == "" || date == "" || !(priority == 1 || priority == 2 || priority == 3))
+            if (!(priorityString =="1" || priorityString == "2" || priorityString == "3"))
             {
-                MessageBox.Show("Please fill in all fields correctly");
+                MessageBox.Show("Please enter a valid priority. \n 1 = High \n 2 = Medium \n 3 = Low");
             }
             else
             {
-                Ticket newTicket = new Ticket(ticketID, assignedUser, title, description, status, priority, date, isAssigned);
+                if (title == "" || description == "" || assignedUser == "" || date == "")
+                {
+                    MessageBox.Show("Please fill in all fields correctly");
+                }
+                else
+                {
+                    int priority = int.Parse(this.priorityTextBox.Text);
 
-                ticketManger.AddTicket(newTicket);
-                MessageBox.Show("New Ticket created");
+                    Ticket newTicket = new Ticket(assignedUser, title, description, status, priority, date, isAssigned);
+                    Program.ticketManager.AddTicket(newTicket);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
-
-            
-
- 
-
-             
-            
         }
     }
 }

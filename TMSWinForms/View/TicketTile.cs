@@ -17,15 +17,23 @@ namespace TMSWinForms.View
             InitializeComponent();
         }
 
-  
-        public TicketTile(string taskName, string assignedPerson, string date, string priority)
+        private int ticketID = 0;
+        
+        public int TicketID
+        {
+            get { return ticketID; }
+            set { ticketID = value; }
+        }
+
+        public TicketTile(string taskName, string assignedPerson, string date, string priority, int ticketID)
         {
             InitializeComponent();
             this.ticketTitleLabel.Text = taskName;
             this.assignedUserLabel.Text = assignedPerson;
             this.dateLabel.Text = date;
             this.priorityLabel.Text = priority;
-
+            this.TicketID = ticketID;
+            this.ticketIDLabel.Text = ticketID.ToString();
         }
 
         private void deleteTicketButton_Click(object sender, EventArgs e)
@@ -46,8 +54,11 @@ namespace TMSWinForms.View
 
         private void detailsButton_Click(object sender, EventArgs e)
         {
-            TicketDetailsForm ticketDetailsForm = new TicketDetailsForm();  
+            TicketDetailsForm ticketDetailsForm = new TicketDetailsForm(TicketID);  
             ticketDetailsForm.ShowDialog();
+            
         }
+
+   
     }
 }

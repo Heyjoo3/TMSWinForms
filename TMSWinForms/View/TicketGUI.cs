@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TMSWinForms;
+using TMSWinForms.Model;
+//using TMSWinForms.Model.TicketManager ;
 
 namespace TMSWinForms.View
 {
@@ -25,37 +28,26 @@ namespace TMSWinForms.View
         {
             // Beispiel-Aufgaben hinzufügen
             AddTicketTile(unassingedflowLayoutPanel, "Task 1", "Person A", "21.12.12", "urgent");
-            AddTicketTile(unassingedflowLayoutPanel, "Task 2", "Person B", "21.12.12", "urgent");
-            AddTicketTile(unassingedflowLayoutPanel, "Task 3", "Person C", "21.12.12", "urgent");
-            AddTicketTile(unassingedflowLayoutPanel, "Task 1", "Person A", "21.12.12", "urgent");
-            AddTicketTile(unassingedflowLayoutPanel, "Task 2", "Person B", "21.12.12", "urgent");
-            AddTicketTile(unassingedflowLayoutPanel, "Task 3", "Person C", "21.12.12", "urgent");
-
-            AddTicketTile(assingedflowLayoutPanel, "Task 1", "Person A", "21.12.12", "urgent");
-            AddTicketTile(assingedflowLayoutPanel, "Task 2", "Person B", "21.12.12", "urgent");
-            AddTicketTile(assingedflowLayoutPanel, "Task 3", "Person C", "21.12.12", "urgent");
-
-            AddTicketTile(finishedflowLayoutPanel, "Task 1", "Person A", "21.12.12", "urgent");
-            AddTicketTile(finishedflowLayoutPanel, "Task 2", "Person B", "21.12.12", "urgent");
-            AddTicketTile(finishedflowLayoutPanel, "Task 3", "Person C", "21.12.12", "urgent");
+   
         }
 
         private void AddTicketTile(FlowLayoutPanel panel, string taskName, string assignedPerson, string date, string priority)
         {
-            TicketTile ticketTile = new TicketTile(taskName, assignedPerson, date, priority );
-            panel.Controls.Add(ticketTile);
+            //TicketTile ticketTile = new TicketTile(taskName, assignedPerson, date, priority );
+            //panel.Controls.Add(ticketTile);
+
+
+            foreach (Ticket ticket in Program.ticketManager.Tickets)
+            {
+               TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketCreateDate, ticket.TicketPriority.ToString(), ticket.TicketID);
+                panel.Controls.Add(ticketTile);
+            }
+
+           
         }
 
         private void AddUser()
         {
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
-
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
             userListBox.Items.Add("Lisa");
             userListBox.Items.Add("Lisa");
             userListBox.Items.Add("Lisa");
@@ -72,6 +64,11 @@ namespace TMSWinForms.View
         {
             NewTicketForm newTicketForm = new NewTicketForm();
             newTicketForm.ShowDialog();
+            if (newTicketForm.DialogResult == DialogResult.OK)
+            {
+                unassingedflowLayoutPanel.Controls.Clear();
+                InitializeTaskTiles();
+            }
         }
 
         private void logoutButton_Click(object sender, EventArgs e)

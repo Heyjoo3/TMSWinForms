@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TMSWinForms.Model;
 using TMSWinForms.Model.Enumerations;
 
 namespace TMSWinForms.Model
@@ -8,6 +9,7 @@ namespace TMSWinForms.Model
     {
         // fields
         List<Ticket> tickets = new List<Ticket>();
+        private int ticketID = 0;
 
 
         // properties
@@ -17,6 +19,12 @@ namespace TMSWinForms.Model
             set { tickets = value; }
         }
 
+        public int TicketID
+        {
+            get { return ticketID; }
+            set { ticketID = value; }
+        }
+      
         // constructor
         public TicketManager()
         {
@@ -26,7 +34,30 @@ namespace TMSWinForms.Model
         // methods
         public void AddTicket(Ticket ticket)
         {
-            tickets.Add(ticket);
+            Tickets.Add(ticket);
+            TicketID++;
+
+        }
+
+        public Ticket GetTicketByID(int ticketID)
+        {
+            foreach (Ticket t in tickets)
+            {
+                if (t.TicketID == ticketID)
+                {
+                    //string ticketName = t.TicketName;
+                    //string ticketDescription = t.TicketDescription;
+                    //string ticketStatus = t.TicketStatus;
+                    //int ticketPriority = t.TicketPriority;
+                    //string ticketCreateDate = t.TicketCreateDate;
+                    //string assignedUser = t.AssignedUser;
+
+                    return t;
+
+                }
+            }
+
+            return null;
         }
 
         public void RemoveTicket(Ticket ticket)

@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using TMSWinForms.Model.Enumerations;
 
+
 namespace TMSWinForms.Model
 {
      internal class Ticket
     {
         // fields
-        private int ticketID;
+        private int ticketID = Program.ticketManager.TicketID;
         private string assignedUser;
 
         private string ticketName;
@@ -83,16 +84,18 @@ namespace TMSWinForms.Model
             isAssigned = false;
         }
 
-        public Ticket(int ticketID, string assignedUser, string ticketName, string ticketDescription, StatusEnum ticketStatus, int ticketPriority, string ticketCreateDate, bool isAssigned)
+        public Ticket(string assignedUser, string ticketName, string ticketDescription, StatusEnum ticketStatus, int ticketPriority, string ticketCreateDate, bool isAssigned)
         {
-            this.ticketID = ticketID;
+            this.TicketID = this.ticketID;
             this.assignedUser = assignedUser;
             this.ticketName = ticketName;
-            this.ticketDescription = ticketDescription;
+            this.ticketDescription = ticketDescription; 
             this.ticketStatus = ticketStatus;
             this.ticketPriority = ticketPriority;
             this.ticketCreateDate = ticketCreateDate;
             this.isAssigned = isAssigned;
+
+            ticketID++;
         }
 
         
