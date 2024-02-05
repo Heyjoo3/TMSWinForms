@@ -11,6 +11,8 @@ namespace TMSWinForms.Model
         // fields
         List<User> users = new List<User>();
         private int userID = 0;
+        User currentUser;
+
 
         // properties
         public List<User> Users
@@ -23,6 +25,12 @@ namespace TMSWinForms.Model
         {
             get { return userID; }
             set { userID = value; }
+        }
+
+        public User CurrentUser
+        {
+            get { return currentUser; }
+            set { currentUser = value; }
         }
 
         // constructor
@@ -38,35 +46,57 @@ namespace TMSWinForms.Model
             userID++;
         }
 
-        public void RemoveUser(User user)
-        {
-            users.Remove(user);
-        }
-
-        public void EditUser(User user)
+        public void RemoveUser(int userID)
         {
             foreach (User u in users)
             {
-                if (u.UserID == user.UserID)
+                if (u.UserID == userID)
                 {
-                    u.UserName = user.UserName;
-                    u.UserEmail = user.UserEmail;
-                    u.UserPassword = user.UserPassword;
-                    u.UserRoll = user.UserRoll;
+                    users.Remove(u);
+                    break;
                 }
             }
         }
 
-        public bool CheckLogin(string userName, string password)
+        public void EditUser(int userID, string name, string email, string password, string userRoll)
         {
             foreach (User u in users)
             {
-                if (u.UserName == userName && u.UserPassword == password)
+                if (u.UserID == userID)
+                {
+                    u.UserID = userID;
+                    u.UserName = name;
+                    u.UserEmail = email;
+                    u.UserPassword = password;
+                    u.UserRoll = userRoll;
+                }
+            }
+        }
+
+
+
+        public bool CheckLogin(string userEmail, string password)
+        {
+            foreach (User u in users)
+            {
+                if (u.UserEmail == userEmail && u.UserPassword == password)
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        public User GetUser (string userEmail)
+        {
+            foreach (User u in users)
+            {
+                if (u.UserEmail == userEmail)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
 

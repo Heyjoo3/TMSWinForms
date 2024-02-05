@@ -28,7 +28,7 @@ namespace TMSWinForms.View
 
             string title = this.titleTextBox.Text;
             string description = this.descriptionTextBox.Text;
-            string assignedUser = this.assignedUserTextBox.Text;
+            string assignedUser = this.assignedUserComboBox.Text;
             string date = this.dateTextBox.Text;
             string priorityString = this.priorityComboBox.Text.Substring(0,1);
   

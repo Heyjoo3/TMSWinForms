@@ -32,25 +32,26 @@
             this.passwordLoginInput = new System.Windows.Forms.Label();
             this.emailLoginInput = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.loginPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.loginEmailTextBox = new System.Windows.Forms.TextBox();
             this.passwordRepeatRegisterInput = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.repeatPasswordTextBox = new System.Windows.Forms.TextBox();
             this.passwordRegisterInput = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.registerPasswordTextBox = new System.Windows.Forms.TextBox();
             this.emailRegisterInput = new System.Windows.Forms.Label();
             this.nameRegisterInput = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.registerEmailTextBox = new System.Windows.Forms.TextBox();
+            this.registerNameTextBox = new System.Windows.Forms.TextBox();
             this.registerTitle = new System.Windows.Forms.Label();
             this.loginTitle = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
+            this.pageTitle = new System.Windows.Forms.Label();
             this.footer = new System.Windows.Forms.Panel();
             this.registerPanel = new System.Windows.Forms.Panel();
             this.loginPanel = new System.Windows.Forms.Panel();
-            this.pageTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.adminRollCheckBox = new System.Windows.Forms.CheckBox();
             this.header.SuspendLayout();
             this.registerPanel.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -100,21 +101,21 @@
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // textBox2
+            // loginPasswordTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(11, 159);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(313, 26);
-            this.textBox2.TabIndex = 20;
+            this.loginPasswordTextBox.Location = new System.Drawing.Point(11, 159);
+            this.loginPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.loginPasswordTextBox.Name = "loginPasswordTextBox";
+            this.loginPasswordTextBox.Size = new System.Drawing.Size(313, 26);
+            this.loginPasswordTextBox.TabIndex = 20;
             // 
-            // textBox1
+            // loginEmailTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 99);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 26);
-            this.textBox1.TabIndex = 19;
+            this.loginEmailTextBox.Location = new System.Drawing.Point(11, 99);
+            this.loginEmailTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.loginEmailTextBox.Name = "loginEmailTextBox";
+            this.loginEmailTextBox.Size = new System.Drawing.Size(313, 26);
+            this.loginEmailTextBox.TabIndex = 19;
             // 
             // passwordRepeatRegisterInput
             // 
@@ -126,13 +127,13 @@
             this.passwordRepeatRegisterInput.TabIndex = 33;
             this.passwordRepeatRegisterInput.Text = "Repeat Password";
             // 
-            // textBox4
+            // repeatPasswordTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 282);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(309, 26);
-            this.textBox4.TabIndex = 32;
+            this.repeatPasswordTextBox.Location = new System.Drawing.Point(8, 282);
+            this.repeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
+            this.repeatPasswordTextBox.Size = new System.Drawing.Size(309, 26);
+            this.repeatPasswordTextBox.TabIndex = 32;
             // 
             // passwordRegisterInput
             // 
@@ -144,13 +145,13 @@
             this.passwordRegisterInput.TabIndex = 31;
             this.passwordRegisterInput.Text = "Password";
             // 
-            // textBox3
+            // registerPasswordTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(8, 220);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(309, 26);
-            this.textBox3.TabIndex = 30;
+            this.registerPasswordTextBox.Location = new System.Drawing.Point(8, 220);
+            this.registerPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.registerPasswordTextBox.Name = "registerPasswordTextBox";
+            this.registerPasswordTextBox.Size = new System.Drawing.Size(309, 26);
+            this.registerPasswordTextBox.TabIndex = 30;
             // 
             // emailRegisterInput
             // 
@@ -187,21 +188,21 @@
             this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
-            // textBox5
+            // registerEmailTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(8, 159);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(309, 26);
-            this.textBox5.TabIndex = 26;
+            this.registerEmailTextBox.Location = new System.Drawing.Point(8, 159);
+            this.registerEmailTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.registerEmailTextBox.Name = "registerEmailTextBox";
+            this.registerEmailTextBox.Size = new System.Drawing.Size(309, 26);
+            this.registerEmailTextBox.TabIndex = 26;
             // 
-            // textBox6
+            // registerNameTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(8, 99);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(309, 26);
-            this.textBox6.TabIndex = 25;
+            this.registerNameTextBox.Location = new System.Drawing.Point(8, 99);
+            this.registerNameTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.registerNameTextBox.Name = "registerNameTextBox";
+            this.registerNameTextBox.Size = new System.Drawing.Size(309, 26);
+            this.registerNameTextBox.TabIndex = 25;
             // 
             // registerTitle
             // 
@@ -238,6 +239,17 @@
             this.header.TabIndex = 36;
             this.header.Tag = "";
             // 
+            // pageTitle
+            // 
+            this.pageTitle.AutoSize = true;
+            this.pageTitle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold);
+            this.pageTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pageTitle.Location = new System.Drawing.Point(266, 23);
+            this.pageTitle.Name = "pageTitle";
+            this.pageTitle.Size = new System.Drawing.Size(459, 39);
+            this.pageTitle.TabIndex = 1;
+            this.pageTitle.Text = "Ticket Management System";
+            // 
             // footer
             // 
             this.footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
@@ -251,16 +263,17 @@
             // registerPanel
             // 
             this.registerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.registerPanel.Controls.Add(this.adminRollCheckBox);
             this.registerPanel.Controls.Add(this.registerTitle);
             this.registerPanel.Controls.Add(this.passwordRepeatRegisterInput);
-            this.registerPanel.Controls.Add(this.textBox4);
+            this.registerPanel.Controls.Add(this.repeatPasswordTextBox);
             this.registerPanel.Controls.Add(this.passwordRegisterInput);
-            this.registerPanel.Controls.Add(this.textBox3);
+            this.registerPanel.Controls.Add(this.registerPasswordTextBox);
             this.registerPanel.Controls.Add(this.emailRegisterInput);
             this.registerPanel.Controls.Add(this.nameRegisterInput);
             this.registerPanel.Controls.Add(this.registerButton);
-            this.registerPanel.Controls.Add(this.textBox5);
-            this.registerPanel.Controls.Add(this.textBox6);
+            this.registerPanel.Controls.Add(this.registerEmailTextBox);
+            this.registerPanel.Controls.Add(this.registerNameTextBox);
             this.registerPanel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.registerPanel.Location = new System.Drawing.Point(533, 116);
             this.registerPanel.Name = "registerPanel";
@@ -274,24 +287,13 @@
             this.loginPanel.Controls.Add(this.passwordLoginInput);
             this.loginPanel.Controls.Add(this.emailLoginInput);
             this.loginPanel.Controls.Add(this.loginButton);
-            this.loginPanel.Controls.Add(this.textBox2);
-            this.loginPanel.Controls.Add(this.textBox1);
+            this.loginPanel.Controls.Add(this.loginPasswordTextBox);
+            this.loginPanel.Controls.Add(this.loginEmailTextBox);
             this.loginPanel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.loginPanel.Location = new System.Drawing.Point(119, 116);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(334, 414);
             this.loginPanel.TabIndex = 39;
-            // 
-            // pageTitle
-            // 
-            this.pageTitle.AutoSize = true;
-            this.pageTitle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold);
-            this.pageTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pageTitle.Location = new System.Drawing.Point(266, 23);
-            this.pageTitle.Name = "pageTitle";
-            this.pageTitle.Size = new System.Drawing.Size(459, 39);
-            this.pageTitle.TabIndex = 1;
-            this.pageTitle.Text = "Ticket Management System";
             // 
             // panel1
             // 
@@ -300,6 +302,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(985, 10);
             this.panel1.TabIndex = 40;
+            // 
+            // adminRollCheckBox
+            // 
+            this.adminRollCheckBox.AutoSize = true;
+            this.adminRollCheckBox.Location = new System.Drawing.Point(244, 17);
+            this.adminRollCheckBox.Name = "adminRollCheckBox";
+            this.adminRollCheckBox.Size = new System.Drawing.Size(73, 24);
+            this.adminRollCheckBox.TabIndex = 41;
+            this.adminRollCheckBox.Text = "Admin";
+            this.adminRollCheckBox.UseVisualStyleBackColor = true;
             // 
             // LoginReigsterGUI
             // 
@@ -334,17 +346,17 @@
         private System.Windows.Forms.Label passwordLoginInput;
         private System.Windows.Forms.Label emailLoginInput;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox loginPasswordTextBox;
+        private System.Windows.Forms.TextBox loginEmailTextBox;
         private System.Windows.Forms.Label passwordRepeatRegisterInput;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox repeatPasswordTextBox;
         private System.Windows.Forms.Label passwordRegisterInput;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox registerPasswordTextBox;
         private System.Windows.Forms.Label emailRegisterInput;
         private System.Windows.Forms.Label nameRegisterInput;
         private System.Windows.Forms.Button registerButton;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox registerEmailTextBox;
+        private System.Windows.Forms.TextBox registerNameTextBox;
         private System.Windows.Forms.Label registerTitle;
         private System.Windows.Forms.Label loginTitle;
         private System.Windows.Forms.Panel header;
@@ -353,5 +365,6 @@
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.Label pageTitle;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox adminRollCheckBox;
     }
 }

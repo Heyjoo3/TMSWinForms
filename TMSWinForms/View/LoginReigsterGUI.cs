@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TMSWinForms.Model;
 
 namespace TMSWinForms.View
 {
@@ -19,7 +20,36 @@ namespace TMSWinForms.View
 
         private bool IsValidRegistration()
         {
-            return true; // nur Dummy
+            if (registerEmailTextBox.Text == "" || registerPasswordTextBox.Text == "" || registerNameTextBox.Text == "" || repeatPasswordTextBox.Text == "")
+            {
+                return false;
+            }
+            else if (Program.userManager.Users.Exists(x => x.UserEmail == registerEmailTextBox.Text))
+            {
+                return false;
+            }
+            else if (registerPasswordTextBox.Text != repeatPasswordTextBox.Text)
+            {
+                return false;
+            }
+            else
+            {
+
+                User newUser; 
+                if (adminRollCheckBox.Checked)
+                {
+                     newUser = new User(registerNameTextBox.Text, registerEmailTextBox.Text, registerPasswordTextBox.Text, "Admin");
+                } else
+                {
+                     newUser = new User(registerNameTextBox.Text, registerEmailTextBox.Text, registerPasswordTextBox.Text, "User");
+                }
+                
+                Program.userManager.AddUser(newUser);
+                Program.userManager.CurrentUser = newUser;
+
+                return true;
+            }
+            
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -32,7 +62,7 @@ namespace TMSWinForms.View
             }
             else
             {
-                MessageBox.Show("Invalid Inputs. Preas ttry again");
+                MessageBox.Show("Invalid Inputs. Please try again");
             }
         }
 
@@ -47,13 +77,22 @@ namespace TMSWinForms.View
         {
 
 
-            if (IsValidLogin())
-            {
+            if (Program.userManager.CheckLogin(loginEmailTextBox.Text,loginPasswordTextBox.Text ))
+            {   
+                Program.userManager.CurrentUser = Program.userManager.Users.Find(x => x.UserEmail == loginEmailTextBox.Text);
                 // Setzt  Dialogresultat auf OK, um anzuzeigen, dass die Anmeldung erfolgreich war
                 this.DialogResult = DialogResult.OK;
                 // Schließe das Anmeldeformular
                 this.Close();
             }
+
+            else if (IsValidLogin())
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+                Program.userManager.CurrentUser = Program.userManager.Users.Find(x => x.UserEmail == "email");
+            }
+
             else
             {
                 MessageBox.Show("Invalid Login! Please try again");

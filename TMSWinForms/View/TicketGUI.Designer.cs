@@ -45,6 +45,7 @@
             this.editAccountButton = new System.Windows.Forms.Button();
             this.newTicketButton = new System.Windows.Forms.Button();
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.allUserLabel = new System.Windows.Forms.Label();
             this.header.SuspendLayout();
             this.footer.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -193,6 +194,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.flowLayoutPanel1.Controls.Add(this.allUserLabel);
             this.flowLayoutPanel1.Controls.Add(this.userListBox);
             this.flowLayoutPanel1.Controls.Add(this.editAccountButton);
             this.flowLayoutPanel1.Controls.Add(this.newTicketButton);
@@ -210,9 +212,9 @@
             this.userListBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.userListBox.FormattingEnabled = true;
             this.userListBox.ItemHeight = 20;
-            this.userListBox.Location = new System.Drawing.Point(3, 3);
+            this.userListBox.Location = new System.Drawing.Point(3, 27);
             this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(197, 380);
+            this.userListBox.Size = new System.Drawing.Size(197, 340);
             this.userListBox.TabIndex = 2;
             // 
             // editAccountButton
@@ -223,7 +225,7 @@
             this.editAccountButton.FlatAppearance.BorderSize = 0;
             this.editAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editAccountButton.Location = new System.Drawing.Point(3, 389);
+            this.editAccountButton.Location = new System.Drawing.Point(3, 373);
             this.editAccountButton.Name = "editAccountButton";
             this.editAccountButton.Size = new System.Drawing.Size(191, 42);
             this.editAccountButton.TabIndex = 1;
@@ -239,7 +241,7 @@
             this.newTicketButton.FlatAppearance.BorderSize = 0;
             this.newTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newTicketButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newTicketButton.Location = new System.Drawing.Point(3, 437);
+            this.newTicketButton.Location = new System.Drawing.Point(3, 421);
             this.newTicketButton.Name = "newTicketButton";
             this.newTicketButton.Size = new System.Drawing.Size(191, 42);
             this.newTicketButton.TabIndex = 0;
@@ -256,6 +258,17 @@
             this.unassingedflowLayoutPanel.Name = "unassingedflowLayoutPanel";
             this.unassingedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
             this.unassingedflowLayoutPanel.TabIndex = 3;
+            // 
+            // allUserLabel
+            // 
+            this.allUserLabel.AutoSize = true;
+            this.allUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.allUserLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.allUserLabel.Location = new System.Drawing.Point(3, 0);
+            this.allUserLabel.Name = "allUserLabel";
+            this.allUserLabel.Size = new System.Drawing.Size(84, 24);
+            this.allUserLabel.TabIndex = 4;
+            this.allUserLabel.Text = "All Users";
             // 
             // TicketGUI
             // 
@@ -275,6 +288,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -298,5 +312,6 @@
         public System.Windows.Forms.FlowLayoutPanel finishedflowLayoutPanel;
         public System.Windows.Forms.FlowLayoutPanel assignedflowLayoutPanel;
         public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
+        private System.Windows.Forms.Label allUserLabel;
     }
 }

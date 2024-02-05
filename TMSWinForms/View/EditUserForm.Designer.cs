@@ -32,13 +32,16 @@
             this.editEmailLabel = new System.Windows.Forms.Label();
             this.editNameLabel = new System.Windows.Forms.Label();
             this.changePasswordLabel = new System.Windows.Forms.Label();
-            this.repeatPasswordLabel = new System.Windows.Forms.Label();
+            this.oldPasswordLabel = new System.Windows.Forms.Label();
             this.saveAccountEditButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.deleteAccountButton = new System.Windows.Forms.Button();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.oldPasswordTextBox = new System.Windows.Forms.TextBox();
             this.repeatPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.repeatPasswordLabel = new System.Windows.Forms.Label();
+            this.editPasswordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // editAccountLabel
@@ -75,22 +78,22 @@
             // 
             this.changePasswordLabel.AutoSize = true;
             this.changePasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.changePasswordLabel.Location = new System.Drawing.Point(21, 96);
+            this.changePasswordLabel.Location = new System.Drawing.Point(21, 152);
             this.changePasswordLabel.Name = "changePasswordLabel";
             this.changePasswordLabel.Size = new System.Drawing.Size(69, 17);
             this.changePasswordLabel.TabIndex = 3;
             this.changePasswordLabel.Text = "Password";
             this.changePasswordLabel.Click += new System.EventHandler(this.changePasswordLabel_Click);
             // 
-            // repeatPasswordLabel
+            // oldPasswordLabel
             // 
-            this.repeatPasswordLabel.AutoSize = true;
-            this.repeatPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.repeatPasswordLabel.Location = new System.Drawing.Point(21, 122);
-            this.repeatPasswordLabel.Name = "repeatPasswordLabel";
-            this.repeatPasswordLabel.Size = new System.Drawing.Size(119, 17);
-            this.repeatPasswordLabel.TabIndex = 4;
-            this.repeatPasswordLabel.Text = "Repeat Password";
+            this.oldPasswordLabel.AutoSize = true;
+            this.oldPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.oldPasswordLabel.Location = new System.Drawing.Point(21, 198);
+            this.oldPasswordLabel.Name = "oldPasswordLabel";
+            this.oldPasswordLabel.Size = new System.Drawing.Size(95, 17);
+            this.oldPasswordLabel.TabIndex = 4;
+            this.oldPasswordLabel.Text = "Old Password";
             // 
             // saveAccountEditButton
             // 
@@ -100,7 +103,7 @@
             this.saveAccountEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveAccountEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.saveAccountEditButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.saveAccountEditButton.Location = new System.Drawing.Point(24, 147);
+            this.saveAccountEditButton.Location = new System.Drawing.Point(25, 248);
             this.saveAccountEditButton.Name = "saveAccountEditButton";
             this.saveAccountEditButton.Size = new System.Drawing.Size(368, 23);
             this.saveAccountEditButton.TabIndex = 5;
@@ -108,20 +111,20 @@
             this.saveAccountEditButton.UseVisualStyleBackColor = false;
             this.saveAccountEditButton.Click += new System.EventHandler(this.saveAccountEditButton_Click);
             // 
-            // button2
+            // deleteAccountButton
             // 
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(24, 176);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(368, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Delete Account";
-            this.button2.UseVisualStyleBackColor = false;
+            this.deleteAccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteAccountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.deleteAccountButton.FlatAppearance.BorderSize = 0;
+            this.deleteAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteAccountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.deleteAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.deleteAccountButton.Location = new System.Drawing.Point(25, 277);
+            this.deleteAccountButton.Name = "deleteAccountButton";
+            this.deleteAccountButton.Size = new System.Drawing.Size(368, 23);
+            this.deleteAccountButton.TabIndex = 6;
+            this.deleteAccountButton.Text = "Delete Account";
+            this.deleteAccountButton.UseVisualStyleBackColor = false;
             // 
             // emailTextBox
             // 
@@ -142,31 +145,62 @@
             // passwordTextBox
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTextBox.Location = new System.Drawing.Point(151, 95);
+            this.passwordTextBox.Location = new System.Drawing.Point(151, 151);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(241, 13);
             this.passwordTextBox.TabIndex = 9;
             // 
+            // oldPasswordTextBox
+            // 
+            this.oldPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.oldPasswordTextBox.Location = new System.Drawing.Point(151, 197);
+            this.oldPasswordTextBox.Name = "oldPasswordTextBox";
+            this.oldPasswordTextBox.Size = new System.Drawing.Size(241, 13);
+            this.oldPasswordTextBox.TabIndex = 10;
+            // 
             // repeatPasswordTextBox
             // 
             this.repeatPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.repeatPasswordTextBox.Location = new System.Drawing.Point(151, 121);
+            this.repeatPasswordTextBox.Location = new System.Drawing.Point(151, 174);
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
             this.repeatPasswordTextBox.Size = new System.Drawing.Size(241, 13);
-            this.repeatPasswordTextBox.TabIndex = 10;
+            this.repeatPasswordTextBox.TabIndex = 12;
+            // 
+            // repeatPasswordLabel
+            // 
+            this.repeatPasswordLabel.AutoSize = true;
+            this.repeatPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.repeatPasswordLabel.Location = new System.Drawing.Point(21, 175);
+            this.repeatPasswordLabel.Name = "repeatPasswordLabel";
+            this.repeatPasswordLabel.Size = new System.Drawing.Size(119, 17);
+            this.repeatPasswordLabel.TabIndex = 11;
+            this.repeatPasswordLabel.Text = "Repeat Password";
+            // 
+            // editPasswordLabel
+            // 
+            this.editPasswordLabel.AutoSize = true;
+            this.editPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.editPasswordLabel.Location = new System.Drawing.Point(21, 128);
+            this.editPasswordLabel.Name = "editPasswordLabel";
+            this.editPasswordLabel.Size = new System.Drawing.Size(138, 20);
+            this.editPasswordLabel.TabIndex = 13;
+            this.editPasswordLabel.Text = "Change Password";
             // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 217);
+            this.ClientSize = new System.Drawing.Size(413, 326);
+            this.Controls.Add(this.editPasswordLabel);
             this.Controls.Add(this.repeatPasswordTextBox);
+            this.Controls.Add(this.repeatPasswordLabel);
+            this.Controls.Add(this.oldPasswordTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.emailTextBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.deleteAccountButton);
             this.Controls.Add(this.saveAccountEditButton);
-            this.Controls.Add(this.repeatPasswordLabel);
+            this.Controls.Add(this.oldPasswordLabel);
             this.Controls.Add(this.changePasswordLabel);
             this.Controls.Add(this.editNameLabel);
             this.Controls.Add(this.editEmailLabel);
@@ -184,12 +218,15 @@
         private System.Windows.Forms.Label editEmailLabel;
         private System.Windows.Forms.Label editNameLabel;
         private System.Windows.Forms.Label changePasswordLabel;
-        private System.Windows.Forms.Label repeatPasswordLabel;
+        private System.Windows.Forms.Label oldPasswordLabel;
         private System.Windows.Forms.Button saveAccountEditButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteAccountButton;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.TextBox oldPasswordTextBox;
         private System.Windows.Forms.TextBox repeatPasswordTextBox;
+        private System.Windows.Forms.Label repeatPasswordLabel;
+        private System.Windows.Forms.Label editPasswordLabel;
     }
 }

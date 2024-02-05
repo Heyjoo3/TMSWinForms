@@ -43,6 +43,7 @@
             this.editButton = new System.Windows.Forms.Button();
             this.priorityComboBox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dialogTitleLabel
@@ -210,6 +211,15 @@
             this.statusComboBox.Size = new System.Drawing.Size(138, 21);
             this.statusComboBox.TabIndex = 44;
             // 
+            // assignedUserComboBox
+            // 
+            this.assignedUserComboBox.BackColor = System.Drawing.Color.Lavender;
+            this.assignedUserComboBox.FormattingEnabled = true;
+            this.assignedUserComboBox.Location = new System.Drawing.Point(161, 208);
+            this.assignedUserComboBox.Name = "assignedUserComboBox";
+            this.assignedUserComboBox.Size = new System.Drawing.Size(138, 21);
+            this.assignedUserComboBox.TabIndex = 45;
+            // 
             // TicketDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +227,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(375, 436);
+            this.Controls.Add(this.assignedUserComboBox);
             this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.priorityComboBox);
             this.Controls.Add(this.editButton);
@@ -256,5 +267,6 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.ComboBox priorityComboBox;
         private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.ComboBox assignedUserComboBox;
     }
 }

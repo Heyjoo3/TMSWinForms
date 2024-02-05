@@ -26,7 +26,10 @@ namespace TMSWinForms
             // Initialize the ticketManager variable
             ticketManager = new TicketManager();
             userManager = new UserManager();
-           
+
+            User user = new User("name", "email", "password", "roll");
+            userManager.AddUser(user);
+
             User user1 = new User( "name1", "email1", "password1", "roll1");
             userManager.AddUser(user1);
 

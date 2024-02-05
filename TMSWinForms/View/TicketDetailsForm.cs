@@ -43,6 +43,10 @@ namespace TMSWinForms.View
             statusComboBox.Text = tempTicket.TicketStatus.ToString();
             priorityComboBox.Text = tempTicket.TicketPriority.ToString();
 
+            this.assignedUserComboBox.DataSource = Program.userManager.Users;
+            this.assignedUserComboBox.DisplayMember = "UserName";
+            this.assignedUserComboBox.ValueMember = "UserName";
+
         }
         
         //methods
@@ -82,11 +86,18 @@ namespace TMSWinForms.View
 
 
             string title =  titleTextBox.Text;
-            string assignedUser = assignedUserTextBox.Text;
+            string assignedUser = assignedUserComboBox.Text;
             string date = dateTextBox.Text;
             string priority = priorityComboBox.Text;
             string description = descriptionTextBox.Text;
             string status = statusComboBox.Text;
+
+            if (status == "Unassigned" && assignedUser != "") 
+            {                 
+                status = "Assigned";
+            }
+           
+           
 
             Program.ticketManager.EditTicket(ticketID,title, description, status, priority, date, assignedUser);
 
