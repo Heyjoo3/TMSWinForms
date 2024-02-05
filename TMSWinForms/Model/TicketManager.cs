@@ -60,39 +60,87 @@ namespace TMSWinForms.Model
             return null;
         }
 
-        public void RemoveTicket(Ticket ticket)
-        {
-            tickets.Remove(ticket);
-        }
-
-        public void EditTicket(Ticket ticket)
+        public void ChangeStatus(int ticketID, StatusEnum status)
         {
             foreach (Ticket t in tickets)
             {
-                if (t.TicketID == ticket.TicketID)
+                if (t.TicketID == ticketID)
                 {
-                    t.TicketName = ticket.TicketName;
-                    t.TicketDescription = ticket.TicketDescription;
-                    t.TicketStatus = ticket.TicketStatus;
-                    t.TicketPriority = ticket.TicketPriority;
-                    t.TicketCreateDate = ticket.TicketCreateDate;
-                    t.AssignedUser = ticket.AssignedUser;
+                    t.TicketStatus = status;
                 }
             }
         }
 
-        public List<Ticket> GetUnassingedTickets()
+        public void DeleteTicket(int ticketID)
         {
-            List<Ticket> unassignedTickets = new List<Ticket>();
+            List<Ticket> ticketsToRemove = new List<Ticket>();
+
             foreach (Ticket t in tickets)
             {
-                if (t.AssignedUser == "")
+                if (t.TicketID == ticketID)
                 {
-                    unassignedTickets.Add(t);
+                    ticketsToRemove.Add(t);
                 }
             }
-            return unassignedTickets;
+
+            foreach (Ticket t in ticketsToRemove)
+            {
+                tickets.Remove(t);
+            }
         }
+
+        public void EditTicket(int ticketID, string ticketName, string ticketDescription, string ticketStatus, string ticketPriority, string ticketCreateDate, string assignedUser)
+        {
+            foreach (Ticket t in tickets)
+            {
+                if (t.TicketID == ticketID)
+                {
+                    if (ticketStatus == "Unassigned")
+                    {
+                        t.TicketStatus = StatusEnum.Unassigned;
+                    }
+                    else if (ticketStatus == "Assigned")
+                    {
+                        t.TicketStatus = StatusEnum.Assigned;
+                    }
+                    else if (ticketStatus == "Finished")
+                    {
+                        t.TicketStatus = StatusEnum.Finished;
+                    }
+
+                    if (ticketPriority == "1")
+                    {
+                        t.TicketPriority = 1;
+                    }
+                    else if (ticketPriority == "2")
+                    {
+                        t.TicketPriority = 2;
+                    }
+                    else if (ticketPriority == "3")
+                    {
+                        t.TicketPriority = 3;
+                    }
+
+                    t.TicketName = ticketName;
+                    t.TicketDescription = ticketDescription;
+                    t.TicketCreateDate = ticketCreateDate;
+                    t.AssignedUser = assignedUser;
+                }
+            }
+        }
+
+        //public List<Ticket> GetUnassingedTickets()
+        //{
+        //    List<Ticket> unassignedTickets = new List<Ticket>();
+        //    foreach (Ticket t in tickets)
+        //    {
+        //        if (t.AssignedUser == "")
+        //        {
+        //            unassignedTickets.Add(t);
+        //        }
+        //    }
+        //    return unassignedTickets;
+        //}
 
         public List<Ticket> GetPersonalTickets(string user)
         {
@@ -107,31 +155,31 @@ namespace TMSWinForms.Model
             return personalTickets;
         }
 
-        public List<Ticket> GetAssignedTickets()
-        {
-            List<Ticket> assignedTickets = new List<Ticket>();
-            foreach (Ticket t in tickets)
-            {
-                if (t.TicketStatus == StatusEnum.Assigned)
-                {
-                    assignedTickets.Add(t);
-                }
-            }
-            return assignedTickets;
-        }
+        //public List<Ticket> GetAssignedTickets()
+        //{
+        //    List<Ticket> assignedTickets = new List<Ticket>();
+        //    foreach (Ticket t in tickets)
+        //    {
+        //        if (t.TicketStatus == StatusEnum.Assigned)
+        //        {
+        //            assignedTickets.Add(t);
+        //        }
+        //    }
+        //    return assignedTickets;
+        //}
 
-        public List<Ticket> GetFinishedTickets()
-        {
-            List<Ticket> finishedTickets = new List<Ticket>();
-            foreach (Ticket t in tickets)
-            {
-                if (t.TicketStatus == StatusEnum.Finished)
-                {
-                    finishedTickets.Add(t);
-                }
-            }
-            return finishedTickets;
-        }
+        //public List<Ticket> GetFinishedTickets()
+        //{
+        //    List<Ticket> finishedTickets = new List<Ticket>();
+        //    foreach (Ticket t in tickets)
+        //    {
+        //        if (t.TicketStatus == StatusEnum.Finished)
+        //        {
+        //            finishedTickets.Add(t);
+        //        }
+        //    }
+        //    return finishedTickets;
+        //}
 
         public List<Ticket> SortByDate()
         {

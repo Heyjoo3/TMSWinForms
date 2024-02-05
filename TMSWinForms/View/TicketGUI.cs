@@ -24,14 +24,12 @@ namespace TMSWinForms.View
 
    
 
-        private void InitializeTaskTiles()
+        public void InitializeTaskTiles()
         {
-            // Beispiel-Aufgaben hinzufügen
-            AddTicketTile(unassingedflowLayoutPanel, "Task 1", "Person A", "21.12.12", "urgent");
-   
+            AddTicketTile();
         }
 
-        private void AddTicketTile(FlowLayoutPanel panel, string taskName, string assignedPerson, string date, string priority)
+        private void AddTicketTile()
         {
             //TicketTile ticketTile = new TicketTile(taskName, assignedPerson, date, priority );
             //panel.Controls.Add(ticketTile);
@@ -39,19 +37,33 @@ namespace TMSWinForms.View
 
             foreach (Ticket ticket in Program.ticketManager.Tickets)
             {
-               TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketCreateDate, ticket.TicketPriority.ToString(), ticket.TicketID);
-                panel.Controls.Add(ticketTile);
-            }
+               TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketCreateDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+               //panel.Controls.Add(ticketTile);
 
-           
+                if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
+                {
+                    unassingedflowLayoutPanel.Controls.Add(ticketTile);
+                }
+                else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Assigned)
+                {
+                    assignedflowLayoutPanel.Controls.Add(ticketTile);
+                }
+                else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Finished)
+                {
+                    finishedflowLayoutPanel.Controls.Add(ticketTile);
+                }
+                
+
+            }
         }
 
         private void AddUser()
         {
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
-            userListBox.Items.Add("Lisa");
+
+            foreach (User user in Program.userManager.Users)
+            {
+                userListBox.Items.Add(user.UserName);
+            }
         }
 
         private void newUserButton_Click(object sender, EventArgs e)
@@ -67,6 +79,8 @@ namespace TMSWinForms.View
             if (newTicketForm.DialogResult == DialogResult.OK)
             {
                 unassingedflowLayoutPanel.Controls.Clear();
+                assignedflowLayoutPanel.Controls.Clear();
+                finishedflowLayoutPanel.Controls.Clear();
                 InitializeTaskTiles();
             }
         }

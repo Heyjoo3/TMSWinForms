@@ -25,7 +25,7 @@ namespace TMSWinForms.View
             set { ticketID = value; }
         }
 
-        public TicketTile(string taskName, string assignedPerson, string date, string priority, int ticketID)
+        public TicketTile(string taskName, string assignedPerson, string date, string priority, int ticketID, string status)
         {
             InitializeComponent();
             this.ticketTitleLabel.Text = taskName;
@@ -34,6 +34,7 @@ namespace TMSWinForms.View
             this.priorityLabel.Text = priority;
             this.TicketID = ticketID;
             this.ticketIDLabel.Text = ticketID.ToString();
+            this.StatusComboBox.Text = status;
         }
 
         private void deleteTicketButton_Click(object sender, EventArgs e)
@@ -43,7 +44,25 @@ namespace TMSWinForms.View
 
         private void changeStatusButton_Click(object sender, EventArgs e)
         {
+            string status = this.StatusComboBox.Text;
 
+            if (status == "Unassigned")
+            {
+                Program.ticketManager.ChangeStatus(TicketID, Model.Enumerations.StatusEnum.Unassigned);
+            }
+            else if (status == "Assigned")
+            {
+                Program.ticketManager.ChangeStatus(TicketID, Model.Enumerations.StatusEnum.Assigned);
+            }
+            else if (status == "Finished")
+            {
+                Program.ticketManager.ChangeStatus(TicketID, Model.Enumerations.StatusEnum.Finished);
+            }
+
+            Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.InitializeTaskTiles();
         }
 
         private void editTicketButton_Click(object sender, EventArgs e)
@@ -58,7 +77,5 @@ namespace TMSWinForms.View
             ticketDetailsForm.ShowDialog();
             
         }
-
-   
     }
 }

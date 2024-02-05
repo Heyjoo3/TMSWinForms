@@ -23,7 +23,7 @@ namespace TMSWinForms.Model
             get { return userID; }
             set { userID = value; }
         }
-        public string UserUserName
+        public string UserName
         {
             get { return userName; }
             set { userName = value; }
@@ -49,20 +49,29 @@ namespace TMSWinForms.Model
 
         public User()
         {
-            userID = 0;
+            userID = Program.userManager.UserID; ;
             userName = "";
             userEmail = "";
             userPassword = "";
             userRoll = "";
         }
 
-        public User(int userID, string userName, string userEmail, string userPassword, string userRoll)
+        public User(string userName, string userEmail, string userPassword, string userRoll)
         {
-            this.userID = userID;
+            this.userID = Program.userManager.UserID;
             this.userName = userName;
             this.userEmail = userEmail;
             this.userPassword = userPassword;
-            this.userRoll = userRoll;
+
+            if (userRoll == "")
+            {
+                this.userRoll = "Admin";
+            }
+            else
+            {
+                this.userRoll = userRoll;
+            }
+            
         }
 
 

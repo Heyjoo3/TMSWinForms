@@ -10,12 +10,19 @@ namespace TMSWinForms.Model
     {
         // fields
         List<User> users = new List<User>();
+        private int userID = 0;
 
         // properties
         public List<User> Users
         {
             get { return users; }
             set { users = value; }
+        }
+
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
         }
 
         // constructor
@@ -28,6 +35,7 @@ namespace TMSWinForms.Model
         public void AddUser(User user)
         {
             users.Add(user);
+            userID++;
         }
 
         public void RemoveUser(User user)
@@ -41,7 +49,7 @@ namespace TMSWinForms.Model
             {
                 if (u.UserID == user.UserID)
                 {
-                    u.UserUserName = user.UserUserName;
+                    u.UserName = user.UserName;
                     u.UserEmail = user.UserEmail;
                     u.UserPassword = user.UserPassword;
                     u.UserRoll = user.UserRoll;
@@ -53,7 +61,7 @@ namespace TMSWinForms.Model
         {
             foreach (User u in users)
             {
-                if (u.UserUserName == userName && u.UserPassword == password)
+                if (u.UserName == userName && u.UserPassword == password)
                 {
                     return true;
                 }

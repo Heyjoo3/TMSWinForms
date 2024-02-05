@@ -46,7 +46,7 @@ namespace TMSWinForms.Model
             set { ticketDescription = value; }
         }
 
-           public StatusEnum TicketStatus
+        public StatusEnum TicketStatus
         {
             get { return ticketStatus; }
             set { ticketStatus = value; }
@@ -84,16 +84,25 @@ namespace TMSWinForms.Model
             isAssigned = false;
         }
 
-        public Ticket(string assignedUser, string ticketName, string ticketDescription, StatusEnum ticketStatus, int ticketPriority, string ticketCreateDate, bool isAssigned)
+        public Ticket(string assignedUser, string ticketName, string ticketDescription, StatusEnum ticketStatus, int ticketPriority, string ticketCreateDate)
         {
             this.TicketID = this.ticketID;
             this.assignedUser = assignedUser;
+
+            if (assignedUser == "")
+            {
+                this.TicketStatus = StatusEnum.Unassigned;
+            }
+            else
+            {
+                this.TicketStatus = StatusEnum.Assigned;
+            }
+
             this.ticketName = ticketName;
             this.ticketDescription = ticketDescription; 
-            this.ticketStatus = ticketStatus;
             this.ticketPriority = ticketPriority;
             this.ticketCreateDate = ticketCreateDate;
-            this.isAssigned = isAssigned;
+            
 
             ticketID++;
         }

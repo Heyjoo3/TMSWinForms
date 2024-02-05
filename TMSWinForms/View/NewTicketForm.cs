@@ -18,6 +18,9 @@ namespace TMSWinForms.View
         public NewTicketForm()
         {
             InitializeComponent();
+            this.assignedUserComboBox.DataSource = Program.userManager.Users;
+            this.assignedUserComboBox.DisplayMember = "UserName";
+            this.assignedUserComboBox.ValueMember = "UserName";
         }
 
         private void saveNewTicketButton_Click(object sender, EventArgs e)
@@ -27,26 +30,27 @@ namespace TMSWinForms.View
             string description = this.descriptionTextBox.Text;
             string assignedUser = this.assignedUserTextBox.Text;
             string date = this.dateTextBox.Text;
-            string priorityString = this.priorityTextBox.Text;
+            string priorityString = this.priorityComboBox.Text.Substring(0,1);
+  
+            
             StatusEnum status = StatusEnum.Unassigned;
-            bool  isAssigned = false;
             
 
-            if (!(priorityString =="1" || priorityString == "2" || priorityString == "3"))
+            if (!(priorityString == "1" || priorityString == "2" || priorityString == "3"))
             {
                 MessageBox.Show("Please enter a valid priority. \n 1 = High \n 2 = Medium \n 3 = Low");
             }
             else
             {
-                if (title == "" || description == "" || assignedUser == "" || date == "")
+                if (title == "" || description == "" || date == "")
                 {
                     MessageBox.Show("Please fill in all fields correctly");
                 }
                 else
                 {
-                    int priority = int.Parse(this.priorityTextBox.Text);
+                    int priority = int.Parse(priorityString);
 
-                    Ticket newTicket = new Ticket(assignedUser, title, description, status, priority, date, isAssigned);
+                    Ticket newTicket = new Ticket(assignedUser, title, description, status, priority, date);
                     Program.ticketManager.AddTicket(newTicket);
                     this.DialogResult = DialogResult.OK;
                     this.Close();

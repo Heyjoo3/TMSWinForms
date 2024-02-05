@@ -39,7 +39,7 @@
             this.assingedLabel = new System.Windows.Forms.Label();
             this.unassingedLabel = new System.Windows.Forms.Label();
             this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.assingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.assignedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.userListBox = new System.Windows.Forms.ListBox();
             this.editAccountButton = new System.Windows.Forms.Button();
@@ -126,7 +126,7 @@
             this.panel2.Controls.Add(this.assingedLabel);
             this.panel2.Controls.Add(this.unassingedLabel);
             this.panel2.Controls.Add(this.finishedflowLayoutPanel);
-            this.panel2.Controls.Add(this.assingedflowLayoutPanel);
+            this.panel2.Controls.Add(this.assignedflowLayoutPanel);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Controls.Add(this.unassingedflowLayoutPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -178,15 +178,15 @@
             this.finishedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
             this.finishedflowLayoutPanel.TabIndex = 4;
             // 
-            // assingedflowLayoutPanel
+            // assignedflowLayoutPanel
             // 
-            this.assingedflowLayoutPanel.AutoScroll = true;
-            this.assingedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.assingedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.assingedflowLayoutPanel.Location = new System.Drawing.Point(466, 32);
-            this.assingedflowLayoutPanel.Name = "assingedflowLayoutPanel";
-            this.assingedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
-            this.assingedflowLayoutPanel.TabIndex = 4;
+            this.assignedflowLayoutPanel.AutoScroll = true;
+            this.assignedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.assignedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
+            this.assignedflowLayoutPanel.Location = new System.Drawing.Point(466, 32);
+            this.assignedflowLayoutPanel.Name = "assignedflowLayoutPanel";
+            this.assignedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
+            this.assignedflowLayoutPanel.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
@@ -290,13 +290,13 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ListBox userListBox;
         private System.Windows.Forms.Label unassingedLabel;
-        private System.Windows.Forms.FlowLayoutPanel finishedflowLayoutPanel;
-        private System.Windows.Forms.FlowLayoutPanel assingedflowLayoutPanel;
-        private System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
         private System.Windows.Forms.Label assingedLabel;
         private System.Windows.Forms.Label finishedLabel;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.FlowLayoutPanel finishedflowLayoutPanel;
+        public System.Windows.Forms.FlowLayoutPanel assignedflowLayoutPanel;
+        public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
     }
 }

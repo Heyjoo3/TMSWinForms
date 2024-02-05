@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TMSWinForms.Model;
+using TMSWinForms;
+
 
 
 namespace TMSWinForms.View
@@ -34,9 +36,13 @@ namespace TMSWinForms.View
             titleTextBox.Text = tempTicket.TicketName;
             assignedUserTextBox.Text = tempTicket.AssignedUser;
             dateTextBox.Text = tempTicket.TicketCreateDate;
-            priorityTextBox.Text = tempTicket.TicketPriority.ToString();
+            //priorityTextBox.Text = tempTicket.TicketPriority.ToString();
             descriptionTextBox.Text = tempTicket.TicketDescription;
-            statusTextBox.Text = tempTicket.TicketStatus.ToString();
+            //statusTextBox.Text = tempTicket.TicketStatus.ToString();
+
+            statusComboBox.Text = tempTicket.TicketStatus.ToString();
+            priorityComboBox.Text = tempTicket.TicketPriority.ToString();
+
         }
         
         //methods
@@ -51,20 +57,50 @@ namespace TMSWinForms.View
             titleTextBox.Text = ticket.TicketName;
             assignedUserTextBox.Text = ticket.AssignedUser;
             dateTextBox.Text = ticket.TicketCreateDate;
-            priorityTextBox.Text = ticket.TicketPriority.ToString();
+            priorityComboBox.Text = ticket.TicketPriority.ToString();
             descriptionTextBox.Text = ticket.TicketDescription;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            Program.ticketManager.DeleteTicket(ticketID);
+            Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.InitializeTaskTiles();
+            this.Close();
 
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            EditTicketForm editTicketForm = new EditTicketForm();
-            editTicketForm.ShowDialog();
+            //EditTicketForm editTicketForm = new EditTicketForm();
+            //editTicketForm.ShowDialog();
+
+            this.TicketID = ticketID;
+
+
+
+            string title =  titleTextBox.Text;
+            string assignedUser = assignedUserTextBox.Text;
+            string date = dateTextBox.Text;
+            string priority = priorityComboBox.Text;
+            string description = descriptionTextBox.Text;
+            string status = statusComboBox.Text;
+
+            Program.ticketManager.EditTicket(ticketID,title, description, status, priority, date, assignedUser);
+
+           
+            Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
+            Program.ticketForm.InitializeTaskTiles();
+
             
+
+            this.Close();
+
+
         }
 
         

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.priorityLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.assignedUserLabel = new System.Windows.Forms.Label();
@@ -36,10 +37,21 @@
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.assignedUserTextBox = new System.Windows.Forms.TextBox();
             this.dateTextBox = new System.Windows.Forms.TextBox();
-            this.priorityTextBox = new System.Windows.Forms.TextBox();
             this.dialogTitleLabel = new System.Windows.Forms.Label();
             this.saveNewTicketButton = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.priorityComboBox = new System.Windows.Forms.ComboBox();
+            this.usersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
+            this.userManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ticketTileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketTileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // priorityLabel
@@ -115,14 +127,6 @@
             this.dateTextBox.Size = new System.Drawing.Size(240, 16);
             this.dateTextBox.TabIndex = 13;
             // 
-            // priorityTextBox
-            // 
-            this.priorityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.priorityTextBox.Location = new System.Drawing.Point(196, 133);
-            this.priorityTextBox.Name = "priorityTextBox";
-            this.priorityTextBox.Size = new System.Drawing.Size(240, 16);
-            this.priorityTextBox.TabIndex = 14;
-            // 
             // dialogTitleLabel
             // 
             this.dialogTitleLabel.AutoSize = true;
@@ -156,15 +160,60 @@
             this.descriptionTextBox.TabIndex = 17;
             this.descriptionTextBox.Text = "";
             // 
+            // priorityComboBox
+            // 
+            this.priorityComboBox.FormattingEnabled = true;
+            this.priorityComboBox.Items.AddRange(new object[] {
+            "1 = High",
+            "2 = Medium",
+            "3 = Low"});
+            this.priorityComboBox.Location = new System.Drawing.Point(196, 130);
+            this.priorityComboBox.Name = "priorityComboBox";
+            this.priorityComboBox.Size = new System.Drawing.Size(240, 24);
+            this.priorityComboBox.TabIndex = 18;
+            this.priorityComboBox.Text = "1 = High";
+            // 
+            // usersBindingSource2
+            // 
+            this.usersBindingSource2.DataMember = "Users";
+            this.usersBindingSource2.DataSource = this.userManagerBindingSource;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.userManagerBindingSource;
+            // 
+            // usersBindingSource1
+            // 
+            this.usersBindingSource1.DataMember = "Users";
+            this.usersBindingSource1.DataSource = this.userManagerBindingSource;
+            // 
+            // assignedUserComboBox
+            // 
+            this.assignedUserComboBox.FormattingEnabled = true;
+            this.assignedUserComboBox.Location = new System.Drawing.Point(236, 152);
+            this.assignedUserComboBox.Name = "assignedUserComboBox";
+            this.assignedUserComboBox.Size = new System.Drawing.Size(121, 24);
+            this.assignedUserComboBox.TabIndex = 20;
+            // 
+            // userManagerBindingSource
+            // 
+            this.userManagerBindingSource.DataSource = typeof(TMSWinForms.Model.UserManager);
+            // 
+            // ticketTileBindingSource
+            // 
+            this.ticketTileBindingSource.DataSource = typeof(TMSWinForms.View.TicketTile);
+            // 
             // NewTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 328);
+            this.Controls.Add(this.assignedUserComboBox);
+            this.Controls.Add(this.priorityComboBox);
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.saveNewTicketButton);
             this.Controls.Add(this.dialogTitleLabel);
-            this.Controls.Add(this.priorityTextBox);
             this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.assignedUserTextBox);
             this.Controls.Add(this.titleTextBox);
@@ -177,6 +226,11 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewTicketForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketTileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,9 +246,15 @@
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.TextBox assignedUserTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
-        private System.Windows.Forms.TextBox priorityTextBox;
         private System.Windows.Forms.Label dialogTitleLabel;
         private System.Windows.Forms.Button saveNewTicketButton;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
+        private System.Windows.Forms.ComboBox priorityComboBox;
+        private System.Windows.Forms.BindingSource ticketTileBindingSource;
+        private System.Windows.Forms.BindingSource userManagerBindingSource;
+        private System.Windows.Forms.BindingSource usersBindingSource;
+        private System.Windows.Forms.BindingSource usersBindingSource1;
+        private System.Windows.Forms.BindingSource usersBindingSource2;
+        private System.Windows.Forms.ComboBox assignedUserComboBox;
     }
 }

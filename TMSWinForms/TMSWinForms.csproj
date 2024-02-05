@@ -126,6 +126,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MyApp\App.config" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.Controller.TicketPresenter.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.Model.Ticket.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.Model.TicketManager.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.Model.User.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.Model.UserManager.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.EditTicketForm.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.EditUserForm.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.LoginGUI.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.LoginReigsterGUI.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.NewTicketForm.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.RegisterGUI.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.TicketDetailsForm.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.TicketGUI.datasource" />
+    <None Include="Properties\DataSources\TMSWinForms.View.TicketTile.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

@@ -36,13 +36,13 @@
             this.ticketTitleLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
-            this.priorityTextBox = new System.Windows.Forms.TextBox();
             this.dateTextBox = new System.Windows.Forms.TextBox();
             this.assignedUserTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.statusTextBox = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.priorityComboBox = new System.Windows.Forms.ComboBox();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dialogTitleLabel
@@ -125,20 +125,9 @@
             this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.descriptionTextBox.Location = new System.Drawing.Point(60, 251);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.Size = new System.Drawing.Size(239, 96);
             this.descriptionTextBox.TabIndex = 35;
             this.descriptionTextBox.Text = "";
-            // 
-            // priorityTextBox
-            // 
-            this.priorityTextBox.BackColor = System.Drawing.Color.Lavender;
-            this.priorityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.priorityTextBox.Location = new System.Drawing.Point(161, 193);
-            this.priorityTextBox.Name = "priorityTextBox";
-            this.priorityTextBox.ReadOnly = true;
-            this.priorityTextBox.Size = new System.Drawing.Size(138, 13);
-            this.priorityTextBox.TabIndex = 36;
             // 
             // dateTextBox
             // 
@@ -146,7 +135,6 @@
             this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dateTextBox.Location = new System.Drawing.Point(161, 160);
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.ReadOnly = true;
             this.dateTextBox.Size = new System.Drawing.Size(138, 13);
             this.dateTextBox.TabIndex = 37;
             // 
@@ -156,7 +144,6 @@
             this.assignedUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.assignedUserTextBox.Location = new System.Drawing.Point(161, 129);
             this.assignedUserTextBox.Name = "assignedUserTextBox";
-            this.assignedUserTextBox.ReadOnly = true;
             this.assignedUserTextBox.Size = new System.Drawing.Size(138, 13);
             this.assignedUserTextBox.TabIndex = 38;
             // 
@@ -166,19 +153,8 @@
             this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleTextBox.Location = new System.Drawing.Point(161, 97);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.ReadOnly = true;
             this.titleTextBox.Size = new System.Drawing.Size(138, 13);
             this.titleTextBox.TabIndex = 39;
-            // 
-            // statusTextBox
-            // 
-            this.statusTextBox.BackColor = System.Drawing.Color.Lavender;
-            this.statusTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.statusTextBox.Location = new System.Drawing.Point(161, 63);
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.ReadOnly = true;
-            this.statusTextBox.Size = new System.Drawing.Size(138, 13);
-            this.statusTextBox.TabIndex = 40;
             // 
             // deleteButton
             // 
@@ -208,6 +184,32 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
+            // priorityComboBox
+            // 
+            this.priorityComboBox.BackColor = System.Drawing.Color.Lavender;
+            this.priorityComboBox.FormattingEnabled = true;
+            this.priorityComboBox.Items.AddRange(new object[] {
+            "1 = High",
+            "2 = Medium",
+            "3 = Low"});
+            this.priorityComboBox.Location = new System.Drawing.Point(161, 193);
+            this.priorityComboBox.Name = "priorityComboBox";
+            this.priorityComboBox.Size = new System.Drawing.Size(138, 21);
+            this.priorityComboBox.TabIndex = 43;
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.BackColor = System.Drawing.Color.Lavender;
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Items.AddRange(new object[] {
+            "Unassigned",
+            "Assigned",
+            "Finished"});
+            this.statusComboBox.Location = new System.Drawing.Point(161, 63);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(138, 21);
+            this.statusComboBox.TabIndex = 44;
+            // 
             // TicketDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,13 +217,13 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(375, 436);
+            this.Controls.Add(this.statusComboBox);
+            this.Controls.Add(this.priorityComboBox);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.statusTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.assignedUserTextBox);
             this.Controls.Add(this.dateTextBox);
-            this.Controls.Add(this.priorityTextBox);
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.dialogTitleLabel);
@@ -247,12 +249,12 @@
         private System.Windows.Forms.Label ticketTitleLabel;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
-        private System.Windows.Forms.TextBox priorityTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox assignedUserTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.ComboBox priorityComboBox;
+        private System.Windows.Forms.ComboBox statusComboBox;
     }
 }
