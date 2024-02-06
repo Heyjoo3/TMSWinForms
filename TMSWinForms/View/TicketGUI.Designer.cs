@@ -34,22 +34,24 @@
             this.footer = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.finishedLabel = new System.Windows.Forms.Label();
-            this.assingedLabel = new System.Windows.Forms.Label();
-            this.unassingedLabel = new System.Windows.Forms.Label();
-            this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.assignedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.userListBox = new System.Windows.Forms.ListBox();
-            this.editAccountButton = new System.Windows.Forms.Button();
             this.newTicketButton = new System.Windows.Forms.Button();
-            this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.editAccountButton = new System.Windows.Forms.Button();
+            this.userListBox = new System.Windows.Forms.ListBox();
             this.allUserLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.assignedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.assingedLabel = new System.Windows.Forms.Label();
+            this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.unassingedLabel = new System.Windows.Forms.Label();
+            this.finishedLabel = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.footer.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // header
@@ -69,9 +71,11 @@
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
-            this.panel1.Location = new System.Drawing.Point(3, 78);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(985, 10);
+            this.panel1.Size = new System.Drawing.Size(984, 10);
             this.panel1.TabIndex = 41;
             // 
             // pageTitle
@@ -101,9 +105,10 @@
             // 
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
-            this.panel3.Location = new System.Drawing.Point(2, 1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(985, 10);
+            this.panel3.Size = new System.Drawing.Size(984, 10);
             this.panel3.TabIndex = 42;
             // 
             // logoutButton
@@ -121,74 +126,6 @@
             this.logoutButton.UseVisualStyleBackColor = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.finishedLabel);
-            this.panel2.Controls.Add(this.assingedLabel);
-            this.panel2.Controls.Add(this.unassingedLabel);
-            this.panel2.Controls.Add(this.finishedflowLayoutPanel);
-            this.panel2.Controls.Add(this.assignedflowLayoutPanel);
-            this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Controls.Add(this.unassingedflowLayoutPanel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 88);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(984, 501);
-            this.panel2.TabIndex = 4;
-            // 
-            // finishedLabel
-            // 
-            this.finishedLabel.AutoSize = true;
-            this.finishedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.finishedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.finishedLabel.Location = new System.Drawing.Point(886, 9);
-            this.finishedLabel.Name = "finishedLabel";
-            this.finishedLabel.Size = new System.Drawing.Size(94, 20);
-            this.finishedLabel.TabIndex = 0;
-            this.finishedLabel.Text = "FINSIHED";
-            // 
-            // assingedLabel
-            // 
-            this.assingedLabel.AutoSize = true;
-            this.assingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.assingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.assingedLabel.Location = new System.Drawing.Point(618, 9);
-            this.assingedLabel.Name = "assingedLabel";
-            this.assingedLabel.Size = new System.Drawing.Size(102, 20);
-            this.assingedLabel.TabIndex = 6;
-            this.assingedLabel.Text = "ASSIGNED";
-            // 
-            // unassingedLabel
-            // 
-            this.unassingedLabel.AutoSize = true;
-            this.unassingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.unassingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.unassingedLabel.Location = new System.Drawing.Point(333, 9);
-            this.unassingedLabel.Name = "unassingedLabel";
-            this.unassingedLabel.Size = new System.Drawing.Size(127, 20);
-            this.unassingedLabel.TabIndex = 5;
-            this.unassingedLabel.Text = "UNASSIGNED";
-            // 
-            // finishedflowLayoutPanel
-            // 
-            this.finishedflowLayoutPanel.AutoScroll = true;
-            this.finishedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.finishedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.finishedflowLayoutPanel.Location = new System.Drawing.Point(726, 32);
-            this.finishedflowLayoutPanel.Name = "finishedflowLayoutPanel";
-            this.finishedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
-            this.finishedflowLayoutPanel.TabIndex = 4;
-            // 
-            // assignedflowLayoutPanel
-            // 
-            this.assignedflowLayoutPanel.AutoScroll = true;
-            this.assignedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.assignedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.assignedflowLayoutPanel.Location = new System.Drawing.Point(466, 32);
-            this.assignedflowLayoutPanel.Name = "assignedflowLayoutPanel";
-            this.assignedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
-            this.assignedflowLayoutPanel.TabIndex = 4;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -204,34 +141,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(203, 501);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // userListBox
-            // 
-            this.userListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.userListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.userListBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.userListBox.FormattingEnabled = true;
-            this.userListBox.ItemHeight = 20;
-            this.userListBox.Location = new System.Drawing.Point(3, 27);
-            this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(197, 340);
-            this.userListBox.TabIndex = 2;
-            // 
-            // editAccountButton
-            // 
-            this.editAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.editAccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.editAccountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
-            this.editAccountButton.FlatAppearance.BorderSize = 0;
-            this.editAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editAccountButton.Location = new System.Drawing.Point(3, 373);
-            this.editAccountButton.Name = "editAccountButton";
-            this.editAccountButton.Size = new System.Drawing.Size(191, 42);
-            this.editAccountButton.TabIndex = 1;
-            this.editAccountButton.Text = "Edit Account";
-            this.editAccountButton.UseVisualStyleBackColor = false;
-            this.editAccountButton.Click += new System.EventHandler(this.newUserButton_Click);
             // 
             // newTicketButton
             // 
@@ -249,15 +158,33 @@
             this.newTicketButton.UseVisualStyleBackColor = false;
             this.newTicketButton.Click += new System.EventHandler(this.newTicketButton_Click);
             // 
-            // unassingedflowLayoutPanel
+            // editAccountButton
             // 
-            this.unassingedflowLayoutPanel.AutoScroll = true;
-            this.unassingedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.unassingedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.unassingedflowLayoutPanel.Location = new System.Drawing.Point(206, 32);
-            this.unassingedflowLayoutPanel.Name = "unassingedflowLayoutPanel";
-            this.unassingedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
-            this.unassingedflowLayoutPanel.TabIndex = 3;
+            this.editAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editAccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.editAccountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.editAccountButton.FlatAppearance.BorderSize = 0;
+            this.editAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.editAccountButton.Location = new System.Drawing.Point(3, 373);
+            this.editAccountButton.Name = "editAccountButton";
+            this.editAccountButton.Size = new System.Drawing.Size(191, 42);
+            this.editAccountButton.TabIndex = 1;
+            this.editAccountButton.Text = "Edit Account";
+            this.editAccountButton.UseVisualStyleBackColor = false;
+            this.editAccountButton.Click += new System.EventHandler(this.newUserButton_Click);
+            // 
+            // userListBox
+            // 
+            this.userListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.userListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userListBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.userListBox.FormattingEnabled = true;
+            this.userListBox.ItemHeight = 20;
+            this.userListBox.Location = new System.Drawing.Point(3, 27);
+            this.userListBox.Name = "userListBox";
+            this.userListBox.Size = new System.Drawing.Size(197, 340);
+            this.userListBox.TabIndex = 2;
             // 
             // allUserLabel
             // 
@@ -269,6 +196,92 @@
             this.allUserLabel.Size = new System.Drawing.Size(84, 24);
             this.allUserLabel.TabIndex = 4;
             this.allUserLabel.Text = "All Users";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.finishedLabel);
+            this.panel2.Controls.Add(this.assingedLabel);
+            this.panel2.Controls.Add(this.unassingedLabel);
+            this.panel2.Controls.Add(this.finishedflowLayoutPanel);
+            this.panel2.Controls.Add(this.assignedflowLayoutPanel);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.unassingedflowLayoutPanel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 88);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(984, 501);
+            this.panel2.TabIndex = 4;
+            // 
+            // assignedflowLayoutPanel
+            // 
+            this.assignedflowLayoutPanel.AutoScroll = true;
+            this.assignedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.assignedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
+            this.assignedflowLayoutPanel.Location = new System.Drawing.Point(466, 32);
+            this.assignedflowLayoutPanel.Name = "assignedflowLayoutPanel";
+            this.assignedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
+            this.assignedflowLayoutPanel.TabIndex = 4;
+            // 
+            // assingedLabel
+            // 
+            this.assingedLabel.AutoSize = true;
+            this.assingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.assingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.assingedLabel.Location = new System.Drawing.Point(618, 9);
+            this.assingedLabel.Name = "assingedLabel";
+            this.assingedLabel.Size = new System.Drawing.Size(102, 20);
+            this.assingedLabel.TabIndex = 6;
+            this.assingedLabel.Text = "ASSIGNED";
+            // 
+            // finishedflowLayoutPanel
+            // 
+            this.finishedflowLayoutPanel.AutoScroll = true;
+            this.finishedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.finishedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
+            this.finishedflowLayoutPanel.Location = new System.Drawing.Point(726, 32);
+            this.finishedflowLayoutPanel.Name = "finishedflowLayoutPanel";
+            this.finishedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
+            this.finishedflowLayoutPanel.TabIndex = 4;
+            // 
+            // unassingedflowLayoutPanel
+            // 
+            this.unassingedflowLayoutPanel.AutoScroll = true;
+            this.unassingedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.unassingedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
+            this.unassingedflowLayoutPanel.Location = new System.Drawing.Point(206, 32);
+            this.unassingedflowLayoutPanel.Name = "unassingedflowLayoutPanel";
+            this.unassingedflowLayoutPanel.Size = new System.Drawing.Size(254, 461);
+            this.unassingedflowLayoutPanel.TabIndex = 3;
+            // 
+            // unassingedLabel
+            // 
+            this.unassingedLabel.AutoSize = true;
+            this.unassingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.unassingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.unassingedLabel.Location = new System.Drawing.Point(333, 9);
+            this.unassingedLabel.Name = "unassingedLabel";
+            this.unassingedLabel.Size = new System.Drawing.Size(127, 20);
+            this.unassingedLabel.TabIndex = 5;
+            this.unassingedLabel.Text = "UNASSIGNED";
+            // 
+            // finishedLabel
+            // 
+            this.finishedLabel.AutoSize = true;
+            this.finishedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.finishedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.finishedLabel.Location = new System.Drawing.Point(886, 9);
+            this.finishedLabel.Name = "finishedLabel";
+            this.finishedLabel.Size = new System.Drawing.Size(94, 20);
+            this.finishedLabel.TabIndex = 0;
+            this.finishedLabel.Text = "FINSIHED";
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(984, 35);
+            this.panel4.TabIndex = 7;
             // 
             // TicketGUI
             // 
@@ -284,11 +297,12 @@
             this.Text = "Form1";
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.footer.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -297,21 +311,22 @@
 
         private System.Windows.Forms.Panel header;
         private System.Windows.Forms.Panel footer;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button editAccountButton;
-        private System.Windows.Forms.Button newTicketButton;
         private System.Windows.Forms.Label pageTitle;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ListBox userListBox;
-        private System.Windows.Forms.Label unassingedLabel;
-        private System.Windows.Forms.Label assingedLabel;
-        private System.Windows.Forms.Label finishedLabel;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label allUserLabel;
+        private System.Windows.Forms.ListBox userListBox;
+        private System.Windows.Forms.Button editAccountButton;
+        private System.Windows.Forms.Button newTicketButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label finishedLabel;
+        private System.Windows.Forms.Label assingedLabel;
+        private System.Windows.Forms.Label unassingedLabel;
+        public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
         public System.Windows.Forms.FlowLayoutPanel finishedflowLayoutPanel;
         public System.Windows.Forms.FlowLayoutPanel assignedflowLayoutPanel;
-        public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
-        private System.Windows.Forms.Label allUserLabel;
     }
 }

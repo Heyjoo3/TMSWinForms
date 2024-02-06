@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ticketTitleLabel = new System.Windows.Forms.Label();
-            this.assignedUserLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.priorityLabel = new System.Windows.Forms.Label();
             this.changeStatusButton = new System.Windows.Forms.Button();
@@ -38,6 +37,7 @@
             this.detailsButton = new System.Windows.Forms.Button();
             this.ticketIDLabel = new System.Windows.Forms.Label();
             this.StatusComboBox = new System.Windows.Forms.ComboBox();
+            this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             this.SuspendLayout();
@@ -52,19 +52,10 @@
             this.ticketTitleLabel.TabIndex = 0;
             this.ticketTitleLabel.Text = "TicketTitle";
             // 
-            // assignedUserLabel
-            // 
-            this.assignedUserLabel.AutoSize = true;
-            this.assignedUserLabel.Location = new System.Drawing.Point(14, 65);
-            this.assignedUserLabel.Name = "assignedUserLabel";
-            this.assignedUserLabel.Size = new System.Drawing.Size(100, 17);
-            this.assignedUserLabel.TabIndex = 1;
-            this.assignedUserLabel.Text = "Assigned User";
-            // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(14, 82);
+            this.dateLabel.Location = new System.Drawing.Point(14, 90);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(38, 17);
             this.dateLabel.TabIndex = 2;
@@ -73,7 +64,7 @@
             // priorityLabel
             // 
             this.priorityLabel.AutoSize = true;
-            this.priorityLabel.Location = new System.Drawing.Point(14, 99);
+            this.priorityLabel.Location = new System.Drawing.Point(14, 108);
             this.priorityLabel.Name = "priorityLabel";
             this.priorityLabel.Size = new System.Drawing.Size(52, 17);
             this.priorityLabel.TabIndex = 3;
@@ -85,13 +76,13 @@
             this.changeStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
             this.changeStatusButton.FlatAppearance.BorderSize = 0;
             this.changeStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            this.changeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.changeStatusButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.changeStatusButton.Location = new System.Drawing.Point(140, 39);
+            this.changeStatusButton.Location = new System.Drawing.Point(140, 63);
             this.changeStatusButton.Name = "changeStatusButton";
             this.changeStatusButton.Size = new System.Drawing.Size(75, 23);
             this.changeStatusButton.TabIndex = 6;
-            this.changeStatusButton.Text = "Change Status";
+            this.changeStatusButton.Text = "Save";
             this.changeStatusButton.UseVisualStyleBackColor = false;
             this.changeStatusButton.Click += new System.EventHandler(this.changeStatusButton_Click);
             // 
@@ -149,12 +140,25 @@
             this.StatusComboBox.Size = new System.Drawing.Size(121, 24);
             this.StatusComboBox.TabIndex = 10;
             // 
+            // assignedUserComboBox
+            // 
+            this.assignedUserComboBox.FormattingEnabled = true;
+            this.assignedUserComboBox.Items.AddRange(new object[] {
+            "Unassigned",
+            "Assigned",
+            "Finished"});
+            this.assignedUserComboBox.Location = new System.Drawing.Point(17, 63);
+            this.assignedUserComboBox.Name = "assignedUserComboBox";
+            this.assignedUserComboBox.Size = new System.Drawing.Size(121, 24);
+            this.assignedUserComboBox.TabIndex = 11;
+            // 
             // TicketTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.assignedUserComboBox);
             this.Controls.Add(this.StatusComboBox);
             this.Controls.Add(this.ticketIDLabel);
             this.Controls.Add(this.detailsButton);
@@ -162,12 +166,11 @@
             this.Controls.Add(this.changeStatusButton);
             this.Controls.Add(this.priorityLabel);
             this.Controls.Add(this.dateLabel);
-            this.Controls.Add(this.assignedUserLabel);
             this.Controls.Add(this.ticketTitleLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TicketTile";
-            this.Size = new System.Drawing.Size(230, 133);
+            this.Size = new System.Drawing.Size(230, 134);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             this.ResumeLayout(false);
@@ -178,7 +181,6 @@
         #endregion
 
         private System.Windows.Forms.Label ticketTitleLabel;
-        private System.Windows.Forms.Label assignedUserLabel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label priorityLabel;
         private System.Windows.Forms.Button changeStatusButton;
@@ -187,5 +189,6 @@
         private System.Windows.Forms.Button detailsButton;
         private System.Windows.Forms.Label ticketIDLabel;
         private System.Windows.Forms.ComboBox StatusComboBox;
+        private System.Windows.Forms.ComboBox assignedUserComboBox;
     }
 }

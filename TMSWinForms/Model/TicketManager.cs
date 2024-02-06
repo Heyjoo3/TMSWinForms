@@ -49,7 +49,7 @@ namespace TMSWinForms.Model
                     //string ticketDescription = t.TicketDescription;
                     //string ticketStatus = t.TicketStatus;
                     //int ticketPriority = t.TicketPriority;
-                    //string ticketCreateDate = t.TicketCreateDate;
+                    //string ticketDueDate = t.TicketDueDate;
                     //string assignedUser = t.AssignedUser;
 
                     return t;
@@ -67,6 +67,17 @@ namespace TMSWinForms.Model
                 if (t.TicketID == ticketID)
                 {
                     t.TicketStatus = status;
+                }
+            }
+        }
+
+        public void ChangeAssigendUser(int ticketID, string assignedUser)
+        {
+            foreach (Ticket t in tickets)
+            {
+                if (t.TicketID == ticketID)
+                {
+                    t.AssignedUser = assignedUser;
                 }
             }
         }
@@ -89,7 +100,7 @@ namespace TMSWinForms.Model
             }
         }
 
-        public void EditTicket(int ticketID, string ticketName, string ticketDescription, string ticketStatus, string ticketPriority, string ticketCreateDate, string assignedUser)
+        public void EditTicket(int ticketID, string ticketName, string ticketDescription, string ticketStatus, string ticketPriority, string ticketDueDate, string assignedUser)
         {
             foreach (Ticket t in tickets)
             {
@@ -108,22 +119,22 @@ namespace TMSWinForms.Model
                         t.TicketStatus = StatusEnum.Finished;
                     }
 
-                    if (ticketPriority == "1")
+                    if (ticketPriority == "High")
                     {
-                        t.TicketPriority = 1;
+                        t.TicketPriority = PriorityEnum.High;
                     }
-                    else if (ticketPriority == "2")
+                    else if (ticketPriority == "Medium")
                     {
-                        t.TicketPriority = 2;
+                        t.TicketPriority = PriorityEnum.Medium;
                     }
-                    else if (ticketPriority == "3")
+                    else if (ticketPriority == "Low")
                     {
-                        t.TicketPriority = 3;
+                        t.TicketPriority = PriorityEnum.Low;
                     }
 
                     t.TicketName = ticketName;
                     t.TicketDescription = ticketDescription;
-                    t.TicketCreateDate = ticketCreateDate;
+                    t.TicketDueDate = ticketDueDate;
                     t.AssignedUser = assignedUser;
                 }
             }
@@ -183,7 +194,7 @@ namespace TMSWinForms.Model
 
         public List<Ticket> SortByDate()
         {
-            List<Ticket> sortedTickets = tickets.OrderBy(t => t.TicketCreateDate).ToList();
+            List<Ticket> sortedTickets = tickets.OrderBy(t => t.TicketDueDate).ToList();
             return sortedTickets;
         }
 

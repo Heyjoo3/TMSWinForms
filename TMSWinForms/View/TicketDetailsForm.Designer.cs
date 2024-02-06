@@ -37,13 +37,13 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.dateTextBox = new System.Windows.Forms.TextBox();
-            this.assignedUserTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.priorityComboBox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // dialogTitleLabel
@@ -139,15 +139,6 @@
             this.dateTextBox.Size = new System.Drawing.Size(138, 13);
             this.dateTextBox.TabIndex = 37;
             // 
-            // assignedUserTextBox
-            // 
-            this.assignedUserTextBox.BackColor = System.Drawing.Color.Lavender;
-            this.assignedUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.assignedUserTextBox.Location = new System.Drawing.Point(161, 129);
-            this.assignedUserTextBox.Name = "assignedUserTextBox";
-            this.assignedUserTextBox.Size = new System.Drawing.Size(138, 13);
-            this.assignedUserTextBox.TabIndex = 38;
-            // 
             // titleTextBox
             // 
             this.titleTextBox.BackColor = System.Drawing.Color.Lavender;
@@ -215,10 +206,19 @@
             // 
             this.assignedUserComboBox.BackColor = System.Drawing.Color.Lavender;
             this.assignedUserComboBox.FormattingEnabled = true;
-            this.assignedUserComboBox.Location = new System.Drawing.Point(161, 208);
+            this.assignedUserComboBox.Location = new System.Drawing.Point(161, 126);
             this.assignedUserComboBox.Name = "assignedUserComboBox";
             this.assignedUserComboBox.Size = new System.Drawing.Size(138, 21);
             this.assignedUserComboBox.TabIndex = 45;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.Lavender;
+            this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.Lavender;
+            this.dateTimePicker.Location = new System.Drawing.Point(161, 208);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(138, 20);
+            this.dateTimePicker.TabIndex = 46;
             // 
             // TicketDetailsForm
             // 
@@ -227,13 +227,13 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(375, 436);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.assignedUserComboBox);
             this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.priorityComboBox);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.assignedUserTextBox);
             this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.statusLabel);
@@ -261,12 +261,12 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
-        private System.Windows.Forms.TextBox assignedUserTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.ComboBox priorityComboBox;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.ComboBox assignedUserComboBox;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }

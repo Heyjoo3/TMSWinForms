@@ -22,8 +22,6 @@ namespace TMSWinForms.View
             AddUser();
         }
 
-   
-
         public void InitializeTaskTiles()
         {
             AddTicketTile();
@@ -31,14 +29,12 @@ namespace TMSWinForms.View
 
         private void AddTicketTile()
         {
-            //TicketTile ticketTile = new TicketTile(taskName, assignedPerson, date, priority );
-            //panel.Controls.Add(ticketTile);
-
+ 
 
             foreach (Ticket ticket in Program.ticketManager.Tickets)
             {
-               TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketCreateDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-               //panel.Controls.Add(ticketTile);
+               TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+
 
                 if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
                 {
@@ -51,6 +47,10 @@ namespace TMSWinForms.View
                 else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Finished)
                 {
                     finishedflowLayoutPanel.Controls.Add(ticketTile);
+                }
+                else
+                {
+                    throw new Exception("Invalid status");
                 }
                 
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TMSWinForms.Model;
 using TMSWinForms;
+using TMSWinForms.Model.Enumerations;
 
 
 
@@ -33,38 +34,36 @@ namespace TMSWinForms.View
             InitializeComponent();
             this.TicketID = ticketID;
             Ticket tempTicket = Program.ticketManager.GetTicketByID(ticketID);
+
             titleTextBox.Text = tempTicket.TicketName;
-            assignedUserTextBox.Text = tempTicket.AssignedUser;
-            dateTextBox.Text = tempTicket.TicketCreateDate;
-            //priorityTextBox.Text = tempTicket.TicketPriority.ToString();
+            assignedUserComboBox.Text = tempTicket.AssignedUser;
+            dateTimePicker.Value = DateTime.Parse(tempTicket.TicketDueDate);
             descriptionTextBox.Text = tempTicket.TicketDescription;
-            //statusTextBox.Text = tempTicket.TicketStatus.ToString();
+
 
             statusComboBox.Text = tempTicket.TicketStatus.ToString();
             priorityComboBox.Text = tempTicket.TicketPriority.ToString();
+
+            this.priorityComboBox.DataSource = Enum.GetValues(typeof(PriorityEnum));
+            this.priorityComboBox.SelectedItem = tempTicket.TicketPriority;
 
             this.assignedUserComboBox.DataSource = Program.userManager.Users;
             this.assignedUserComboBox.DisplayMember = "UserName";
             this.assignedUserComboBox.ValueMember = "UserName";
 
+            if (tempTicket.AssignedUser != "")
+            {
+                this.assignedUserComboBox.SelectedItem = tempTicket.AssignedUser;
+            }
+            else
+            {
+                this.assignedUserComboBox.SelectedItem = null;
+            }
+            
+
         }
         
         //methods
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GetTicketByID (int ticketID)
-        {
-            Ticket ticket = Program.ticketManager.GetTicketByID(ticketID);
-            titleTextBox.Text = ticket.TicketName;
-            assignedUserTextBox.Text = ticket.AssignedUser;
-            dateTextBox.Text = ticket.TicketCreateDate;
-            priorityComboBox.Text = ticket.TicketPriority.ToString();
-            descriptionTextBox.Text = ticket.TicketDescription;
-        }
-
         private void deleteButton_Click(object sender, EventArgs e)
         {
             Program.ticketManager.DeleteTicket(ticketID);
@@ -78,16 +77,11 @@ namespace TMSWinForms.View
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            //EditTicketForm editTicketForm = new EditTicketForm();
-            //editTicketForm.ShowDialog();
-
             this.TicketID = ticketID;
-
-
 
             string title =  titleTextBox.Text;
             string assignedUser = assignedUserComboBox.Text;
-            string date = dateTextBox.Text;
+            string date = dateTimePicker.Value.ToString("dd/MM/yyyy");
             string priority = priorityComboBox.Text;
             string description = descriptionTextBox.Text;
             string status = statusComboBox.Text;
@@ -96,8 +90,6 @@ namespace TMSWinForms.View
             {                 
                 status = "Assigned";
             }
-           
-           
 
             Program.ticketManager.EditTicket(ticketID,title, description, status, priority, date, assignedUser);
 

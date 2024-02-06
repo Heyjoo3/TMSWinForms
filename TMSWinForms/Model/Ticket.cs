@@ -17,10 +17,11 @@ namespace TMSWinForms.Model
         private string ticketName;
         private string ticketDescription;
         private StatusEnum ticketStatus;
-        private int ticketPriority;
-        private string ticketCreateDate;
+        //private int ticketPriority;
+        private PriorityEnum ticketPriority;
+        private string ticketDueDate;
 
-        private bool isAssigned;
+        
        
         // properties
         public int TicketID
@@ -52,23 +53,25 @@ namespace TMSWinForms.Model
             set { ticketStatus = value; }
         }      
 
-        public int TicketPriority
+        //public int TicketPriority
+        //{
+        //    get { return ticketPriority; }
+        //    set { ticketPriority = value; }
+        //}
+
+        public PriorityEnum TicketPriority
         {
             get { return ticketPriority; }
             set { ticketPriority = value; }
         }
          
-        public string TicketCreateDate
+        public string TicketDueDate
         {
-            get { return ticketCreateDate; }
-            set { ticketCreateDate = value; }
+            get { return ticketDueDate; }
+            set { ticketDueDate = value; }
         }
 
-        public bool IsAssigned
-        {
-            get { return isAssigned; }
-            set { isAssigned = value; }
-        }
+     
 
 
         // constructor
@@ -78,13 +81,12 @@ namespace TMSWinForms.Model
             assignedUser = "";
             ticketName = "";
             ticketDescription = "";
-            StatusEnum ticketStatus = StatusEnum.Unassigned;
-            ticketPriority = 1;
-            ticketCreateDate = "";
-            isAssigned = false;
+            ticketStatus = StatusEnum.Unassigned;
+            ticketPriority = PriorityEnum.Low;
+            ticketDueDate = "";
         }
 
-        public Ticket(string assignedUser, string ticketName, string ticketDescription, StatusEnum ticketStatus, int ticketPriority, string ticketCreateDate)
+        public Ticket(string assignedUser, string ticketName, string ticketDescription, PriorityEnum ticketPriority, string ticketDueDate)
         {
             this.TicketID = this.ticketID;
             this.assignedUser = assignedUser;
@@ -101,8 +103,7 @@ namespace TMSWinForms.Model
             this.ticketName = ticketName;
             this.ticketDescription = ticketDescription; 
             this.ticketPriority = ticketPriority;
-            this.ticketCreateDate = ticketCreateDate;
-            
+            this.ticketDueDate = ticketDueDate;
 
             ticketID++;
         }

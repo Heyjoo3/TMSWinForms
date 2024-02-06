@@ -21,41 +21,35 @@ namespace TMSWinForms.View
             this.assignedUserComboBox.DataSource = Program.userManager.Users;
             this.assignedUserComboBox.DisplayMember = "UserName";
             this.assignedUserComboBox.ValueMember = "UserName";
+            this.assignedUserComboBox.SelectedItem = null;
+
+            this.priorityComboBox.DataSource = Enum.GetValues(typeof(PriorityEnum));
+            this.priorityComboBox.SelectedItem = PriorityEnum.Low ;
+
         }
 
         private void saveNewTicketButton_Click(object sender, EventArgs e)
         {
 
-            string title = this.titleTextBox.Text;
-            string description = this.descriptionTextBox.Text;
-            string assignedUser = this.assignedUserComboBox.Text;
-            string date = this.dateTextBox.Text;
-            string priorityString = this.priorityComboBox.Text.Substring(0,1);
-  
-            
-            StatusEnum status = StatusEnum.Unassigned;
-            
+            string title = this.titleTextBox.Text.Trim();
+            string description = this.descriptionTextBox.Text.Trim();
+            string assignedUser = this.assignedUserComboBox.Text.Trim();
+            string date = this.dateTimePicker.Value.ToString("dd/MM/yyyy");
+ 
+            PriorityEnum priority = (PriorityEnum)this.priorityComboBox.SelectedItem;
 
-            if (!(priorityString == "1" || priorityString == "2" || priorityString == "3"))
-            {
-                MessageBox.Show("Please enter a valid priority. \n 1 = High \n 2 = Medium \n 3 = Low");
-            }
-            else
-            {
-                if (title == "" || description == "" || date == "")
+                if (title == "")
                 {
-                    MessageBox.Show("Please fill in all fields correctly");
+                    MessageBox.Show("Every ticket needs a title.");
                 }
                 else
                 {
-                    int priority = int.Parse(priorityString);
-
-                    Ticket newTicket = new Ticket(assignedUser, title, description, status, priority, date);
+                    Ticket newTicket = new Ticket(assignedUser, title, description, priority, date);
                     Program.ticketManager.AddTicket(newTicket);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-            }
+
         }
     }
 }

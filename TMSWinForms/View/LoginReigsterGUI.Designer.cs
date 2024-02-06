@@ -49,9 +49,9 @@
             this.pageTitle = new System.Windows.Forms.Label();
             this.footer = new System.Windows.Forms.Panel();
             this.registerPanel = new System.Windows.Forms.Panel();
+            this.adminRollCheckBox = new System.Windows.Forms.CheckBox();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.adminRollCheckBox = new System.Windows.Forms.CheckBox();
             this.header.SuspendLayout();
             this.registerPanel.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -106,6 +106,7 @@
             this.loginPasswordTextBox.Location = new System.Drawing.Point(11, 159);
             this.loginPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.loginPasswordTextBox.Name = "loginPasswordTextBox";
+            this.loginPasswordTextBox.PasswordChar = '*';
             this.loginPasswordTextBox.Size = new System.Drawing.Size(313, 26);
             this.loginPasswordTextBox.TabIndex = 20;
             // 
@@ -132,6 +133,7 @@
             this.repeatPasswordTextBox.Location = new System.Drawing.Point(8, 282);
             this.repeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
+            this.repeatPasswordTextBox.PasswordChar = '*';
             this.repeatPasswordTextBox.Size = new System.Drawing.Size(309, 26);
             this.repeatPasswordTextBox.TabIndex = 32;
             // 
@@ -150,6 +152,7 @@
             this.registerPasswordTextBox.Location = new System.Drawing.Point(8, 220);
             this.registerPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.registerPasswordTextBox.Name = "registerPasswordTextBox";
+            this.registerPasswordTextBox.PasswordChar = '*';
             this.registerPasswordTextBox.Size = new System.Drawing.Size(309, 26);
             this.registerPasswordTextBox.TabIndex = 30;
             // 
@@ -280,6 +283,16 @@
             this.registerPanel.Size = new System.Drawing.Size(325, 416);
             this.registerPanel.TabIndex = 38;
             // 
+            // adminRollCheckBox
+            // 
+            this.adminRollCheckBox.AutoSize = true;
+            this.adminRollCheckBox.Location = new System.Drawing.Point(244, 17);
+            this.adminRollCheckBox.Name = "adminRollCheckBox";
+            this.adminRollCheckBox.Size = new System.Drawing.Size(73, 24);
+            this.adminRollCheckBox.TabIndex = 41;
+            this.adminRollCheckBox.Text = "Admin";
+            this.adminRollCheckBox.UseVisualStyleBackColor = true;
+            // 
             // loginPanel
             // 
             this.loginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
@@ -302,16 +315,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(985, 10);
             this.panel1.TabIndex = 40;
-            // 
-            // adminRollCheckBox
-            // 
-            this.adminRollCheckBox.AutoSize = true;
-            this.adminRollCheckBox.Location = new System.Drawing.Point(244, 17);
-            this.adminRollCheckBox.Name = "adminRollCheckBox";
-            this.adminRollCheckBox.Size = new System.Drawing.Size(73, 24);
-            this.adminRollCheckBox.TabIndex = 41;
-            this.adminRollCheckBox.Text = "Admin";
-            this.adminRollCheckBox.UseVisualStyleBackColor = true;
             // 
             // LoginReigsterGUI
             // 

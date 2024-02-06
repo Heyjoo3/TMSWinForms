@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Enumerations\PriorityEnum.cs" />
     <Compile Include="Model\UserManager.cs" />
     <Compile Include="Presenter\TicketPresenter.cs" />
     <Compile Include="Model\User.cs" />
@@ -69,10 +70,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\EditTicketForm.cs">
+    <Compile Include="View\BonusViews\EditTicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EditTicketForm.Designer.cs">
+    <Compile Include="View\BonusViews\EditTicketForm.Designer.cs">
       <DependentUpon>EditTicketForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\EditUserForm.cs">
@@ -87,10 +88,10 @@
     <Compile Include="View\NewTicketForm.Designer.cs">
       <DependentUpon>NewTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginGUI.cs">
+    <Compile Include="View\BonusViews\LoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LoginGUI.Designer.cs">
+    <Compile Include="View\BonusViews\LoginGUI.Designer.cs">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginReigsterGUI.cs">
@@ -99,10 +100,10 @@
     <Compile Include="View\LoginReigsterGUI.Designer.cs">
       <DependentUpon>LoginReigsterGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\RegisterGUI.cs">
+    <Compile Include="View\BonusViews\RegisterGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\RegisterGUI.Designer.cs">
+    <Compile Include="View\BonusViews\RegisterGUI.Designer.cs">
       <DependentUpon>RegisterGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TicketDetailsForm.cs">
@@ -149,13 +150,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditTicketForm.resx">
+    <EmbeddedResource Include="View\BonusViews\EditTicketForm.resx">
       <DependentUpon>EditTicketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LoginGUI.resx">
+    <EmbeddedResource Include="View\BonusViews\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginReigsterGUI.resx">
@@ -164,7 +165,7 @@
     <EmbeddedResource Include="View\NewTicketForm.resx">
       <DependentUpon>NewTicketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\RegisterGUI.resx">
+    <EmbeddedResource Include="View\BonusViews\RegisterGUI.resx">
       <DependentUpon>RegisterGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TicketDetailsForm.resx">
@@ -176,9 +177,6 @@
     <EmbeddedResource Include="View\TicketTile.resx">
       <DependentUpon>TicketTile.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MyApp\oldCode.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
