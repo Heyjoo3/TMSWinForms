@@ -88,6 +88,7 @@
             this.pageTitle.Size = new System.Drawing.Size(435, 37);
             this.pageTitle.TabIndex = 0;
             this.pageTitle.Text = "Ticket Management System";
+            this.pageTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // footer
             // 
@@ -277,10 +278,10 @@
             // 
             // panel4
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(984, 35);
+            this.panel4.Size = new System.Drawing.Size(984, 10);
             this.panel4.TabIndex = 7;
             // 
             // TicketGUI
@@ -294,7 +295,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TicketGUI";
-            this.Text = "Form1";
+            this.Text = "MainPage";
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             this.panel1.ResumeLayout(false);

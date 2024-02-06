@@ -36,7 +36,6 @@
             this.ticketTitleLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -130,15 +129,6 @@
             this.descriptionTextBox.TabIndex = 35;
             this.descriptionTextBox.Text = "";
             // 
-            // dateTextBox
-            // 
-            this.dateTextBox.BackColor = System.Drawing.Color.Lavender;
-            this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dateTextBox.Location = new System.Drawing.Point(161, 160);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(138, 13);
-            this.dateTextBox.TabIndex = 37;
-            // 
             // titleTextBox
             // 
             this.titleTextBox.BackColor = System.Drawing.Color.Lavender;
@@ -179,6 +169,7 @@
             // priorityComboBox
             // 
             this.priorityComboBox.BackColor = System.Drawing.Color.Lavender;
+            this.priorityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.priorityComboBox.FormattingEnabled = true;
             this.priorityComboBox.Items.AddRange(new object[] {
             "1 = High",
@@ -192,6 +183,7 @@
             // statusComboBox
             // 
             this.statusComboBox.BackColor = System.Drawing.Color.Lavender;
+            this.statusComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.statusComboBox.FormattingEnabled = true;
             this.statusComboBox.Items.AddRange(new object[] {
             "Unassigned",
@@ -205,6 +197,7 @@
             // assignedUserComboBox
             // 
             this.assignedUserComboBox.BackColor = System.Drawing.Color.Lavender;
+            this.assignedUserComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.assignedUserComboBox.FormattingEnabled = true;
             this.assignedUserComboBox.Location = new System.Drawing.Point(161, 126);
             this.assignedUserComboBox.Name = "assignedUserComboBox";
@@ -215,8 +208,11 @@
             // 
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.Lavender;
             this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.Lavender;
-            this.dateTimePicker.Location = new System.Drawing.Point(161, 208);
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Location = new System.Drawing.Point(161, 158);
+            this.dateTimePicker.MinDate = new System.DateTime(2024, 2, 6, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dateTimePicker.Size = new System.Drawing.Size(138, 20);
             this.dateTimePicker.TabIndex = 46;
             // 
@@ -234,7 +230,6 @@
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.dialogTitleLabel);
@@ -260,7 +255,6 @@
         private System.Windows.Forms.Label ticketTitleLabel;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
-        private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;

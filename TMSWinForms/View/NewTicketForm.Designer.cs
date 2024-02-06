@@ -35,7 +35,6 @@
             this.ticketTitleLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.dialogTitleLabel = new System.Windows.Forms.Label();
             this.saveNewTicketButton = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
@@ -44,9 +43,9 @@
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.userManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ticketTileBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
@@ -67,7 +66,7 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(13, 104);
+            this.dateLabel.Location = new System.Drawing.Point(14, 106);
             this.dateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(38, 17);
@@ -111,14 +110,6 @@
             this.titleTextBox.Size = new System.Drawing.Size(240, 16);
             this.titleTextBox.TabIndex = 11;
             // 
-            // dateTextBox
-            // 
-            this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dateTextBox.Location = new System.Drawing.Point(196, 104);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(240, 16);
-            this.dateTextBox.TabIndex = 13;
-            // 
             // dialogTitleLabel
             // 
             this.dialogTitleLabel.AutoSize = true;
@@ -154,6 +145,7 @@
             // 
             // priorityComboBox
             // 
+            this.priorityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.priorityComboBox.FormattingEnabled = true;
             this.priorityComboBox.Items.AddRange(new object[] {
             "1 = High",
@@ -182,11 +174,22 @@
             // 
             // assignedUserComboBox
             // 
+            this.assignedUserComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.assignedUserComboBox.FormattingEnabled = true;
             this.assignedUserComboBox.Location = new System.Drawing.Point(196, 72);
             this.assignedUserComboBox.Name = "assignedUserComboBox";
             this.assignedUserComboBox.Size = new System.Drawing.Size(240, 24);
             this.assignedUserComboBox.TabIndex = 20;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Enabled = false;
+            this.dateTimePicker.Location = new System.Drawing.Point(196, 101);
+            this.dateTimePicker.MinDate = new System.DateTime(2024, 2, 6, 0, 0, 0, 0);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
+            this.dateTimePicker.TabIndex = 21;
+            this.dateTimePicker.Value = new System.DateTime(2024, 2, 6, 11, 45, 54, 0);
             // 
             // userManagerBindingSource
             // 
@@ -195,14 +198,6 @@
             // ticketTileBindingSource
             // 
             this.ticketTileBindingSource.DataSource = typeof(TMSWinForms.View.TicketTile);
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(196, 153);
-            this.dateTimePicker.MinDate = new System.DateTime(2024, 2, 6, 0, 0, 0, 0);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
-            this.dateTimePicker.TabIndex = 21;
             // 
             // NewTicketForm
             // 
@@ -215,7 +210,6 @@
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.saveNewTicketButton);
             this.Controls.Add(this.dialogTitleLabel);
-            this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.priorityLabel);
@@ -244,7 +238,6 @@
         private System.Windows.Forms.Label ticketTitleLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.Label dialogTitleLabel;
         private System.Windows.Forms.Button saveNewTicketButton;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
