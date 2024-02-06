@@ -49,6 +49,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.showOnlyMyCheckBox = new System.Windows.Forms.CheckBox();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.footer.SuspendLayout();
@@ -150,6 +151,7 @@
             this.flowLayoutPanel1.Controls.Add(this.userListBox);
             this.flowLayoutPanel1.Controls.Add(this.editAccountButton);
             this.flowLayoutPanel1.Controls.Add(this.newTicketButton);
+            this.flowLayoutPanel1.Controls.Add(this.showOnlyMyCheckBox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -177,7 +179,7 @@
             this.userListBox.ItemHeight = 20;
             this.userListBox.Location = new System.Drawing.Point(3, 27);
             this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(197, 480);
+            this.userListBox.Size = new System.Drawing.Size(197, 420);
             this.userListBox.TabIndex = 2;
             // 
             // editAccountButton
@@ -188,7 +190,7 @@
             this.editAccountButton.FlatAppearance.BorderSize = 0;
             this.editAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editAccountButton.Location = new System.Drawing.Point(6, 513);
+            this.editAccountButton.Location = new System.Drawing.Point(6, 453);
             this.editAccountButton.Name = "editAccountButton";
             this.editAccountButton.Size = new System.Drawing.Size(191, 42);
             this.editAccountButton.TabIndex = 1;
@@ -204,7 +206,7 @@
             this.newTicketButton.FlatAppearance.BorderSize = 0;
             this.newTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newTicketButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newTicketButton.Location = new System.Drawing.Point(6, 561);
+            this.newTicketButton.Location = new System.Drawing.Point(6, 501);
             this.newTicketButton.Name = "newTicketButton";
             this.newTicketButton.Size = new System.Drawing.Size(191, 42);
             this.newTicketButton.TabIndex = 0;
@@ -325,6 +327,19 @@
             this.unassingedflowLayoutPanel.Size = new System.Drawing.Size(239, 579);
             this.unassingedflowLayoutPanel.TabIndex = 3;
             // 
+            // showOnlyMyCheckBox
+            // 
+            this.showOnlyMyCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.showOnlyMyCheckBox.AutoSize = true;
+            this.showOnlyMyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.showOnlyMyCheckBox.Location = new System.Drawing.Point(12, 549);
+            this.showOnlyMyCheckBox.Name = "showOnlyMyCheckBox";
+            this.showOnlyMyCheckBox.Size = new System.Drawing.Size(178, 24);
+            this.showOnlyMyCheckBox.TabIndex = 5;
+            this.showOnlyMyCheckBox.Text = "Only show my Tickets";
+            this.showOnlyMyCheckBox.UseVisualStyleBackColor = true;
+            this.showOnlyMyCheckBox.CheckedChanged += new System.EventHandler(this.showOnlyMyCheckBox_CheckedChanged);
+            // 
             // TicketGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -376,5 +391,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
+        private System.Windows.Forms.CheckBox showOnlyMyCheckBox;
     }
 }

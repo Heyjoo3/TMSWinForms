@@ -15,6 +15,9 @@ namespace TMSWinForms.View
 {
     public partial class TicketGUI : Form
     {
+
+        private bool showOnlyMyTickets = false;
+
         public TicketGUI()
         {
             InitializeComponent();
@@ -29,16 +32,19 @@ namespace TMSWinForms.View
 
         private void AddTicketTile()
         {
- 
-
             foreach (Ticket ticket in Program.ticketManager.Tickets)
             {
-               TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+                
 
+                TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
 
                 if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
                 {
                     unassingedflowLayoutPanel.Controls.Add(ticketTile);
+                }
+                else if (showOnlyMyTickets && ticket.AssignedUser != Program.userManager.CurrentUser.UserName)
+                {
+                    continue; // Skips
                 }
                 else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Assigned)
                 {
@@ -52,8 +58,6 @@ namespace TMSWinForms.View
                 {
                     throw new Exception("Invalid status");
                 }
-                
-
             }
         }
 
@@ -88,6 +92,15 @@ namespace TMSWinForms.View
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void showOnlyMyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            this.showOnlyMyTickets = showOnlyMyCheckBox.Checked;
+            unassingedflowLayoutPanel.Controls.Clear();
+            assignedflowLayoutPanel.Controls.Clear();
+            finishedflowLayoutPanel.Controls.Clear();
+            InitializeTaskTiles();
         }
     }
 }
