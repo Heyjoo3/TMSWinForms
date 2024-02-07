@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSWinForms", "TMSWinForms\TMSWinForms.csproj", "{246BE356-7535-4EDD-BE60-AFD8734ABC5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSLibrary", "TMSLibrary\TMSLibrary.csproj", "{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{246BE356-7535-4EDD-BE60-AFD8734ABC5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{246BE356-7535-4EDD-BE60-AFD8734ABC5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{246BE356-7535-4EDD-BE60-AFD8734ABC5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -37,11 +37,11 @@ namespace TMSWinForms.View
 
 
             this.assignedUserComboBox.DataSource = Program.userManager.Users;
-            this.assignedUserComboBox.ValueMember = "UserName";
-
+            //this.assignedUserComboBox.ValueMember = "UserName";
+            
             if (assignedPerson != "")
             {
-                this.assignedUserComboBox.SelectedItem = assignedPerson;
+                this.assignedUserComboBox.Text = assignedPerson;
             }
             else
             {

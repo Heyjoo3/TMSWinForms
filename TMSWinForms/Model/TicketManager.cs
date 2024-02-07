@@ -2,6 +2,8 @@
 using System.Linq;
 using TMSWinForms.Model;
 using TMSWinForms.Model.Enumerations;
+using System;
+using System.Collections;
 
 namespace TMSWinForms.Model
 {
@@ -9,6 +11,9 @@ namespace TMSWinForms.Model
     {
         // fields
         List<Ticket> tickets = new List<Ticket>();
+        List<Ticket> unassignedTickets = new List<Ticket>();
+        List<Ticket> assignedTickets = new List<Ticket>();
+        List<Ticket> finishedTickets = new List<Ticket>();
         private int ticketID = 0;
 
 
@@ -17,6 +22,24 @@ namespace TMSWinForms.Model
         {
             get { return tickets; }
             set { tickets = value; }
+        }
+
+        public List<Ticket> UnassignedTickets
+        {
+            get { return unassignedTickets; }
+            set { unassignedTickets = value; }
+        }
+
+        public List<Ticket> AssignedTickets
+        {
+            get { return assignedTickets; }
+            set { assignedTickets = value; }
+        }
+
+        public List<Ticket> FinishedTickets
+        {
+            get { return finishedTickets; }
+            set { finishedTickets = value; }
         }
 
         public int TicketID
@@ -36,8 +59,78 @@ namespace TMSWinForms.Model
         {
             Tickets.Add(ticket);
             TicketID++;
+            //if (ticket.TicketStatus == StatusEnum.Unassigned)
+            //{
+            //    UnassignedTickets.Add(ticket);
+            //}
+            //else if (ticket.TicketStatus == StatusEnum.Assigned)
+            //{
+            //    AssignedTickets.Add(ticket);
+            //}
+            //else if (ticket.TicketStatus == StatusEnum.Finished)
+            //{
+            //    FinishedTickets.Add(ticket);
+            //}
+
 
         }
+
+        public void AddTicketToSubList()
+        {
+            foreach (Ticket ticket in Tickets)
+            {
+                if (ticket.TicketStatus == StatusEnum.Unassigned)
+                {
+                    UnassignedTickets.Add(ticket);
+                }
+                else if (ticket.TicketStatus == StatusEnum.Assigned)
+                {
+                    AssignedTickets.Add(ticket);
+                }
+                else if (ticket.TicketStatus == StatusEnum.Finished)
+                {
+                    FinishedTickets.Add(ticket);
+                }
+                else
+                {
+                    throw new System.Exception("Invalid status");
+                }
+            }   
+        }
+
+        public void SortTickets(List<Ticket> ticketList, SortEnum sortCriteria)
+        {
+            if (sortCriteria == SortEnum.Date)
+            {
+                ticketList.Sort((t1, t2) => DateTime.Compare(DateTime.Parse(t1.TicketDueDate), DateTime.Parse(t2.TicketDueDate)));
+            }
+            else if (sortCriteria == SortEnum.Priority)
+            {
+                ticketList.Sort((t1, t2) => t1.TicketPriority.CompareTo(t2.TicketPriority));
+            }
+            else if (sortCriteria == SortEnum.Title)
+            {
+                ticketList.Sort((t1, t2) => string.Compare(t1.TicketName, t2.TicketName));
+            }
+            else
+            {
+                throw new System.Exception("Invalid sort criteria");
+            }
+        }
+
+        public List<Ticket> filterTickets(List<Ticket> TicketList)
+        {
+            List<Ticket> filteredList = new List<Ticket>();
+            foreach (Ticket ticket in TicketList)
+            {
+                if (ticket.AssignedUser == Program.userManager.CurrentUser.UserName)
+                {
+                    filteredList.Add(ticket);
+                }
+            }
+            return filteredList;
+        }
+        
 
         public Ticket GetTicketByID(int ticketID)
         {
@@ -192,22 +285,6 @@ namespace TMSWinForms.Model
         //    return finishedTickets;
         //}
 
-        public List<Ticket> SortByDate()
-        {
-            List<Ticket> sortedTickets = tickets.OrderBy(t => t.TicketDueDate).ToList();
-            return sortedTickets;
-        }
-
-        public List<Ticket> SortByPriority()
-        {
-            List<Ticket> sortedTickets = tickets.OrderBy(t => t.TicketPriority).ToList();
-            return sortedTickets;
-        }
-
-        public List<Ticket> SortbyTitle()
-        {
-            List<Ticket> sortedTickets = tickets.OrderBy(t => t.TicketName).ToList();
-            return sortedTickets;
-        }
+      
     }
 }

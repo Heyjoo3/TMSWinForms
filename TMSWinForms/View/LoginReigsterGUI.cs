@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TMSLibrary;
 using TMSWinForms.Model;
 
 namespace TMSWinForms.View
@@ -55,15 +56,40 @@ namespace TMSWinForms.View
         private void registerButton_Click(object sender, EventArgs e)
         {
 
-            if (IsValidRegistration())
+            if (this.registerNameTextBox.Text == "" || this.registerEmailTextBox.Text == "" || this.registerPasswordTextBox.Text == "" || this.repeatPasswordTextBox.Text == "")
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                MessageBox.Show("Please fill out all fields");
+            }
+            else if (this.registerPasswordTextBox.Text != this.repeatPasswordTextBox.Text)
+            {
+                MessageBox.Show("Passwords do not match");
             }
             else
             {
-                MessageBox.Show("Invalid Inputs. Please try again");
+                UserModel user = new UserModel();
+                user.Name = registerNameTextBox.Text;
+                user.Email = registerEmailTextBox.Text;
+                user.Password = registerPasswordTextBox.Text;
+                user.Roll = adminRollCheckBox.Checked ? "Admin" : "User";
+
+                SqliteDataAccess.SaveUser(user);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
+            
+
+
+
+
+            //if (IsValidRegistration())
+            //{
+            //    this.DialogResult = DialogResult.OK;
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Invalid Inputs. Please try again");
+            //}
         }
 
         private bool IsValidLogin()

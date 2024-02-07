@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TMSWinForms.Model.Enumerations    
+namespace TMSLibrary
 {
-    internal enum SortEnum
+    internal class Program
     {
-        Date,
-        Priority,
-        Title,
+        static void Main(string[] args)
+        {
+        }
     }
 }

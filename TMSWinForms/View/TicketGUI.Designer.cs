@@ -40,16 +40,16 @@
             this.userListBox = new System.Windows.Forms.ListBox();
             this.editAccountButton = new System.Windows.Forms.Button();
             this.newTicketButton = new System.Windows.Forms.Button();
+            this.showOnlyMyCheckBox = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.finishedLabel = new System.Windows.Forms.Label();
-            this.assingedLabel = new System.Windows.Forms.Label();
-            this.unassingedLabel = new System.Windows.Forms.Label();
-            this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.assignedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.assignedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.assingedLabel = new System.Windows.Forms.Label();
+            this.finishedLabel = new System.Windows.Forms.Label();
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.showOnlyMyCheckBox = new System.Windows.Forms.CheckBox();
+            this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.unassingedLabel = new System.Windows.Forms.Label();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.footer.SuspendLayout();
@@ -214,6 +214,19 @@
             this.newTicketButton.UseVisualStyleBackColor = false;
             this.newTicketButton.Click += new System.EventHandler(this.newTicketButton_Click);
             // 
+            // showOnlyMyCheckBox
+            // 
+            this.showOnlyMyCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.showOnlyMyCheckBox.AutoSize = true;
+            this.showOnlyMyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.showOnlyMyCheckBox.Location = new System.Drawing.Point(12, 549);
+            this.showOnlyMyCheckBox.Name = "showOnlyMyCheckBox";
+            this.showOnlyMyCheckBox.Size = new System.Drawing.Size(178, 24);
+            this.showOnlyMyCheckBox.TabIndex = 5;
+            this.showOnlyMyCheckBox.Text = "Only show my Tickets";
+            this.showOnlyMyCheckBox.UseVisualStyleBackColor = true;
+            this.showOnlyMyCheckBox.CheckedChanged += new System.EventHandler(this.showOnlyMyCheckBox_CheckedChanged);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel5);
@@ -223,66 +236,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(939, 609);
             this.panel2.TabIndex = 4;
-            // 
-            // finishedLabel
-            // 
-            this.finishedLabel.AutoSize = true;
-            this.finishedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.finishedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.finishedLabel.Location = new System.Drawing.Point(493, 0);
-            this.finishedLabel.Name = "finishedLabel";
-            this.finishedLabel.Size = new System.Drawing.Size(94, 20);
-            this.finishedLabel.TabIndex = 0;
-            this.finishedLabel.Text = "FINSIHED";
-            // 
-            // assingedLabel
-            // 
-            this.assingedLabel.AutoSize = true;
-            this.assingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.assingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.assingedLabel.Location = new System.Drawing.Point(248, 0);
-            this.assingedLabel.Name = "assingedLabel";
-            this.assingedLabel.Size = new System.Drawing.Size(102, 20);
-            this.assingedLabel.TabIndex = 6;
-            this.assingedLabel.Text = "ASSIGNED";
-            // 
-            // unassingedLabel
-            // 
-            this.unassingedLabel.AutoSize = true;
-            this.unassingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.unassingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.unassingedLabel.Location = new System.Drawing.Point(3, 0);
-            this.unassingedLabel.Name = "unassingedLabel";
-            this.unassingedLabel.Size = new System.Drawing.Size(127, 20);
-            this.unassingedLabel.TabIndex = 5;
-            this.unassingedLabel.Text = "UNASSIGNED";
-            this.unassingedLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // finishedflowLayoutPanel
-            // 
-            this.finishedflowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.finishedflowLayoutPanel.AutoScroll = true;
-            this.finishedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.finishedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.finishedflowLayoutPanel.Location = new System.Drawing.Point(493, 27);
-            this.finishedflowLayoutPanel.Name = "finishedflowLayoutPanel";
-            this.finishedflowLayoutPanel.Size = new System.Drawing.Size(240, 579);
-            this.finishedflowLayoutPanel.TabIndex = 4;
-            // 
-            // assignedflowLayoutPanel
-            // 
-            this.assignedflowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.assignedflowLayoutPanel.AutoScroll = true;
-            this.assignedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.assignedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.assignedflowLayoutPanel.Location = new System.Drawing.Point(248, 27);
-            this.assignedflowLayoutPanel.Name = "assignedflowLayoutPanel";
-            this.assignedflowLayoutPanel.Size = new System.Drawing.Size(239, 579);
-            this.assignedflowLayoutPanel.TabIndex = 4;
             // 
             // panel5
             // 
@@ -314,6 +267,41 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 609);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // assignedflowLayoutPanel
+            // 
+            this.assignedflowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.assignedflowLayoutPanel.AutoScroll = true;
+            this.assignedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.assignedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
+            this.assignedflowLayoutPanel.Location = new System.Drawing.Point(248, 27);
+            this.assignedflowLayoutPanel.Name = "assignedflowLayoutPanel";
+            this.assignedflowLayoutPanel.Size = new System.Drawing.Size(239, 579);
+            this.assignedflowLayoutPanel.TabIndex = 4;
+            // 
+            // assingedLabel
+            // 
+            this.assingedLabel.AutoSize = true;
+            this.assingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.assingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.assingedLabel.Location = new System.Drawing.Point(248, 0);
+            this.assingedLabel.Name = "assingedLabel";
+            this.assingedLabel.Size = new System.Drawing.Size(102, 20);
+            this.assingedLabel.TabIndex = 6;
+            this.assingedLabel.Text = "ASSIGNED";
+            // 
+            // finishedLabel
+            // 
+            this.finishedLabel.AutoSize = true;
+            this.finishedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.finishedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.finishedLabel.Location = new System.Drawing.Point(493, 0);
+            this.finishedLabel.Name = "finishedLabel";
+            this.finishedLabel.Size = new System.Drawing.Size(94, 20);
+            this.finishedLabel.TabIndex = 0;
+            this.finishedLabel.Text = "FINSIHED";
+            // 
             // unassingedflowLayoutPanel
             // 
             this.unassingedflowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -327,18 +315,30 @@
             this.unassingedflowLayoutPanel.Size = new System.Drawing.Size(239, 579);
             this.unassingedflowLayoutPanel.TabIndex = 3;
             // 
-            // showOnlyMyCheckBox
+            // finishedflowLayoutPanel
             // 
-            this.showOnlyMyCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.showOnlyMyCheckBox.AutoSize = true;
-            this.showOnlyMyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.showOnlyMyCheckBox.Location = new System.Drawing.Point(12, 549);
-            this.showOnlyMyCheckBox.Name = "showOnlyMyCheckBox";
-            this.showOnlyMyCheckBox.Size = new System.Drawing.Size(178, 24);
-            this.showOnlyMyCheckBox.TabIndex = 5;
-            this.showOnlyMyCheckBox.Text = "Only show my Tickets";
-            this.showOnlyMyCheckBox.UseVisualStyleBackColor = true;
-            this.showOnlyMyCheckBox.CheckedChanged += new System.EventHandler(this.showOnlyMyCheckBox_CheckedChanged);
+            this.finishedflowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.finishedflowLayoutPanel.AutoScroll = true;
+            this.finishedflowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.finishedflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
+            this.finishedflowLayoutPanel.Location = new System.Drawing.Point(493, 27);
+            this.finishedflowLayoutPanel.Name = "finishedflowLayoutPanel";
+            this.finishedflowLayoutPanel.Size = new System.Drawing.Size(240, 579);
+            this.finishedflowLayoutPanel.TabIndex = 4;
+            // 
+            // unassingedLabel
+            // 
+            this.unassingedLabel.AutoSize = true;
+            this.unassingedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.unassingedLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.unassingedLabel.Location = new System.Drawing.Point(3, 0);
+            this.unassingedLabel.Name = "unassingedLabel";
+            this.unassingedLabel.Size = new System.Drawing.Size(127, 20);
+            this.unassingedLabel.TabIndex = 5;
+            this.unassingedLabel.Text = "UNASSIGNED";
+            this.unassingedLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // TicketGUI
             // 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TMSLibrary;
 using TMSWinForms;
 using TMSWinForms.Model;
+using TMSWinForms.Model.Enumerations;
 //using TMSWinForms.Model.TicketManager ;
 
 namespace TMSWinForms.View
@@ -32,12 +35,59 @@ namespace TMSWinForms.View
 
         private void AddTicketTile()
         {
+            //unassingedflowLayoutPanel.Controls.Clear();
+            //assignedflowLayoutPanel.Controls.Clear();
+            //finishedflowLayoutPanel.Controls.Clear();
+
+            //if (showOnlyMyTickets)
+            //{
+            //    foreach (Ticket ticket in Program.ticketManager.UnassignedTickets)
+            //    {
+            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //        unassingedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+
+            //    List<Ticket> tempAssigned = Program.ticketManager.AssignedTickets.Where(x => x.AssignedUser == Program.userManager.CurrentUser.UserName).ToList();
+            //    foreach (Ticket ticket in tempAssigned)
+            //    {
+            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //        assignedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+
+            //    List<Ticket> tempFinished = Program.ticketManager.FinishedTickets.Where(x => x.AssignedUser == Program.userManager.CurrentUser.UserName).ToList();
+            //    foreach (Ticket ticket in tempFinished)
+            //    {
+            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //        finishedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (Ticket ticket in Program.ticketManager.UnassignedTickets)
+            //    {
+            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //        unassingedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+
+            //    foreach (Ticket ticket in Program.ticketManager.AssignedTickets)
+            //    {
+            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //        assignedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+
+            //    foreach (Ticket ticket in Program.ticketManager.FinishedTickets)
+            //    {
+            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //        finishedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+            //}
+
+
+
+
             foreach (Ticket ticket in Program.ticketManager.Tickets)
             {
-                
-
                 TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-
                 if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
                 {
                     unassingedflowLayoutPanel.Controls.Add(ticketTile);
@@ -64,10 +114,21 @@ namespace TMSWinForms.View
         private void AddUser()
         {
 
-            foreach (User user in Program.userManager.Users)
+            List <UserModel> users = new List<UserModel>();
+
+            users = SqliteDataAccess.LoadUsers();
+
+            foreach (UserModel user in users)
             {
-                userListBox.Items.Add(user.UserName);
+                userListBox.Items.Add(user.Name);
             }
+
+
+
+            //foreach (User user in Program.userManager.Users)
+            //{
+            //    userListBox.Items.Add(user.UserName);
+            //}
         }
 
         private void newUserButton_Click(object sender, EventArgs e)
