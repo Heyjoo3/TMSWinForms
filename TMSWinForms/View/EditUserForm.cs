@@ -54,10 +54,13 @@ namespace TMSWinForms.View
             else
             {
                 MessageBox.Show("Passwords do not match");
-            }
-            
-            
-            
+            } 
+        }
+        private void deleteAccountButton_Click(object sender, EventArgs e)
+        {
+            Program.userManager.RemoveUser(Program.userManager.CurrentUser.UserID);
+            this.Close();
+
         }
     }
 }
