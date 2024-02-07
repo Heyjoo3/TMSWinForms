@@ -59,5 +59,12 @@ namespace TMSWinForms.View
             
             
         }
+
+        private void deleteAccountButton_Click(object sender, EventArgs e)
+        {
+            Program.userManager.RemoveUser(Program.userManager.CurrentUser.UserID);
+            this.Close();
+            
+        }
     }
 }

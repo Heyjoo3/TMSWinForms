@@ -40,16 +40,16 @@
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.priorityComboBox = new System.Windows.Forms.ComboBox();
             this.usersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.userManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.userManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ticketTileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketTileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +162,10 @@
             this.usersBindingSource2.DataMember = "Users";
             this.usersBindingSource2.DataSource = this.userManagerBindingSource;
             // 
+            // userManagerBindingSource
+            // 
+            this.userManagerBindingSource.DataSource = typeof(TMSWinForms.Model.UserManager);
+            // 
             // usersBindingSource
             // 
             this.usersBindingSource.DataMember = "Users";
@@ -181,23 +185,20 @@
             this.assignedUserComboBox.Size = new System.Drawing.Size(240, 24);
             this.assignedUserComboBox.TabIndex = 20;
             // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Enabled = false;
-            this.dateTimePicker.Location = new System.Drawing.Point(196, 101);
-            this.dateTimePicker.MinDate = new System.DateTime(2024, 2, 6, 0, 0, 0, 0);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
-            this.dateTimePicker.TabIndex = 21;
-            this.dateTimePicker.Value = new System.DateTime(2024, 2, 6, 11, 45, 54, 0);
-            // 
-            // userManagerBindingSource
-            // 
-            this.userManagerBindingSource.DataSource = typeof(TMSWinForms.Model.UserManager);
-            // 
             // ticketTileBindingSource
             // 
             this.ticketTileBindingSource.DataSource = typeof(TMSWinForms.View.TicketTile);
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.Lavender;
+            this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.Lavender;
+            this.dateTimePicker.Location = new System.Drawing.Point(196, 101);
+            this.dateTimePicker.MinDate = new System.DateTime(2024, 2, 6, 0, 0, 0, 0);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
+            this.dateTimePicker.TabIndex = 47;
             // 
             // NewTicketForm
             // 
@@ -221,9 +222,9 @@
             this.Name = "NewTicketForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketTileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

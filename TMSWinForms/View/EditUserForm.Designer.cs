@@ -125,6 +125,7 @@
             this.deleteAccountButton.TabIndex = 6;
             this.deleteAccountButton.Text = "Delete Account";
             this.deleteAccountButton.UseVisualStyleBackColor = false;
+            this.deleteAccountButton.Click += new System.EventHandler(this.deleteAccountButton_Click);
             // 
             // emailTextBox
             // 

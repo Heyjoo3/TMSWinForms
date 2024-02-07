@@ -90,8 +90,6 @@
   <ItemGroup>
     <Compile Include="Model\Enumerations\PriorityEnum.cs" />
     <Compile Include="Model\UserManager.cs" />
-    <Compile Include="MyApp\TMSDatabase.cs" />
-    <Compile Include="Presenter\TicketPresenter.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Enumerations\SortEnum.cs" />
     <Compile Include="Model\Enumerations\StatusEnum.cs" />

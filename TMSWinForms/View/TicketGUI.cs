@@ -114,21 +114,10 @@ namespace TMSWinForms.View
         private void AddUser()
         {
 
-            List <UserModel> users = new List<UserModel>();
-
-            users = SqliteDataAccess.LoadUsers();
-
-            foreach (UserModel user in users)
+            foreach (User user in Program.userManager.Users)
             {
-                userListBox.Items.Add(user.Name);
+                userListBox.Items.Add(user.UserName);
             }
-
-
-
-            //foreach (User user in Program.userManager.Users)
-            //{
-            //    userListBox.Items.Add(user.UserName);
-            //}
         }
 
         private void newUserButton_Click(object sender, EventArgs e)
