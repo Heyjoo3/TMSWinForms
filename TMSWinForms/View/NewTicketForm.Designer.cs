@@ -189,7 +189,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
             this.dateTimePicker.TabIndex = 21;
-            this.dateTimePicker.Value = new System.DateTime(2024, 2, 6, 11, 45, 54, 0);
+            this.dateTimePicker.Value = new System.DateTime(2024, 2, 28, 0, 0, 0, 0);
             // 
             // userManagerBindingSource
             // 

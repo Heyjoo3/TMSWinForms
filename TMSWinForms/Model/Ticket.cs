@@ -107,14 +107,5 @@ namespace TMSWinForms.Model
 
             ticketID++;
         }
-
-        
-
-        // methods
-        public override string ToString()
-        {
-            return ticketName;
-        }
-
     }
 }

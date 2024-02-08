@@ -101,7 +101,7 @@ namespace TMSLibrary
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("insert into TicketTable (Title, Description, Status, Priority, DueDate, AssignedUserID, AssignedUserName) values (@Title, @Description, @Status, @Priority, @DueDate, @AssignedUserID, @AssignedUserName)", ticket);
+                cnn.Execute("insert into TicketTable (Title, Description, Status, Priority, DueDate, AssignedUserId, AssignedUserName) values (@Title, @Description, @Status, @Priority, @DueDate, @AssignedUserId, @AssignedUserName)", ticket);
             }
         }
 

@@ -9,9 +9,10 @@ namespace TMSWinForms.Model
 {
     public class ManageStates
     {
-      //fields 
-
-    private UserModel loggedUser;
+        //fields 
+        private UserModel loggedUser;
+        private List<UserModel> allUsers;
+        private List<TicketModel> allTickets;
 
         //properties
         public UserModel LoggedUser
@@ -20,13 +21,35 @@ namespace TMSWinForms.Model
             set { loggedUser = value; }
         }
 
-     //constructor
+            public List<UserModel> AllUsers
+        {
+            get { return allUsers; }
+            set { allUsers = value; }
+        }
+
+        public List<TicketModel> AllTickets
+        {
+            get { return allTickets; }
+            set { allTickets = value; }
+        }
+
+        //constructor
         public ManageStates()
         {
             loggedUser = new UserModel();
+            allUsers = new List<UserModel>();
+            allTickets = new List<TicketModel>();
         }
 
-        
+        //methods
+        public void GetAllUsers()
+        {
+            allUsers = SqliteDataAccess.LoadUsers();
+        }
 
+        public void GetAllTickets()
+        {
+            allTickets = SqliteDataAccess.LoadTickets();
+        }
     }
 }

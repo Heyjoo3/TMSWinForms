@@ -35,72 +35,24 @@ namespace TMSWinForms.View
 
         private void AddTicketTile()
         {
-            //unassingedflowLayoutPanel.Controls.Clear();
-            //assignedflowLayoutPanel.Controls.Clear();
-            //finishedflowLayoutPanel.Controls.Clear();
-
-            //if (showOnlyMyTickets)
-            //{
-            //    foreach (Ticket ticket in Program.ticketManager.UnassignedTickets)
-            //    {
-            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //        unassingedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-
-            //    List<Ticket> tempAssigned = Program.ticketManager.AssignedTickets.Where(x => x.AssignedUser == Program.userManager.CurrentUser.UserName).ToList();
-            //    foreach (Ticket ticket in tempAssigned)
-            //    {
-            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //        assignedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-
-            //    List<Ticket> tempFinished = Program.ticketManager.FinishedTickets.Where(x => x.AssignedUser == Program.userManager.CurrentUser.UserName).ToList();
-            //    foreach (Ticket ticket in tempFinished)
-            //    {
-            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //        finishedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-            //}
-            //else
-            //{
-            //    foreach (Ticket ticket in Program.ticketManager.UnassignedTickets)
-            //    {
-            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //        unassingedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-
-            //    foreach (Ticket ticket in Program.ticketManager.AssignedTickets)
-            //    {
-            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //        assignedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-
-            //    foreach (Ticket ticket in Program.ticketManager.FinishedTickets)
-            //    {
-            //        TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //        finishedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-            //}
-
-
-
-
-            foreach (Ticket ticket in Program.ticketManager.Tickets)
+            Program.manageStates.GetAllTickets();
+            foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
-                TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-                if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
+                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserId.ToString(), ticket.DueDate, ticket.Priority.ToString(), ticket.Id, ticket.Status.ToString());
+
+                if (ticket.Status == StatusEnum.Unassigned.ToString())
                 {
                     unassingedflowLayoutPanel.Controls.Add(ticketTile);
                 }
-                else if (showOnlyMyTickets && ticket.AssignedUser != Program.userManager.CurrentUser.UserName)
+                else if (showOnlyMyTickets && ticket.AssignedUserId != Program.manageStates.LoggedUser.Id)
                 {
                     continue; // Skips
                 }
-                else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Assigned)
+                else if (ticket.Status == StatusEnum.Assigned.ToString())
                 {
                     assignedflowLayoutPanel.Controls.Add(ticketTile);
                 }
-                else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Finished)
+                else if (ticket.Status == StatusEnum.Finished.ToString())
                 {
                     finishedflowLayoutPanel.Controls.Add(ticketTile);
                 }
@@ -109,6 +61,31 @@ namespace TMSWinForms.View
                     throw new Exception("Invalid status");
                 }
             }
+           
+            //foreach (Ticket ticket in Program.ticketManager.Tickets)
+            //{
+            //    TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
+            //    if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
+            //    {
+            //        unassingedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+            //    else if (showOnlyMyTickets && ticket.AssignedUser != Program.userManager.CurrentUser.UserName)
+            //    {
+            //        continue; // Skips
+            //    }
+            //    else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Assigned)
+            //    {
+            //        assignedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+            //    else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Finished)
+            //    {
+            //        finishedflowLayoutPanel.Controls.Add(ticketTile);
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("Invalid status");
+            //    }
+            //}
         }
 
         private void AddUser()
