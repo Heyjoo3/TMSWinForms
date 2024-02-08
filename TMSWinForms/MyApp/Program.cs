@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TMSWinForms.Model;
-using TMSWinForms.MyApp;
+//using TMSWinForms.MyApp;
 using TMSWinForms.View;
 using static DevExpress.XtraEditors.Mask.MaskSettings;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
