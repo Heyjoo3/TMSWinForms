@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMSLibrary;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace TMSWinForms.Model
 {
@@ -50,6 +51,18 @@ namespace TMSWinForms.Model
         public void GetAllTickets()
         {
             allTickets = SqliteDataAccess.LoadTickets();
+        }
+
+        public TicketModel GetTicketById(int id)
+        {
+            foreach (TicketModel t in allTickets)
+            {
+                if (t.Id == id)
+                {
+                    return t;
+                }
+            }
+            return null;
         }
     }
 }

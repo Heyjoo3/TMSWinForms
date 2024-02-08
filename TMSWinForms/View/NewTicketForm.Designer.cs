@@ -43,9 +43,9 @@
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.userManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ticketTileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
@@ -181,16 +181,6 @@
             this.assignedUserComboBox.Size = new System.Drawing.Size(240, 24);
             this.assignedUserComboBox.TabIndex = 20;
             // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Enabled = false;
-            this.dateTimePicker.Location = new System.Drawing.Point(196, 101);
-            this.dateTimePicker.MinDate = new System.DateTime(2024, 2, 6, 0, 0, 0, 0);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
-            this.dateTimePicker.TabIndex = 21;
-            this.dateTimePicker.Value = new System.DateTime(2024, 2, 28, 0, 0, 0, 0);
-            // 
             // userManagerBindingSource
             // 
             this.userManagerBindingSource.DataSource = typeof(TMSWinForms.Model.UserManager);
@@ -198,6 +188,13 @@
             // ticketTileBindingSource
             // 
             this.ticketTileBindingSource.DataSource = typeof(TMSWinForms.View.TicketTile);
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(196, 101);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(240, 23);
+            this.dateTimePicker.TabIndex = 21;
             // 
             // NewTicketForm
             // 

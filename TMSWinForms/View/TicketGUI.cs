@@ -38,7 +38,7 @@ namespace TMSWinForms.View
             Program.manageStates.GetAllTickets();
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
-                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserId.ToString(), ticket.DueDate, ticket.Priority.ToString(), ticket.Id, ticket.Status.ToString());
+                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority.ToString(), ticket.Id, ticket.Status.ToString());
 
                 if (ticket.Status == StatusEnum.Unassigned.ToString())
                 {

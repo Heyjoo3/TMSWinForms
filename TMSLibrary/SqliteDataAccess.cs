@@ -109,7 +109,7 @@ namespace TMSLibrary
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("update TicketTable set Title = @Title, Description = @Description, Status = @Status, Priority = @Priority, DueDate = @DueDate, AssignedUserID = @AssignedUserID, AssignedUserName = @AssignedUserName where Id = @Id", ticket);
+                cnn.Execute("update TicketTable set Title = @Title, Description = @Description, Status = @Status, Priority = @Priority, DueDate = @DueDate, AssignedUserId = @AssignedUserId, AssignedUserName = @AssignedUserName where Id = @Id", ticket);
             }
         }
 
@@ -121,15 +121,15 @@ namespace TMSLibrary
             }
         }
 
-        public static void AssignTicket(int ticketId, int userId, string userName)
+        public static void ChangeAssignedUser(int ticketId, int userId, string userName)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("update TicketTable set AssignedUserID = @AssignedUserID, AssignedUserName = @AssignedUserName where Id = @Id", new { AssignedUserID = userId, AssignedUserName = userName, Id = ticketId });
+                cnn.Execute("update TicketTable set AssignedUserId = @AssignedUserId, AssignedUserName = @AssignedUserName where Id = @Id", new { AssignedUserId = userId, AssignedUserName = userName, Id = ticketId });
             }
         }
 
-        public static void ChangeTicketStatus(int ticketId, int status)
+        public static void ChangeTicketStatus(int ticketId, string status)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
