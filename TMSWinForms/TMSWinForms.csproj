@@ -90,14 +90,12 @@
   <ItemGroup>
     <Compile Include="Model\Enumerations\PriorityEnum.cs" />
     <Compile Include="Model\ManageStates.cs" />
-    <Compile Include="Model\UserManager.cs" />
-    <Compile Include="MyApp\TMSDatabase.cs" />
-    <Compile Include="Presenter\TicketPresenter.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\preSQL\UserManager.cs" />
+    <Compile Include="Model\preSQL\User.cs" />
     <Compile Include="Model\Enumerations\SortEnum.cs" />
     <Compile Include="Model\Enumerations\StatusEnum.cs" />
-    <Compile Include="Model\Ticket.cs" />
-    <Compile Include="Model\TicketManager.cs" />
+    <Compile Include="Model\preSQL\Ticket.cs" />
+    <Compile Include="Model\preSQL\TicketManager.cs" />
     <Compile Include="MyApp\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

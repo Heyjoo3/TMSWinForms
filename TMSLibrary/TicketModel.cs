@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TMSLibrary
+﻿namespace TMSLibrary
 {
+    using System.Collections.Generic;
     public class TicketModel
     {
 
@@ -105,7 +100,6 @@ namespace TMSLibrary
             else
             {
                 this.Status = "Assigned";
-               
             }
 
             List<UserModel> users = SqliteDataAccess.LoadUsers();

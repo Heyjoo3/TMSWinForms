@@ -1,18 +1,8 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TMSLibrary;
-using TMSWinForms;
-using TMSWinForms.Model;
 using TMSWinForms.Model.Enumerations;
-//using TMSWinForms.Model.TicketManager ;
 
 namespace TMSWinForms.View
 {
@@ -61,31 +51,6 @@ namespace TMSWinForms.View
                     throw new Exception("Invalid status");
                 }
             }
-           
-            //foreach (Ticket ticket in Program.ticketManager.Tickets)
-            //{
-            //    TicketTile ticketTile = new TicketTile(ticket.TicketName, ticket.AssignedUser, ticket.TicketDueDate, ticket.TicketPriority.ToString(), ticket.TicketID, ticket.TicketStatus.ToString());
-            //    if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Unassigned)
-            //    {
-            //        unassingedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-            //    else if (showOnlyMyTickets && ticket.AssignedUser != Program.userManager.CurrentUser.UserName)
-            //    {
-            //        continue; // Skips
-            //    }
-            //    else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Assigned)
-            //    {
-            //        assignedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-            //    else if (ticket.TicketStatus == Model.Enumerations.StatusEnum.Finished)
-            //    {
-            //        finishedflowLayoutPanel.Controls.Add(ticketTile);
-            //    }
-            //    else
-            //    {
-            //        throw new Exception("Invalid status");
-            //    }
-            //}
         }
 
         private void AddUser()
@@ -99,19 +64,14 @@ namespace TMSWinForms.View
             {
                 userListBox.Items.Add(user.Name);
             }
-
-
-
-            //foreach (User user in Program.userManager.Users)
-            //{
-            //    userListBox.Items.Add(user.UserName);
-            //}
         }
 
         private void newUserButton_Click(object sender, EventArgs e)
         {
             EditUserForm editUserForm = new EditUserForm();
             editUserForm.ShowDialog();
+            this.userListBox.Items.Clear();
+            AddUser();
         }
 
         private void newTicketButton_Click(object sender, EventArgs e)

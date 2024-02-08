@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TMSWinForms.Model;
-using TMSWinForms.Model.Enumerations;
-using TMSWinForms;
-using TMSLibrary;
-
-namespace TMSWinForms.View
+﻿namespace TMSWinForms.View
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using TMSWinForms.Model.Enumerations;
+    using TMSLibrary;
+
     public partial class NewTicketForm : Form
     {
         public NewTicketForm()
         {
             InitializeComponent();
-            //this.assignedUserComboBox.DataSource = Program.userManager.Users;
-            //this.assignedUserComboBox.DisplayMember = "UserName";
-            //this.assignedUserComboBox.ValueMember = "UserName";
-            //this.assignedUserComboBox.SelectedItem = null;
+
             List<UserModel> users = SqliteDataAccess.LoadUsers();
 
             this.assignedUserComboBox.DataSource =users;
@@ -43,7 +32,6 @@ namespace TMSWinForms.View
             string date = this.dateTimePicker.Value.ToString("dd/MM/yyyy");
             string priority = this.priorityComboBox.SelectedItem.ToString();
  
-            //PriorityEnum priority = (PriorityEnum)this.priorityComboBox.SelectedItem;
 
                 if (title == "")
                 {
@@ -51,17 +39,11 @@ namespace TMSWinForms.View
                 }
                 else
                 {
-                    //Ticket newTicket = new Ticket(assignedUser, title, description, priority, date);
-                    //Program.ticketManager.AddTicket(newTicket);
-                    //this.DialogResult = DialogResult.OK;
-                    //this.Close();
-
-                TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName);
-                SqliteDataAccess.SaveTicket(newTicket);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName);
+                    SqliteDataAccess.SaveTicket(newTicket);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
-
         }
     }
 }

@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TMSWinForms.Model;
-using TMSWinForms;
-using TMSWinForms.Model.Enumerations;
-
-
-
-namespace TMSWinForms.View
+﻿namespace TMSWinForms.View
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using TMSWinForms.Model.Enumerations;
+    using TMSLibrary;
+
     public partial class TicketDetailsForm : Form
     {   
         //fields
@@ -33,46 +24,44 @@ namespace TMSWinForms.View
         {
             InitializeComponent();
             this.TicketID = ticketID;
-            Ticket tempTicket = Program.ticketManager.GetTicketByID(ticketID);
+            TicketModel tempTicket = Program.manageStates.GetTicketById(TicketID);
 
-            titleTextBox.Text = tempTicket.TicketName;
-            assignedUserComboBox.Text = tempTicket.AssignedUser;
-            dateTimePicker.Value = DateTime.Parse(tempTicket.TicketDueDate);
-            descriptionTextBox.Text = tempTicket.TicketDescription;
-
-
-            statusComboBox.Text = tempTicket.TicketStatus.ToString();
-            priorityComboBox.Text = tempTicket.TicketPriority.ToString();
+            titleTextBox.Text = tempTicket.Title;
+            assignedUserComboBox.Text = tempTicket.AssignedUserName;
+            dateTimePicker.Value = DateTime.Parse(tempTicket.DueDate);
+            descriptionTextBox.Text = tempTicket.Description;
+            statusComboBox.Text = tempTicket.Status;
+            priorityComboBox.Text = tempTicket.Priority;
 
             this.priorityComboBox.DataSource = Enum.GetValues(typeof(PriorityEnum));
-            this.priorityComboBox.SelectedItem = tempTicket.TicketPriority;
+            this.priorityComboBox.SelectedItem = tempTicket.Priority;
 
-            this.assignedUserComboBox.DataSource = Program.userManager.Users;
-            this.assignedUserComboBox.DisplayMember = "UserName";
-            this.assignedUserComboBox.ValueMember = "UserName";
+            List<UserModel> allUsers = SqliteDataAccess.LoadUsers();
 
-            if (tempTicket.AssignedUser != "")
+            this.assignedUserComboBox.DataSource = allUsers;
+            this.assignedUserComboBox.DisplayMember = "Name";
+            this.assignedUserComboBox.ValueMember = "Name";
+
+            if (tempTicket.AssignedUserName != "")
             {
-                this.assignedUserComboBox.SelectedItem = tempTicket.AssignedUser;
+                this.assignedUserComboBox.SelectedItem = tempTicket.AssignedUserName;
+                this.assignedUserComboBox.Text = tempTicket.AssignedUserName;
             }
             else
             {
                 this.assignedUserComboBox.SelectedItem = null;
             }
-            
-
         }
         
         //methods
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            Program.ticketManager.DeleteTicket(ticketID);
+            SqliteDataAccess.DeleteTicket(TicketID);
             Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
             Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
             Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
             Program.ticketForm.InitializeTaskTiles();
             this.Close();
-
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -91,21 +80,14 @@ namespace TMSWinForms.View
                 status = "Assigned";
             }
 
-            Program.ticketManager.EditTicket(ticketID,title, description, status, priority, date, assignedUser);
+            SqliteDataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, 0, assignedUser));
 
-           
             Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
             Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
             Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
             Program.ticketForm.InitializeTaskTiles();
 
-            
-
             this.Close();
-
-
         }
-
-        
     }
 }

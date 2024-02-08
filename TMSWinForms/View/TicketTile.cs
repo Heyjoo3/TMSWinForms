@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TMSLibrary;
-
-namespace TMSWinForms.View
+﻿namespace TMSWinForms.View
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using TMSLibrary;
     public partial class TicketTile : UserControl
     {
         public TicketTile()
@@ -36,10 +29,6 @@ namespace TMSWinForms.View
             this.ticketIDLabel.Text = ticketID.ToString();
             this.StatusComboBox.Text = status;
            
-
-
-            //this.assignedUserComboBox.DataSource = Program.userManager.Users;
-
             List<UserModel> users = SqliteDataAccess.LoadUsers();
             this.assignedUserComboBox.DataSource = users;
             this.assignedUserComboBox.DisplayMember = "Name";
@@ -66,12 +55,10 @@ namespace TMSWinForms.View
                 case "Unassigned":
                     if (assignedUserComboBox.Text.Trim() != "" && currentStatus == "Unassigned")
                     {
-                        //ChangeStatusAndAssignedUser(Model.Enumerations.StatusEnum.Assigned, assignedUserComboBox.Text);
                         ChangeStatusAndAssignedUser("Assigned", assignedUserComboBox.Text);
                     }
                     else
                     {
-                        //ChangeStatusAndAssignedUser(Model.Enumerations.StatusEnum.Unassigned, "");
                         ChangeStatusAndAssignedUser("Unassigned", "");
                     }
                     break;
@@ -79,18 +66,15 @@ namespace TMSWinForms.View
                 case "Assigned":
                     if (assignedUserComboBox.Text.Trim() != "")
                     {
-                        //ChangeStatusAndAssignedUser(Model.Enumerations.StatusEnum.Assigned, assignedUserComboBox.Text);
                         ChangeStatusAndAssignedUser("Assigned", assignedUserComboBox.Text);
                     }
                     else
                     {
-                        //ChangeStatusAndAssignedUser(Model.Enumerations.StatusEnum.Unassigned, "");
                         ChangeStatusAndAssignedUser("Unassigned", "");
                     }
                     break;
 
                 case "Finished":
-                    //Program.ticketManager.ChangeStatus(TicketID, Model.Enumerations.StatusEnum.Finished);
                         SqliteDataAccess.ChangeTicketStatus(TicketID, "Finished");
                     break;
             }
@@ -108,11 +92,6 @@ namespace TMSWinForms.View
             ticketDetailsForm.ShowDialog();
             
         }
-        //private void ChangeStatusAndAssignedUser(Model.Enumerations.StatusEnum status, string assignedUser)
-        //{
-        //    Program.ticketManager.ChangeStatus(TicketID, status);
-        //    Program.ticketManager.ChangeAssigendUser(TicketID, assignedUser);
-        //}
 
         private void ChangeStatusAndAssignedUser(string status, string assignedUserName)
 
@@ -133,10 +112,6 @@ namespace TMSWinForms.View
                     SqliteDataAccess.ChangeAssignedUser(TicketID, 0, "");
                 }
             }
-            
-
-            //SqliteDataAccess.ChangeTicketStatus(TicketID, status);
-            //SqliteDataAccess.ChangeAssignedUser(TicketID, assignedUserId, assignedUserName);
         }
     }
 }
