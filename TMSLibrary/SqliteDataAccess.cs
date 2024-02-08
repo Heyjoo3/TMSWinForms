@@ -28,11 +28,45 @@ namespace TMSLibrary
             }
         }
 
-        public static void SaveUser(UserModel user) 
+        public static bool CheckUser(string email, string password)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
+                var output = cnn.Query<UserModel>("select * from UserTable where Email = @Email and Password = @Password", new { Email = email, Password = password });
+                if (output.Count() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static UserModel GetUser(string email, string password)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.QueryFirstOrDefault<UserModel>("select * from UserTable where Email = @Email and Password = @Password", new { Email = email, Password = password });
+                return output;
+            }
+        }
+
+        public static bool SaveUser(UserModel user)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+           
+                var existingUser = cnn.QueryFirstOrDefault<UserModel>("select * from UserTable where Email = @Email", new { Email = user.Email });
+                if (existingUser != null)
+                {
+                    //throw new Exception("Email already exists");
+                    return false;
+                }
+
                 cnn.Execute("insert into UserTable (Name, Email, Password, Roll) values (@Name, @Email, @Password, @Roll)", user);
+                return true;
             }
         }
 
@@ -51,6 +85,8 @@ namespace TMSLibrary
                 cnn.Execute("delete from UserTable where Id = @Id", new { Id = id });
             }
         }
+
+
 
         public static List<TicketModel> LoadTickets()
         {

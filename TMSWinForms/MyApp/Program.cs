@@ -19,6 +19,7 @@ namespace TMSWinForms
         internal static TicketManager ticketManager;
         internal static TicketGUI ticketForm;
         internal static UserManager userManager;
+        internal static ManageStates manageStates;
 
        
 
@@ -27,6 +28,7 @@ namespace TMSWinForms
             // Initialize the ticketManager variable
             ticketManager = new TicketManager();
             userManager = new UserManager();
+            manageStates = new ManageStates();
 
             User user = new User("name", "email", "password", "roll");
             userManager.AddUser(user);

@@ -83,7 +83,7 @@
             this.changePasswordLabel.Size = new System.Drawing.Size(69, 17);
             this.changePasswordLabel.TabIndex = 3;
             this.changePasswordLabel.Text = "Password";
-            this.changePasswordLabel.Click += new System.EventHandler(this.changePasswordLabel_Click);
+
             // 
             // oldPasswordLabel
             // 

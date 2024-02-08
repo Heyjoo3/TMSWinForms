@@ -42,5 +42,24 @@ namespace TMSLibrary
             get { return userRoll; }
             set { userRoll = value; }
         }
+
+        // constructor
+        public UserModel()
+        {
+            userID = 0;
+            userName = "";
+            userEmail = "";
+            userPassword = "";
+            userRoll = "";
+        }
+
+        public UserModel(string name, string email, string password, string roll)
+        {
+            userID = 0;
+            userName = name;
+            userEmail = email;
+            userPassword = password;
+            userRoll = roll;
+        }
     }
 }
