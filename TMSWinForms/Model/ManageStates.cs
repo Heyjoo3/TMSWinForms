@@ -40,7 +40,7 @@ namespace TMSWinForms.Model
             loggedUser = new UserModel();
             //allUsers = new List<UserModel>();
             //allTickets = new List<TicketModel>();
-            allTickets = SqliteDataAccess.LoadTickets();
+            allTickets = SqliteDataAccess.GetTicketsAndUserNames();
             allUsers = SqliteDataAccess.LoadUsers();
         }
 
@@ -52,7 +52,9 @@ namespace TMSWinForms.Model
 
         public void UpdateAllTickets()
         {
-            allTickets = SqliteDataAccess.LoadTickets();
+            //allTickets = SqliteDataAccess.LoadTickets();
+            allTickets = SqliteDataAccess.GetTicketsAndUserNames();
+
         }
 
         public void UpdateAll()

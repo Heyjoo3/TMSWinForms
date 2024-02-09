@@ -50,6 +50,7 @@
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.unassingedLabel = new System.Windows.Forms.Label();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.footer.SuspendLayout();
@@ -107,6 +108,7 @@
             // footer
             // 
             this.footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.footer.Controls.Add(this.refreshButton);
             this.footer.Controls.Add(this.panel3);
             this.footer.Controls.Add(this.logoutButton);
             this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -340,6 +342,22 @@
             this.unassingedLabel.Text = "UNASSIGNED";
             this.unassingedLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.refreshButton.FlatAppearance.BorderSize = 0;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refreshButton.Location = new System.Drawing.Point(773, 28);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(74, 32);
+            this.refreshButton.TabIndex = 43;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // TicketGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -392,5 +410,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
         private System.Windows.Forms.CheckBox showOnlyMyCheckBox;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

@@ -180,10 +180,7 @@
             this.assignedUserComboBox.Name = "assignedUserComboBox";
             this.assignedUserComboBox.Size = new System.Drawing.Size(240, 24);
             this.assignedUserComboBox.TabIndex = 20;
-            // 
-            // userManagerBindingSource
-            // 
-            this.userManagerBindingSource.DataSource = typeof(TMSWinForms.Model.UserManager);
+            //
             // 
             // ticketTileBindingSource
             // 

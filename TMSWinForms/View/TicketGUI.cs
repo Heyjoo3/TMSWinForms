@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TMSLibrary;
+using TMSWinForms.Model;
 using TMSWinForms.Model.Enumerations;
 
 namespace TMSWinForms.View
@@ -19,13 +20,9 @@ namespace TMSWinForms.View
         }
 
         public void InitializeTaskTiles()
-        {
-            AddTicketTile();
-        }
-
-        private void AddTicketTile()
-        {
+        { 
             Program.manageStates.UpdateAllTickets();
+
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
                 TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority.ToString(), ticket.Id, ticket.Status.ToString());
@@ -80,10 +77,7 @@ namespace TMSWinForms.View
             newTicketForm.ShowDialog();
             if (newTicketForm.DialogResult == DialogResult.OK)
             {
-                unassingedflowLayoutPanel.Controls.Clear();
-                assignedflowLayoutPanel.Controls.Clear();
-                finishedflowLayoutPanel.Controls.Clear();
-                InitializeTaskTiles();
+                RefreshPanels();
             }
         }
 
@@ -95,6 +89,16 @@ namespace TMSWinForms.View
         private void showOnlyMyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             this.showOnlyMyTickets = showOnlyMyCheckBox.Checked;
+            RefreshPanels();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            Program.manageStates.UpdateAll();
+        }
+
+        private void RefreshPanels()
+        {
             unassingedflowLayoutPanel.Controls.Clear();
             assignedflowLayoutPanel.Controls.Clear();
             finishedflowLayoutPanel.Controls.Clear();

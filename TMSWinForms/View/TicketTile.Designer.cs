@@ -38,6 +38,7 @@
             this.ticketIDLabel = new System.Windows.Forms.Label();
             this.StatusComboBox = new System.Windows.Forms.ComboBox();
             this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             this.SuspendLayout();
@@ -152,12 +153,22 @@
             this.assignedUserComboBox.Size = new System.Drawing.Size(121, 24);
             this.assignedUserComboBox.TabIndex = 11;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(121, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "label1";
+            // 
             // TicketTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.assignedUserComboBox);
             this.Controls.Add(this.StatusComboBox);
             this.Controls.Add(this.ticketIDLabel);
@@ -190,5 +201,6 @@
         private System.Windows.Forms.Label ticketIDLabel;
         private System.Windows.Forms.ComboBox StatusComboBox;
         private System.Windows.Forms.ComboBox assignedUserComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }

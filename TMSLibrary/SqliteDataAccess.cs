@@ -197,7 +197,7 @@
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, Name from TicketTable inner join UserTable on TicketTable.AssignedUserId = UserTable.Id", new DynamicParameters());
+                var output = cnn.Query<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, UserTable.Name as AssignedUserName from TicketTable left join UserTable on TicketTable.AssignedUserId = UserTable.Id", new DynamicParameters());
                 return output.ToList();
             }
         }

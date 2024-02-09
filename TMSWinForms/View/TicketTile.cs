@@ -28,6 +28,7 @@
             this.TicketID = ticketID;
             this.ticketIDLabel.Text = ticketID.ToString();
             this.StatusComboBox.Text = status;
+            this.label1.Text = assignedPerson;
            
             List<UserModel> users = SqliteDataAccess.LoadUsers();
             this.assignedUserComboBox.DataSource = users;
