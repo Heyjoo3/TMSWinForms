@@ -133,6 +133,8 @@
             }
         }
 
+        //Filter Queries
+
         public static List<TicketModel> GetTicketsByUserId(int userId)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -160,6 +162,8 @@
             }
         }
 
+        //Sort Queries
+
         public static List<TicketModel> SortTicketByPriority()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -186,6 +190,8 @@
                 return output.ToList();
             }
         }
+
+        //Join Queries
 
         public static List<TicketModel> GetTicketsAndUserNames()
         {
