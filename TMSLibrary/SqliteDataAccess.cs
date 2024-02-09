@@ -9,12 +9,13 @@
 
     public class SqliteDataAccess
     {
-
+        //SQLite connection string
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+        //User CRUD
         public static List<UserModel> LoadUsers() 
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -82,8 +83,7 @@
             }
         }
 
-
-
+        //Ticket CRUD
         public static List<TicketModel> LoadTickets()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -130,6 +130,69 @@
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute("update TicketTable set Status = @Status where Id = @Id", new { Status = status, Id = ticketId });
+            }
+        }
+
+        public static List<TicketModel> GetTicketsByUserId(int userId)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select * from TicketTable where AssignedUserId = @AssignedUserId", new { AssignedUserId = userId });
+                return output.ToList();
+            }
+        }
+
+        public static List<TicketModel> GetTicketsByStatus(string status)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select * from TicketTable where Status = @Status", new { Status = status });
+                return output.ToList();
+            }
+        }
+
+        public static List<TicketModel> GetTicketsByPriority(string priority)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select * from TicketTable where Priority = @Priority", new { Priority = priority });
+                return output.ToList();
+            }
+        }
+
+        public static List<TicketModel> SortTicketByPriority()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select * from TicketTable order by Priority", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<TicketModel> SortTicketByDueDate()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select * from TicketTable order by DueDate", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<TicketModel> SortTicketByStatus()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select * from TicketTable order by Status", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<TicketModel> GetTicketsAndUserNames()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, Name from TicketTable inner join UserTable on TicketTable.AssignedUserId = UserTable.Id", new DynamicParameters());
+                return output.ToList();
             }
         }
     }

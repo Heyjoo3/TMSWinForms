@@ -35,7 +35,6 @@
             get { return status; }
             set { status = value; }
         }
-            
         public string Priority
         {
             get { return priority; }
@@ -95,7 +94,6 @@
             if (assignedUserName == "" || assignedUserName == null)
             {
                 this.Status = "Unassigned";
-                
             }
             else
             {
@@ -103,7 +101,6 @@
             }
 
             List<UserModel> users = SqliteDataAccess.LoadUsers();
-
 
             foreach (UserModel user in users)
             {

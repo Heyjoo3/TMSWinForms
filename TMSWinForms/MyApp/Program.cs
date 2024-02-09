@@ -5,29 +5,32 @@
     using TMSWinForms.View;
     internal class Program
     {
-        // Declare the ticketManager variable as a static field
-        internal static TicketManager ticketManager;
-        internal static TicketGUI ticketForm;
-        internal static UserManager userManager;
+        // Declare the manager variable as a static field
         internal static ManageStates manageStates;
+
+        internal static TicketGUI ticketForm;
 
         static void Main()
         {
-            // Initialize the ticketManager variable
-            ticketManager = new TicketManager();
-            userManager = new UserManager();
+            // Create an instance of the ManageStates class
             manageStates = new ManageStates();
 
+            // Enable visual styles for the application
             Application.EnableVisualStyles();
+            // Set the default text rendering to be compatible with the application
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Create an instance of the LoginReigsterGUI form
             LoginReigsterGUI loginForm = new LoginReigsterGUI();
 
+            // Show the login form and wait for the user to close it
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                // Benutzer hat sich erfolgreich angemeldet, öffne das TicketGUI-Formular
+                // Create an instance of the TicketGUI form
                 ticketForm = new TicketGUI();
+                // Run the ticket form
                 Application.Run(ticketForm);
             }
         }
-    }  
+    }
 }

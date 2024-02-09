@@ -38,19 +38,27 @@ namespace TMSWinForms.Model
         public ManageStates()
         {
             loggedUser = new UserModel();
-            allUsers = new List<UserModel>();
-            allTickets = new List<TicketModel>();
+            //allUsers = new List<UserModel>();
+            //allTickets = new List<TicketModel>();
+            allTickets = SqliteDataAccess.LoadTickets();
+            allUsers = SqliteDataAccess.LoadUsers();
         }
 
         //methods
-        public void GetAllUsers()
+        public void UpdateAllUsers()
         {
             allUsers = SqliteDataAccess.LoadUsers();
         }
 
-        public void GetAllTickets()
+        public void UpdateAllTickets()
         {
             allTickets = SqliteDataAccess.LoadTickets();
+        }
+
+        public void UpdateAll()
+        {
+            UpdateAllUsers();
+            UpdateAllTickets();
         }
 
         public TicketModel GetTicketById(int id)

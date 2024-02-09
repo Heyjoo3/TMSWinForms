@@ -25,7 +25,7 @@ namespace TMSWinForms.View
 
         private void AddTicketTile()
         {
-            Program.manageStates.GetAllTickets();
+            Program.manageStates.UpdateAllTickets();
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
                 TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority.ToString(), ticket.Id, ticket.Status.ToString());
