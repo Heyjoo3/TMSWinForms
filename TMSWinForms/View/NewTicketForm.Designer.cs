@@ -217,7 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.userManagerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketTileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

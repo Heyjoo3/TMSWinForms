@@ -12,7 +12,7 @@
         {
             InitializeComponent();
 
-            List<UserModel> users = SqliteDataAccess.LoadUsers();
+            List<UserModel> users = Program.manageStates.AllUsers;
 
             this.assignedUserComboBox.DataSource =users;
             this.assignedUserComboBox.DisplayMember = "Name";
@@ -23,7 +23,7 @@
 
         }
 
-        private void saveNewTicketButton_Click(object sender, EventArgs e)
+        private async void saveNewTicketButton_Click(object sender, EventArgs e)
         {
 
             string title = this.titleTextBox.Text.Trim();
@@ -39,8 +39,8 @@
                 }
                 else
                 {
-                    TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName);
-                    SqliteDataAccess.SaveTicket(newTicket);
+                    TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName, Program.manageStates.AllUsers);
+                    await SqliteDataAccess.SaveTicket(newTicket);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

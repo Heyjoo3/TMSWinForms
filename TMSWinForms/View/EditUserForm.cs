@@ -13,14 +13,14 @@
             nameTextBox.Text = Program.manageStates.LoggedUser.Name;
         }
 
-        private void saveAccountEditButton_Click(object sender, EventArgs e)
+        private async void saveAccountEditButton_Click(object sender, EventArgs e)
         {
             if (passwordTextBox.Text == "" && repeatPasswordTextBox.Text == "")
             {
                 Program.manageStates.LoggedUser.Email = emailTextBox.Text;
                 Program.manageStates.LoggedUser.Name = nameTextBox.Text;
 
-                SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
+                await SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
 
                 this.Close();
             }
@@ -32,7 +32,7 @@
                     Program.manageStates.LoggedUser.Name = nameTextBox.Text;
                     Program.manageStates.LoggedUser.Password = passwordTextBox.Text;
 
-                    SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
+                    await SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
 
                     this.Close();
                 }
@@ -51,12 +51,29 @@
                 MessageBox.Show("Passwords do not match");
             } 
         }
-        private void deleteAccountButton_Click(object sender, EventArgs e)
+        private async void deleteAccountButton_Click(object sender, EventArgs e)
         {
-            SqliteDataAccess.DeleteUser(Program.manageStates.LoggedUser.Id);
+            await SqliteDataAccess.UpdateUnfinishedTicketsbyUserId(Program.manageStates.LoggedUser.Id);
+            await SqliteDataAccess.DeleteUser(Program.manageStates.LoggedUser.Id);
             this.Close();
             Application.Exit();
 
+        }
+
+        private void showPasswordButton_Click(object sender, EventArgs e)
+        {
+            if (this.oldPasswordTextBox.PasswordChar == '*')
+            {
+                this.oldPasswordTextBox.PasswordChar = '\0';
+                this.passwordTextBox.PasswordChar =  '\0';
+                this.repeatPasswordTextBox.PasswordChar = '\0';     
+            }
+            else
+            {
+                this.oldPasswordTextBox.PasswordChar = '*';
+                this.passwordTextBox.PasswordChar = '*';
+                this.repeatPasswordTextBox.PasswordChar = '*';
+            }
         }
     }
 }

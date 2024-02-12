@@ -49,8 +49,11 @@
             this.pageTitle = new System.Windows.Forms.Label();
             this.footer = new System.Windows.Forms.Panel();
             this.registerPanel = new System.Windows.Forms.Panel();
+            this.showPasswordRepeatButton = new System.Windows.Forms.Button();
+            this.showPasswordButton = new System.Windows.Forms.Button();
             this.adminRollCheckBox = new System.Windows.Forms.CheckBox();
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.showLoginPasswordButton1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
             this.registerPanel.SuspendLayout();
@@ -132,6 +135,7 @@
             // 
             this.repeatPasswordTextBox.Location = new System.Drawing.Point(8, 282);
             this.repeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.repeatPasswordTextBox.MaxLength = 20;
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
             this.repeatPasswordTextBox.PasswordChar = '*';
             this.repeatPasswordTextBox.Size = new System.Drawing.Size(309, 26);
@@ -151,6 +155,7 @@
             // 
             this.registerPasswordTextBox.Location = new System.Drawing.Point(8, 220);
             this.registerPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.registerPasswordTextBox.MaxLength = 20;
             this.registerPasswordTextBox.Name = "registerPasswordTextBox";
             this.registerPasswordTextBox.PasswordChar = '*';
             this.registerPasswordTextBox.Size = new System.Drawing.Size(309, 26);
@@ -203,9 +208,11 @@
             // 
             this.registerNameTextBox.Location = new System.Drawing.Point(8, 99);
             this.registerNameTextBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.registerNameTextBox.MaxLength = 25;
             this.registerNameTextBox.Name = "registerNameTextBox";
             this.registerNameTextBox.Size = new System.Drawing.Size(309, 26);
             this.registerNameTextBox.TabIndex = 25;
+            this.registerNameTextBox.TextChanged += new System.EventHandler(this.registerNameTextBox_TextChanged);
             // 
             // registerTitle
             // 
@@ -266,6 +273,8 @@
             // registerPanel
             // 
             this.registerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.registerPanel.Controls.Add(this.showPasswordRepeatButton);
+            this.registerPanel.Controls.Add(this.showPasswordButton);
             this.registerPanel.Controls.Add(this.adminRollCheckBox);
             this.registerPanel.Controls.Add(this.registerTitle);
             this.registerPanel.Controls.Add(this.passwordRepeatRegisterInput);
@@ -283,6 +292,28 @@
             this.registerPanel.Size = new System.Drawing.Size(325, 416);
             this.registerPanel.TabIndex = 38;
             // 
+            // showPasswordRepeatButton
+            // 
+            this.showPasswordRepeatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPasswordRepeatButton.Location = new System.Drawing.Point(259, 251);
+            this.showPasswordRepeatButton.Name = "showPasswordRepeatButton";
+            this.showPasswordRepeatButton.Size = new System.Drawing.Size(58, 27);
+            this.showPasswordRepeatButton.TabIndex = 43;
+            this.showPasswordRepeatButton.Text = "show";
+            this.showPasswordRepeatButton.UseVisualStyleBackColor = true;
+            this.showPasswordRepeatButton.Click += new System.EventHandler(this.showPasswordRepeatButton_Click);
+            // 
+            // showPasswordButton
+            // 
+            this.showPasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPasswordButton.Location = new System.Drawing.Point(259, 192);
+            this.showPasswordButton.Name = "showPasswordButton";
+            this.showPasswordButton.Size = new System.Drawing.Size(58, 27);
+            this.showPasswordButton.TabIndex = 42;
+            this.showPasswordButton.Text = "show";
+            this.showPasswordButton.UseVisualStyleBackColor = true;
+            this.showPasswordButton.Click += new System.EventHandler(this.showPasswordButton_Click);
+            // 
             // adminRollCheckBox
             // 
             this.adminRollCheckBox.AutoSize = true;
@@ -296,6 +327,7 @@
             // loginPanel
             // 
             this.loginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.loginPanel.Controls.Add(this.showLoginPasswordButton1);
             this.loginPanel.Controls.Add(this.loginTitle);
             this.loginPanel.Controls.Add(this.passwordLoginInput);
             this.loginPanel.Controls.Add(this.emailLoginInput);
@@ -307,6 +339,17 @@
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(334, 414);
             this.loginPanel.TabIndex = 39;
+            // 
+            // showLoginPasswordButton1
+            // 
+            this.showLoginPasswordButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showLoginPasswordButton1.Location = new System.Drawing.Point(266, 128);
+            this.showLoginPasswordButton1.Name = "showLoginPasswordButton1";
+            this.showLoginPasswordButton1.Size = new System.Drawing.Size(58, 27);
+            this.showLoginPasswordButton1.TabIndex = 44;
+            this.showLoginPasswordButton1.Text = "show";
+            this.showLoginPasswordButton1.UseVisualStyleBackColor = true;
+            this.showLoginPasswordButton1.Click += new System.EventHandler(this.showLoginPasswordButton1_Click);
             // 
             // panel1
             // 
@@ -369,5 +412,8 @@
         private System.Windows.Forms.Label pageTitle;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox adminRollCheckBox;
+        private System.Windows.Forms.Button showPasswordButton;
+        private System.Windows.Forms.Button showPasswordRepeatButton;
+        private System.Windows.Forms.Button showLoginPasswordButton1;
     }
 }

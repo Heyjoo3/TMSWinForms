@@ -12,7 +12,7 @@
         }
 
         private int ticketID = 0;
-        
+       
         public int TicketID
         {
             get { return ticketID; }
@@ -29,8 +29,8 @@
             this.ticketIDLabel.Text = ticketID.ToString();
             this.StatusComboBox.Text = status;
             this.label1.Text = assignedPerson;
-           
-            List<UserModel> users = SqliteDataAccess.LoadUsers();
+
+            List<UserModel> users = Program.manageStates.AllUsers;
             this.assignedUserComboBox.DataSource = users;
             this.assignedUserComboBox.DisplayMember = "Name";
 
@@ -46,7 +46,7 @@
         }
 
 
-        private void changeStatusButton_Click(object sender, EventArgs e)
+        private async void changeStatusButton_Click(object sender, EventArgs e)
         {
 
             string status = this.StatusComboBox.Text;
@@ -76,7 +76,7 @@
                     break;
 
                 case "Finished":
-                        SqliteDataAccess.ChangeTicketStatus(TicketID, "Finished");
+                        await SqliteDataAccess.ChangeTicketStatus(TicketID, "Finished");
                     break;
             }
 
@@ -94,23 +94,23 @@
             
         }
 
-        private void ChangeStatusAndAssignedUser(string status, string assignedUserName)
+        private async void ChangeStatusAndAssignedUser(string status, string assignedUserName)
 
         {
-            List<UserModel> allUsers= SqliteDataAccess.LoadUsers();
+            List<UserModel> allUsers= await SqliteDataAccess.LoadUsers();
             
             foreach (UserModel user in allUsers)
             {
                 if (user.Name == assignedUserName)
                 {
-                    SqliteDataAccess.ChangeTicketStatus(TicketID, status);
-                    SqliteDataAccess.ChangeAssignedUser(TicketID, user.Id, assignedUserName);
+                    await SqliteDataAccess.ChangeTicketStatus(TicketID, status);
+                    await SqliteDataAccess.ChangeAssignedUser(TicketID, user.Id, assignedUserName);
                     return;
                 }
                 else
                 {
-                    SqliteDataAccess.ChangeTicketStatus(TicketID, status);
-                    SqliteDataAccess.ChangeAssignedUser(TicketID, 0, "");
+                    await SqliteDataAccess.ChangeTicketStatus(TicketID, status);
+                    await SqliteDataAccess.ChangeAssignedUser(TicketID, 0, "");
                 }
             }
         }

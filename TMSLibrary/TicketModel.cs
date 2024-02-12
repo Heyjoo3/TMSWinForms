@@ -1,6 +1,7 @@
-﻿namespace TMSLibrary
+﻿using System.Collections.Generic;
+
+namespace TMSLibrary
 {
-    using System.Collections.Generic;
     public class TicketModel
     {
 
@@ -82,7 +83,7 @@
             this.AssignedUserName = assignedUserName;
         }
 
-        public TicketModel(string title, string description, string priority, string dueDate, string assignedUserName)
+        public TicketModel(string title, string description, string priority, string dueDate, string assignedUserName, List<UserModel> userList)
         {
             this.Id = 0;
             this.Title = title;
@@ -100,9 +101,9 @@
                 this.Status = "Assigned";
             }
 
-            List<UserModel> users = SqliteDataAccess.LoadUsers();
+            //List<UserModel> users = SqliteDataAccess.LoadUsers();
 
-            foreach (UserModel user in users)
+            foreach (UserModel user in userList)
             {
                 if (user.Name == assignedUserName)
                 {
@@ -111,5 +112,35 @@
                 }
             }   
         }
+
+        //public TicketModel(string title, string description, string priority, string dueDate, string assignedUserName, List<UserModel> userList)
+        //{
+        //    this.Id = 0;
+        //    this.Title = title;
+        //    this.Description = description;
+        //    this.Priority = priority;
+        //    this.DueDate = dueDate;
+        //    this.AssignedUserName = assignedUserName;
+
+        //    if (assignedUserName == "" || assignedUserName == null)
+        //    {
+        //        this.Status = "Unassigned";
+        //    }
+        //    else
+        //    {
+        //        this.Status = "Assigned";
+        //    }
+
+        //    //List<UserModel> users = SqliteDataAccess.LoadUsers();
+
+        //    foreach (UserModel user in userList)
+        //    {
+        //        if (user.Name == assignedUserName)
+        //        {
+        //            this.AssignedUserId = user.Id;
+        //            break;
+        //        }
+        //    }
+        //}
     }
 }

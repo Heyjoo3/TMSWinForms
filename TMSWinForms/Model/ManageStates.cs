@@ -22,7 +22,7 @@ namespace TMSWinForms.Model
             set { loggedUser = value; }
         }
 
-            public List<UserModel> AllUsers
+        public List<UserModel> AllUsers
         {
             get { return allUsers; }
             set { allUsers = value; }
@@ -40,27 +40,30 @@ namespace TMSWinForms.Model
             loggedUser = new UserModel();
             //allUsers = new List<UserModel>();
             //allTickets = new List<TicketModel>();
-            allTickets = SqliteDataAccess.GetTicketsAndUserNames();
-            allUsers = SqliteDataAccess.LoadUsers();
+            InitializeData();
+        }
+
+        private async void InitializeData()
+        {
+            allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
+            allUsers = await SqliteDataAccess.LoadUsers();
         }
 
         //methods
-        public void UpdateAllUsers()
+        public async Task UpdateAllUsers()
         {
-            allUsers = SqliteDataAccess.LoadUsers();
+            allUsers = await SqliteDataAccess.LoadUsers();
         }
 
-        public void UpdateAllTickets()
+        public async Task UpdateAllTickets()
         {
-            //allTickets = SqliteDataAccess.LoadTickets();
-            allTickets = SqliteDataAccess.GetTicketsAndUserNames();
-
+            allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
         }
 
-        public void UpdateAll()
+        public async Task UpdateAll()
         {
-            UpdateAllUsers();
-            UpdateAllTickets();
+            await UpdateAllUsers();
+            await UpdateAllTickets();
         }
 
         public TicketModel GetTicketById(int id)

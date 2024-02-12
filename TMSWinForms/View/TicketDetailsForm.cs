@@ -35,8 +35,11 @@
 
             this.priorityComboBox.DataSource = Enum.GetValues(typeof(PriorityEnum));
             this.priorityComboBox.SelectedItem = tempTicket.Priority;
+            this.priorityComboBox.Text = tempTicket.Priority;
 
-            List<UserModel> allUsers = SqliteDataAccess.LoadUsers();
+            this.label1.Text = tempTicket.Priority;
+
+            List<UserModel> allUsers = Program.manageStates.AllUsers;
 
             this.assignedUserComboBox.DataSource = allUsers;
             this.assignedUserComboBox.DisplayMember = "Name";
@@ -54,38 +57,37 @@
         }
         
         //methods
-        private void deleteButton_Click(object sender, EventArgs e)
+        private async void deleteButton_Click(object sender, EventArgs e)
         {
-            SqliteDataAccess.DeleteTicket(TicketID);
-            Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.InitializeTaskTiles();
+            await SqliteDataAccess.DeleteTicket(TicketID);
+            Program.ticketForm.RefreshPanels();
             this.Close();
         }
 
-        private void editButton_Click(object sender, EventArgs e)
+        private async void editButton_Click(object sender, EventArgs e)
         {
             this.TicketID = ticketID;
 
-            string title =  titleTextBox.Text;
-            string assignedUser = assignedUserComboBox.Text;
-            string date = dateTimePicker.Value.ToString("dd/MM/yyyy");
-            string priority = priorityComboBox.Text;
-            string description = descriptionTextBox.Text;
-            string status = statusComboBox.Text;
+            string title =  titleTextBox.Text.Trim();
+            string assignedUser = assignedUserComboBox.Text.Trim();
+            string date = dateTimePicker.Value.ToString("dd/MM/yyyy").Trim();
+            string priority = priorityComboBox.Text.Trim();
+            string description = descriptionTextBox.Text.Trim();
+            string status = statusComboBox.Text.Trim();
 
             if (status == "Unassigned" && assignedUser != "") 
             {                 
                 status = "Assigned";
             }
 
-            SqliteDataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, 0, assignedUser));
+            UserModel user = await SqliteDataAccess.GetUserByName(assignedUser);
 
-            Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.InitializeTaskTiles();
+            await SqliteDataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, user.Id, assignedUser));
+
+            await Program.manageStates.UpdateAll();
+
+            Program.ticketForm.RefreshPanels();
+            Program.ticketForm.RefreshUserList();
 
             this.Close();
         }

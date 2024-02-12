@@ -3,7 +3,7 @@
     using System.Windows.Forms;
     using TMSWinForms.Model;
     using TMSWinForms.View;
-    internal class Program
+    public class Program
     {
         // Declare the manager variable as a static field
         internal static ManageStates manageStates;

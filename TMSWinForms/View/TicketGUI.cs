@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using TMSLibrary;
-using TMSWinForms.Model;
-using TMSWinForms.Model.Enumerations;
-
-namespace TMSWinForms.View
+﻿namespace TMSWinForms.View
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using TMSLibrary;
+    using TMSWinForms.Model.Enumerations;
     public partial class TicketGUI : Form
     {
 
@@ -16,12 +14,12 @@ namespace TMSWinForms.View
         {
             InitializeComponent();
             InitializeTaskTiles();
-            AddUser();
+            RefreshUserList();
         }
 
-        public void InitializeTaskTiles()
+        public async void InitializeTaskTiles()
         { 
-            Program.manageStates.UpdateAllTickets();
+            await Program.manageStates.UpdateAllTickets();
 
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
@@ -50,25 +48,23 @@ namespace TMSWinForms.View
             }
         }
 
-        private void AddUser()
+        public void RefreshUserList()
         {
-
-            List <UserModel> users = new List<UserModel>();
-
-            users = SqliteDataAccess.LoadUsers();
-
+            userListBox.Items.Clear();
+            List<UserModel> users = Program.manageStates.AllUsers;
             foreach (UserModel user in users)
             {
                 userListBox.Items.Add(user.Name);
             }
         }
 
-        private void newUserButton_Click(object sender, EventArgs e)
+        private async void newUserButton_Click(object sender, EventArgs e)
         {
             EditUserForm editUserForm = new EditUserForm();
             editUserForm.ShowDialog();
             this.userListBox.Items.Clear();
-            AddUser();
+            await Program.manageStates.UpdateAll();
+            RefreshUserList();
         }
 
         private void newTicketButton_Click(object sender, EventArgs e)
@@ -92,12 +88,14 @@ namespace TMSWinForms.View
             RefreshPanels();
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
+        private async void refreshButton_Click(object sender, EventArgs e)
         {
-            Program.manageStates.UpdateAll();
+            await Program.manageStates.UpdateAll();
+            RefreshPanels();
+            RefreshUserList();
         }
 
-        private void RefreshPanels()
+        public void RefreshPanels()
         {
             unassingedflowLayoutPanel.Controls.Clear();
             assignedflowLayoutPanel.Controls.Clear();
