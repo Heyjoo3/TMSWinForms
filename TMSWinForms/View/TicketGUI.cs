@@ -1,25 +1,54 @@
 ﻿namespace TMSWinForms.View
 {
+    using DevExpress.Utils.MVVM;
     using System;
     using System.Collections.Generic;
     using System.Windows.Forms;
     using TMSLibrary;
     using TMSWinForms.Model.Enumerations;
+    using static DevExpress.Utils.Svg.CommonSvgImages;
+    using static DevExpress.XtraEditors.Mask.MaskSettings;
+
     public partial class TicketGUI : Form
     {
 
         private bool showOnlyMyTickets = false;
+        private string sortBy = "";
 
         public TicketGUI()
         {
             InitializeComponent();
             InitializeTaskTiles();
             RefreshUserList();
+
+            this.sortingComboBox.DataSource = Enum.GetValues(typeof(SortEnum));
+            this.sortingComboBox.DisplayMember = SortEnum.Default.ToString();
+            this.sortingComboBox.SelectedItem = SortEnum.Default; 
         }
 
         public async void InitializeTaskTiles()
         { 
-            await Program.manageStates.UpdateAllTickets();
+            if (sortBy == SortEnum.Date.ToString())
+            {
+                await Program.manageStates.SortByDate(); 
+            }
+            else if (sortBy == SortEnum.Priority.ToString())
+            {
+                await Program.manageStates.SortByPriority(); 
+            }
+            else if (sortBy == SortEnum.Name.ToString())
+            {
+                await Program.manageStates.SortByName(); 
+            }
+            else if (sortBy == SortEnum.Title.ToString())
+            {
+                await Program.manageStates.SortByTitle(); 
+            }
+            else
+            {
+                await Program.manageStates.UpdateAllTickets();
+            }
+            
 
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
@@ -102,5 +131,11 @@
             finishedflowLayoutPanel.Controls.Clear();
             InitializeTaskTiles();
         }
+
+        private void sortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.sortBy = sortingComboBox.SelectedItem.ToString();
+            RefreshPanels(); 
+        }
     }
-}
+} 

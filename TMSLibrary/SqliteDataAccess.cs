@@ -179,34 +179,6 @@
             }
         }
 
-        //Sort Queries
-
-        public static async Task<List<TicketModel>> SortTicketByPriority()
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = await cnn.QueryAsync<TicketModel>("select * from TicketTable order by Priority", new DynamicParameters());
-                return output.ToList();
-            }
-        }
-
-        public static async Task<List<TicketModel>> SortTicketByDueDate()
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = await cnn.QueryAsync<TicketModel>("select * from TicketTable order by DueDate", new DynamicParameters());
-                return output.ToList();
-            }
-        }
-
-        public static async Task<List<TicketModel>> SortTicketByStatus()
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = await cnn.QueryAsync<TicketModel>("select * from TicketTable order by Status", new DynamicParameters());
-                return output.ToList();
-            }
-        }
 
         //Join Queries
 
@@ -218,5 +190,42 @@
                 return output.ToList();
             }
         }
+
+        public static async Task<List<TicketModel>>SortTicketsAndUserByDate()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = await cnn.QueryAsync<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, UserTable.Name as AssignedUserName from TicketTable left join UserTable on TicketTable.AssignedUserId = UserTable.Id order by DueDate", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static async Task<List<TicketModel>> SortTicketsAndUserByPriority()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = await cnn.QueryAsync<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, UserTable.Name as AssignedUserName from TicketTable left join UserTable on TicketTable.AssignedUserId = UserTable.Id order by Priority", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static async Task<List<TicketModel>> SortTicketsAndUserByName()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = await cnn.QueryAsync<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, UserTable.Name as AssignedUserName from TicketTable left join UserTable on TicketTable.AssignedUserId = UserTable.Id order by UserTable.Name", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static async Task<List<TicketModel>> SortTicketsAndUserByTitle()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = await cnn.QueryAsync<TicketModel>("select TicketTable.Id, Title, Description, Status, Priority, DueDate, AssignedUserId, UserTable.Name as AssignedUserName from TicketTable left join UserTable on TicketTable.AssignedUserId = UserTable.Id order by Title", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
     }
 }

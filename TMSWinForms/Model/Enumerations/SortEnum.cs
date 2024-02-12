@@ -11,5 +11,7 @@ namespace TMSWinForms.Model.Enumerations
         Date,
         Priority,
         Title,
+        Default, 
+        Name, 
     }
 }

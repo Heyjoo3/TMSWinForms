@@ -60,6 +60,22 @@ namespace TMSWinForms.Model
             allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
         }
 
+        public async Task SortByPriority() {
+            allTickets = await SqliteDataAccess.SortTicketsAndUserByPriority();
+        }
+
+        public async Task SortByDate() {
+            allTickets = await SqliteDataAccess.SortTicketsAndUserByDate();         
+        }
+
+        public async Task SortByName() {
+            allTickets = await SqliteDataAccess.SortTicketsAndUserByName();
+        }
+
+        public async Task SortByTitle() {
+            allTickets = await SqliteDataAccess.SortTicketsAndUserByTitle(); 
+        }
+
         public async Task UpdateAll()
         {
             await UpdateAllUsers();

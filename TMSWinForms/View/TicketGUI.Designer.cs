@@ -33,6 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pageTitle = new System.Windows.Forms.Label();
             this.footer = new System.Windows.Forms.Panel();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.logoutButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -50,7 +51,7 @@
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.unassingedLabel = new System.Windows.Forms.Label();
-            this.refreshButton = new System.Windows.Forms.Button();
+            this.sortingComboBox = new System.Windows.Forms.ComboBox();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.footer.SuspendLayout();
@@ -98,7 +99,7 @@
             this.pageTitle.AutoSize = true;
             this.pageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.pageTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pageTitle.Location = new System.Drawing.Point(402, 24);
+            this.pageTitle.Location = new System.Drawing.Point(492, 18);
             this.pageTitle.Name = "pageTitle";
             this.pageTitle.Size = new System.Drawing.Size(435, 37);
             this.pageTitle.TabIndex = 0;
@@ -117,6 +118,22 @@
             this.footer.Name = "footer";
             this.footer.Size = new System.Drawing.Size(939, 72);
             this.footer.TabIndex = 1;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.refreshButton.FlatAppearance.BorderSize = 0;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refreshButton.Location = new System.Drawing.Point(773, 28);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(74, 32);
+            this.refreshButton.TabIndex = 43;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // panel3
             // 
@@ -154,6 +171,7 @@
             this.flowLayoutPanel1.Controls.Add(this.editAccountButton);
             this.flowLayoutPanel1.Controls.Add(this.newTicketButton);
             this.flowLayoutPanel1.Controls.Add(this.showOnlyMyCheckBox);
+            this.flowLayoutPanel1.Controls.Add(this.sortingComboBox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -181,7 +199,7 @@
             this.userListBox.ItemHeight = 20;
             this.userListBox.Location = new System.Drawing.Point(3, 27);
             this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(197, 420);
+            this.userListBox.Size = new System.Drawing.Size(197, 360);
             this.userListBox.TabIndex = 2;
             // 
             // editAccountButton
@@ -192,7 +210,7 @@
             this.editAccountButton.FlatAppearance.BorderSize = 0;
             this.editAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAccountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.editAccountButton.Location = new System.Drawing.Point(6, 453);
+            this.editAccountButton.Location = new System.Drawing.Point(6, 393);
             this.editAccountButton.Name = "editAccountButton";
             this.editAccountButton.Size = new System.Drawing.Size(191, 42);
             this.editAccountButton.TabIndex = 1;
@@ -208,7 +226,7 @@
             this.newTicketButton.FlatAppearance.BorderSize = 0;
             this.newTicketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newTicketButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newTicketButton.Location = new System.Drawing.Point(6, 501);
+            this.newTicketButton.Location = new System.Drawing.Point(6, 441);
             this.newTicketButton.Name = "newTicketButton";
             this.newTicketButton.Size = new System.Drawing.Size(191, 42);
             this.newTicketButton.TabIndex = 0;
@@ -221,7 +239,7 @@
             this.showOnlyMyCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.showOnlyMyCheckBox.AutoSize = true;
             this.showOnlyMyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.showOnlyMyCheckBox.Location = new System.Drawing.Point(12, 549);
+            this.showOnlyMyCheckBox.Location = new System.Drawing.Point(12, 489);
             this.showOnlyMyCheckBox.Name = "showOnlyMyCheckBox";
             this.showOnlyMyCheckBox.Size = new System.Drawing.Size(178, 24);
             this.showOnlyMyCheckBox.TabIndex = 5;
@@ -342,21 +360,15 @@
             this.unassingedLabel.Text = "UNASSIGNED";
             this.unassingedLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // refreshButton
+            // sortingComboBox
             // 
-            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.refreshButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
-            this.refreshButton.FlatAppearance.BorderSize = 0;
-            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refreshButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.refreshButton.Location = new System.Drawing.Point(773, 28);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(74, 32);
-            this.refreshButton.TabIndex = 43;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = false;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.sortingComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sortingComboBox.FormattingEnabled = true;
+            this.sortingComboBox.Location = new System.Drawing.Point(3, 519);
+            this.sortingComboBox.Name = "sortingComboBox";
+            this.sortingComboBox.Size = new System.Drawing.Size(194, 28);
+            this.sortingComboBox.TabIndex = 6;
+            this.sortingComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingComboBox_SelectedIndexChanged);
             // 
             // TicketGUI
             // 
@@ -411,5 +423,6 @@
         public System.Windows.Forms.FlowLayoutPanel unassingedflowLayoutPanel;
         private System.Windows.Forms.CheckBox showOnlyMyCheckBox;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.ComboBox sortingComboBox;
     }
 }
