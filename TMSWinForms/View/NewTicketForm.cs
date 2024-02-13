@@ -17,9 +17,12 @@
             this.assignedUserComboBox.DataSource =users;
             this.assignedUserComboBox.DisplayMember = "Name";
             this.assignedUserComboBox.ValueMember = "Name";
+            this.assignedUserComboBox.SelectedItem = null;
+            this.assignedUserComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.priorityComboBox.DataSource = Enum.GetValues(typeof(PriorityEnum));
             this.priorityComboBox.SelectedItem = PriorityEnum.Low ;
+            this.priorityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -30,7 +33,7 @@
             string description = this.descriptionTextBox.Text.Trim();
             string assignedUserName = this.assignedUserComboBox.Text.Trim();
             string date = this.dateTimePicker.Value.ToString("dd/MM/yyyy");
-            string priority = this.priorityComboBox.SelectedItem.ToString();
+            int priority = (int)this.priorityComboBox.SelectedItem;
  
 
                 if (title == "")

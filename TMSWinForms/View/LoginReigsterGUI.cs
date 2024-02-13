@@ -34,8 +34,6 @@
                 user.Roll = adminRollCheckBox.Checked ? "Admin" : "User";
 
 
-
-
                 if (await SqliteDataAccess.SaveUser(user))
                 {
                     Program.manageStates.LoggedUser = user; 

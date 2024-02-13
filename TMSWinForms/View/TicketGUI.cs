@@ -3,18 +3,31 @@
     using DevExpress.Utils.MVVM;
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using TMSLibrary;
     using TMSWinForms.Model.Enumerations;
-    using static DevExpress.Utils.Svg.CommonSvgImages;
-    using static DevExpress.XtraEditors.Mask.MaskSettings;
 
     public partial class TicketGUI : Form
     {
-
+        //fields
         private bool showOnlyMyTickets = false;
         private string sortBy = "";
 
+        //properties
+        public bool ShowOnlyMyTickets
+        {
+            get { return showOnlyMyTickets; }
+            set { showOnlyMyTickets = value; }
+        }
+
+        public string SortBy
+        {
+            get { return sortBy; }
+            set { sortBy = value; }
+        }
+
+        //constructor
         public TicketGUI()
         {
             InitializeComponent();
@@ -22,43 +35,24 @@
             RefreshUserList();
 
             this.sortingComboBox.DataSource = Enum.GetValues(typeof(SortEnum));
-            this.sortingComboBox.DisplayMember = SortEnum.Default.ToString();
             this.sortingComboBox.SelectedItem = SortEnum.Default; 
+            this.sortingComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        //methods
         public async void InitializeTaskTiles()
-        { 
-            if (sortBy == SortEnum.Date.ToString())
-            {
-                await Program.manageStates.SortByDate(); 
-            }
-            else if (sortBy == SortEnum.Priority.ToString())
-            {
-                await Program.manageStates.SortByPriority(); 
-            }
-            else if (sortBy == SortEnum.Name.ToString())
-            {
-                await Program.manageStates.SortByName(); 
-            }
-            else if (sortBy == SortEnum.Title.ToString())
-            {
-                await Program.manageStates.SortByTitle(); 
-            }
-            else
-            {
-                await Program.manageStates.UpdateAllTickets();
-            }
-            
+        {   
+            await UpdateBySort();
 
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
-                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority.ToString(), ticket.Id, ticket.Status.ToString());
+                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority, ticket.Id, ticket.Status.ToString());
 
                 if (ticket.Status == StatusEnum.Unassigned.ToString())
                 {
                     unassingedflowLayoutPanel.Controls.Add(ticketTile);
                 }
-                else if (showOnlyMyTickets && ticket.AssignedUserId != Program.manageStates.LoggedUser.Id)
+                else if (ShowOnlyMyTickets && ticket.AssignedUserId != Program.manageStates.LoggedUser.Id)
                 {
                     continue; // Skips
                 }
@@ -91,9 +85,14 @@
         {
             EditUserForm editUserForm = new EditUserForm();
             editUserForm.ShowDialog();
-            this.userListBox.Items.Clear();
-            await Program.manageStates.UpdateAll();
-            RefreshUserList();
+
+            if (editUserForm.DialogResult == DialogResult.OK)
+            {
+                this.userListBox.Items.Clear();
+                await Program.manageStates.UpdateAll();
+                RefreshUserList();
+                RefreshPanels();
+            }
         }
 
         private void newTicketButton_Click(object sender, EventArgs e)
@@ -113,7 +112,7 @@
 
         private void showOnlyMyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            this.showOnlyMyTickets = showOnlyMyCheckBox.Checked;
+            this.ShowOnlyMyTickets = showOnlyMyCheckBox.Checked;
             RefreshPanels();
         }
 
@@ -136,6 +135,30 @@
         {
             this.sortBy = sortingComboBox.SelectedItem.ToString();
             RefreshPanels(); 
+        }
+
+        private async Task UpdateBySort()
+        {
+            if (SortBy == SortEnum.Date.ToString())
+            {
+                await Program.manageStates.SortByDate();
+            }
+            else if (SortBy == SortEnum.Priority.ToString())
+            {
+                await Program.manageStates.SortByPriority();
+            }
+            else if (SortBy == SortEnum.Name.ToString())
+            {
+                await Program.manageStates.SortByName();
+            }
+            else if (SortBy == SortEnum.Title.ToString())
+            {
+                await Program.manageStates.SortByTitle();
+            }
+            else
+            {
+                await Program.manageStates.UpdateAllTickets();
+            }
         }
     }
 } 

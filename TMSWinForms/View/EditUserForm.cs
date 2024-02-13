@@ -22,6 +22,7 @@
 
                 await SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
 
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else if (passwordTextBox.Text == repeatPasswordTextBox.Text && oldPasswordTextBox.Text == Program.manageStates.LoggedUser.Password)
@@ -34,6 +35,7 @@
 
                     await SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
 
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

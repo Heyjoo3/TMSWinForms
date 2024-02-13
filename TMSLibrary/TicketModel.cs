@@ -10,7 +10,7 @@ namespace TMSLibrary
         private string title;
         private string description;
         private string status;
-        private string priority;
+        private int priority;
         private string dueDate;
         private int assignedUserID;
         private string assignedUserName;
@@ -36,7 +36,7 @@ namespace TMSLibrary
             get { return status; }
             set { status = value; }
         }
-        public string Priority
+        public int Priority
         {
             get { return priority; }
             set { priority = value; }
@@ -65,13 +65,13 @@ namespace TMSLibrary
             this.Title = "";
             this.Description = "";
             this.Status = "";
-            this.Priority = "";
+            this.Priority = 1;
             this.DueDate = "";
             this.AssignedUserId = 0;
             this.AssignedUserName = "";
         }
 
-        public TicketModel(int id, string title, string description, string status, string priority, string dueDate, int assignedUserId, string assignedUserName)
+        public TicketModel(int id, string title, string description, string status, int priority, string dueDate, int assignedUserId, string assignedUserName)
         {
             this.Id = id;
             this.Title = title;
@@ -83,7 +83,7 @@ namespace TMSLibrary
             this.AssignedUserName = assignedUserName;
         }
 
-        public TicketModel(string title, string description, string priority, string dueDate, string assignedUserName, List<UserModel> userList)
+        public TicketModel(string title, string description, int priority, string dueDate, string assignedUserName, List<UserModel> userList)
         {
             this.Id = 0;
             this.Title = title;
@@ -112,35 +112,5 @@ namespace TMSLibrary
                 }
             }   
         }
-
-        //public TicketModel(string title, string description, string priority, string dueDate, string assignedUserName, List<UserModel> userList)
-        //{
-        //    this.Id = 0;
-        //    this.Title = title;
-        //    this.Description = description;
-        //    this.Priority = priority;
-        //    this.DueDate = dueDate;
-        //    this.AssignedUserName = assignedUserName;
-
-        //    if (assignedUserName == "" || assignedUserName == null)
-        //    {
-        //        this.Status = "Unassigned";
-        //    }
-        //    else
-        //    {
-        //        this.Status = "Assigned";
-        //    }
-
-        //    //List<UserModel> users = SqliteDataAccess.LoadUsers();
-
-        //    foreach (UserModel user in userList)
-        //    {
-        //        if (user.Name == assignedUserName)
-        //        {
-        //            this.AssignedUserId = user.Id;
-        //            break;
-        //        }
-        //    }
-        //}
     }
 }

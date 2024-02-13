@@ -64,8 +64,22 @@ namespace TMSWinForms.Model
             allTickets = await SqliteDataAccess.SortTicketsAndUserByPriority();
         }
 
-        public async Task SortByDate() {
-            allTickets = await SqliteDataAccess.SortTicketsAndUserByDate();         
+        public async Task SortByDate() {        
+            allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
+
+            for (int i = 0; i < allTickets.Count; i++)
+            {
+                for (int j = 0; j < allTickets.Count - 1; j++)
+                {
+                    if (DateTime.Parse(allTickets[j].DueDate) > DateTime.Parse(allTickets[j + 1].DueDate))
+                    {
+                        TicketModel temp = allTickets[j];
+                        allTickets[j] = allTickets[j + 1];
+                        allTickets[j + 1] = temp;
+                    }
+                }
+            }
+
         }
 
         public async Task SortByName() {

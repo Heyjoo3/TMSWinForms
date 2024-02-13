@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Windows.Forms;
     using TMSLibrary;
+    using TMSWinForms.Model.Enumerations;
+
     public partial class TicketTile : UserControl
     {
         public TicketTile()
@@ -19,22 +21,28 @@
             set { ticketID = value; }
         }
 
-        public TicketTile(string taskName, string assignedPerson, string date, string priority, int ticketID, string status)
+        public TicketTile(string taskName, string assignedPerson, string date, int priority, int ticketID, string status)
         {
             InitializeComponent();
             this.ticketTitleLabel.Text = taskName;
             this.dateLabel.Text = date;
-            this.priorityLabel.Text = priority;
+
+            PriorityEnum priorityEnum = (PriorityEnum)priority;
+            string priorityString = priorityEnum.ToString();
+            this.priorityLabel.Text = priorityString;
+
             this.TicketID = ticketID;
             this.ticketIDLabel.Text = ticketID.ToString();
+
             this.StatusComboBox.Text = status;
-            this.label1.Text = assignedPerson;
+            this.StatusComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             List<UserModel> users = Program.manageStates.AllUsers;
+            this.assignedUserComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.assignedUserComboBox.DataSource = users;
             this.assignedUserComboBox.DisplayMember = "Name";
 
-            if (assignedPerson != "")
+            if (!string.IsNullOrEmpty(assignedPerson))
             {
                 this.assignedUserComboBox.Text = assignedPerson;
                 this.assignedUserComboBox.SelectedItem = assignedPerson;
@@ -48,7 +56,6 @@
 
         private async void changeStatusButton_Click(object sender, EventArgs e)
         {
-
             string status = this.StatusComboBox.Text;
             string currentStatus = Program.manageStates.GetTicketById(TicketID).Status;
             switch (status)
@@ -79,11 +86,7 @@
                         await SqliteDataAccess.ChangeTicketStatus(TicketID, "Finished");
                     break;
             }
-
-            Program.ticketForm.unassingedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.assignedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.finishedflowLayoutPanel.Controls.Clear();
-            Program.ticketForm.InitializeTaskTiles();
+            Program.ticketForm.RefreshPanels();
         }
 
 
@@ -91,13 +94,12 @@
         {
             TicketDetailsForm ticketDetailsForm = new TicketDetailsForm(TicketID);  
             ticketDetailsForm.ShowDialog();
-            
         }
 
         private async void ChangeStatusAndAssignedUser(string status, string assignedUserName)
-
         {
-            List<UserModel> allUsers= await SqliteDataAccess.LoadUsers();
+            //List<UserModel> allUsers= await SqliteDataAccess.LoadUsers();
+            List<UserModel> allUsers = Program.manageStates.AllUsers;
             
             foreach (UserModel user in allUsers)
             {
