@@ -42,6 +42,7 @@
             this.editAccountButton = new System.Windows.Forms.Button();
             this.newTicketButton = new System.Windows.Forms.Button();
             this.showOnlyMyCheckBox = new System.Windows.Forms.CheckBox();
+            this.sortingComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,7 +52,6 @@
             this.unassingedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.finishedflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.unassingedLabel = new System.Windows.Forms.Label();
-            this.sortingComboBox = new System.Windows.Forms.ComboBox();
             this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.footer.SuspendLayout();
@@ -201,6 +201,7 @@
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(197, 360);
             this.userListBox.TabIndex = 2;
+            this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
             // 
             // editAccountButton
             // 
@@ -246,6 +247,16 @@
             this.showOnlyMyCheckBox.Text = "Only show my Tickets";
             this.showOnlyMyCheckBox.UseVisualStyleBackColor = true;
             this.showOnlyMyCheckBox.CheckedChanged += new System.EventHandler(this.showOnlyMyCheckBox_CheckedChanged);
+            // 
+            // sortingComboBox
+            // 
+            this.sortingComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sortingComboBox.FormattingEnabled = true;
+            this.sortingComboBox.Location = new System.Drawing.Point(3, 519);
+            this.sortingComboBox.Name = "sortingComboBox";
+            this.sortingComboBox.Size = new System.Drawing.Size(194, 28);
+            this.sortingComboBox.TabIndex = 6;
+            this.sortingComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingComboBox_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -359,16 +370,6 @@
             this.unassingedLabel.TabIndex = 5;
             this.unassingedLabel.Text = "UNASSIGNED";
             this.unassingedLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // sortingComboBox
-            // 
-            this.sortingComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sortingComboBox.FormattingEnabled = true;
-            this.sortingComboBox.Location = new System.Drawing.Point(3, 519);
-            this.sortingComboBox.Name = "sortingComboBox";
-            this.sortingComboBox.Size = new System.Drawing.Size(194, 28);
-            this.sortingComboBox.TabIndex = 6;
-            this.sortingComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingComboBox_SelectedIndexChanged);
             // 
             // TicketGUI
             // 

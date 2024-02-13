@@ -160,5 +160,24 @@
                 await Program.manageStates.UpdateAllTickets();
             }
         }
+
+        private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Find user by name
+            UserModel selectedUser = Program.manageStates.AllUsers.Find(user => user.Name == userListBox.SelectedItem.ToString());
+
+            //Find tickets by user
+            List<TicketModel> ticketsByUser = Program.manageStates.AllTickets.FindAll(ticket => ticket.AssignedUserId == selectedUser.Id);
+
+            //Open UserDetailForm
+            UserDetailsForm userDetailForm = new UserDetailsForm(selectedUser, ticketsByUser);
+            userDetailForm.ShowDialog();
+
+            if (userDetailForm.DialogResult == DialogResult.OK)
+            {
+                RefreshPanels();
+                RefreshUserList();
+            }
+        }
     }
 } 

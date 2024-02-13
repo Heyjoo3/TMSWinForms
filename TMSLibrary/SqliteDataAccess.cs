@@ -146,7 +146,7 @@
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                await cnn.ExecuteAsync("update TicketTable set AssignedUserId = null, AssignedUserName = null where AssignedUserId = @UserId", new { UserId = userId });
+                await cnn.ExecuteAsync("update TicketTable set AssignedUserId = null, AssignedUserName = null, Status = 'Unassigned' where AssignedUserId = @UserId and Status != 'Finished' ", new { UserId = userId });
             }
         }
 

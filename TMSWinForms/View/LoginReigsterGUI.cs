@@ -39,6 +39,7 @@
                     Program.manageStates.LoggedUser = user; 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
+                    
                 }
 
                 else

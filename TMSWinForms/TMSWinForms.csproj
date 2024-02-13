@@ -105,6 +105,12 @@
     <Compile Include="View\EditUserForm.Designer.cs">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserDetailsForm.Designer.cs">
+      <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NewTicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\TicketTile.resx">
       <DependentUpon>TicketTile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserDetailsForm.resx">
+      <DependentUpon>UserDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
