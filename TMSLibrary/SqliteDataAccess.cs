@@ -16,6 +16,8 @@
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+
+
         //User CRUD
         public static async Task<List<UserModel>> LoadUsers()
         {
@@ -92,6 +94,8 @@
             }
         }
 
+
+
         //Ticket CRUD
         public static async Task<List<TicketModel>> LoadTickets()
         {
@@ -149,6 +153,8 @@
                 await cnn.ExecuteAsync("update TicketTable set AssignedUserId = null, AssignedUserName = null, Status = 'Unassigned' where AssignedUserId = @UserId and Status != 'Finished' ", new { UserId = userId });
             }
         }
+
+
 
         //Join Queries
 

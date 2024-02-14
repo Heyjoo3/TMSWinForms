@@ -55,5 +55,13 @@ namespace TMSWinForms.View
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private async void resetPasswordButton_Click(object sender, EventArgs e)
+        {
+            selectedUser.Password = "12345678";
+            await SqliteDataAccess.UpdateUser(selectedUser);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

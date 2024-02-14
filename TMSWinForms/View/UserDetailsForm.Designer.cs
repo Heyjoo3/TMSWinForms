@@ -126,6 +126,7 @@
             this.resetPasswordButton.TabIndex = 7;
             this.resetPasswordButton.Text = "Reset Password";
             this.resetPasswordButton.UseVisualStyleBackColor = false;
+            this.resetPasswordButton.Click += new System.EventHandler(this.resetPasswordButton_Click);
             // 
             // roleLabel
             // 
