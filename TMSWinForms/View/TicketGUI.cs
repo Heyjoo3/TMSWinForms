@@ -1,11 +1,11 @@
 ﻿namespace TMSWinForms.View
 {
-    using DevExpress.Utils.MVVM;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using TMSLibrary;
+    using TMSWinForms.Model;
     using TMSWinForms.Model.Enumerations;
 
     public partial class TicketGUI : Form
@@ -13,6 +13,7 @@
         //fields
         private bool showOnlyMyTickets = false;
         private string sortBy = "";
+        private readonly IStateManagementService manageStates = Program.manageStates;
 
         //properties
         public bool ShowOnlyMyTickets
@@ -44,7 +45,7 @@
         {   
             await UpdateBySort();
 
-            foreach (TicketModel ticket in Program.manageStates.AllTickets)
+            foreach (TicketModel ticket in manageStates.AllTickets)
             {
                 TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority, ticket.Id, ticket.Status.ToString(), new SqliteDataAccess());
 
@@ -52,7 +53,7 @@
                 {
                     unassingedflowLayoutPanel.Controls.Add(ticketTile);
                 }
-                else if (ShowOnlyMyTickets && ticket.AssignedUserId != Program.manageStates.LoggedUser.Id)
+                else if (ShowOnlyMyTickets && ticket.AssignedUserId != manageStates.LoggedUser.Id)
                 {
                     continue; // Skips
                 }
@@ -74,7 +75,7 @@
         public void RefreshUserList()
         {
             userListBox.Items.Clear();
-            List<UserModel> users = Program.manageStates.AllUsers;
+            List<UserModel> users = manageStates.AllUsers;
             foreach (UserModel user in users)
             {
                 userListBox.Items.Add(user.Name);
@@ -89,7 +90,7 @@
             if (editUserForm.DialogResult == DialogResult.OK)
             {
                 this.userListBox.Items.Clear();
-                await Program.manageStates.UpdateAll();
+                await manageStates.UpdateAll();
                 RefreshUserList();
                 RefreshPanels();
             }
@@ -141,33 +142,33 @@
         {
             if (SortBy == SortEnum.Date.ToString())
             {
-                await Program.manageStates.SortByDate();
+                await manageStates.SortByDate();
             }
             else if (SortBy == SortEnum.Priority.ToString())
             {
-                await Program.manageStates.SortByPriority();
+                await manageStates.SortByPriority();
             }
             else if (SortBy == SortEnum.Name.ToString())
             {
-                await Program.manageStates.SortByName();
+                await manageStates.SortByName();
             }
             else if (SortBy == SortEnum.Title.ToString())
             {
-                await Program.manageStates.SortByTitle();
+                await manageStates.SortByTitle();
             }
             else
             {
-                await Program.manageStates.UpdateAllTickets();
+                await manageStates.UpdateAllTickets();
             }
         }
 
         private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Find user by name
-            UserModel selectedUser = Program.manageStates.AllUsers.Find(user => user.Name == userListBox.SelectedItem.ToString());
+            UserModel selectedUser = manageStates.AllUsers.Find(user => user.Name == userListBox.SelectedItem.ToString());
 
             //Find tickets by user
-            List<TicketModel> ticketsByUser = Program.manageStates.AllTickets.FindAll(ticket => ticket.AssignedUserId == selectedUser.Id);
+            List<TicketModel> ticketsByUser = manageStates.AllTickets.FindAll(ticket => ticket.AssignedUserId == selectedUser.Id);
 
             //Open UserDetailForm
             UserDetailsForm userDetailForm = new UserDetailsForm(selectedUser, ticketsByUser, new SqliteDataAccess());

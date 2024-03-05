@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Enumerations\PriorityEnum.cs" />
+    <Compile Include="Model\IStateManagementService.cs" />
     <Compile Include="Model\ManageStates.cs" />
     <Compile Include="Model\Enumerations\SortEnum.cs" />
     <Compile Include="Model\Enumerations\StatusEnum.cs" />

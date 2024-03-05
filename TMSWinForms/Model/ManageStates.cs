@@ -8,13 +8,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace TMSWinForms.Model
 {
-    public class ManageStates
+    public class ManageStates: IStateManagementService
     {
         //fields 
         private UserModel loggedUser;
         private List<UserModel> allUsers;
         private List<TicketModel> allTickets;
         private readonly IDataAccess dataAccess;
+        
 
         //properties
         public UserModel LoggedUser
