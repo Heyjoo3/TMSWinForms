@@ -3,11 +3,16 @@
     using System;
     using System.Windows.Forms;
     using TMSLibrary;
+
+
     public partial class LoginReigsterGUI : Form
     {
-        public LoginReigsterGUI()
+        private readonly IDataAccess dataAccess;
+
+        public LoginReigsterGUI(IDataAccess dataAccess)
         {
             InitializeComponent();
+            this.dataAccess = dataAccess;
         }
 
         private async void registerButton_Click(object sender, EventArgs e)
@@ -34,7 +39,7 @@
                 user.Roll = adminRollCheckBox.Checked ? "Admin" : "User";
 
 
-                if (await SqliteDataAccess.SaveUser(user))
+                if (await dataAccess.SaveUser(user))
                 {
                     Program.manageStates.LoggedUser = user; 
                     this.DialogResult = DialogResult.OK;
@@ -59,9 +64,9 @@
             }
             else
             {
-                if (await SqliteDataAccess.CheckUser(loginEmailTextBox.Text, loginPasswordTextBox.Text))
+                if (await dataAccess.CheckUser(loginEmailTextBox.Text, loginPasswordTextBox.Text))
                 {
-                    Program.manageStates.LoggedUser = await SqliteDataAccess.GetUser(loginEmailTextBox.Text, loginPasswordTextBox.Text);
+                    Program.manageStates.LoggedUser = await dataAccess.GetUser(loginEmailTextBox.Text, loginPasswordTextBox.Text);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -146,7 +151,7 @@
 
         private async void registerNameTextBox_TextChanged(object sender, EventArgs e)
         {
-           if ( await SqliteDataAccess.GetUserByName(registerNameTextBox.Text.Trim()) != null)
+           if ( await dataAccess.GetUserByName(registerNameTextBox.Text.Trim()) != null)
             {
                 this.registerNameTextBox.BackColor = System.Drawing.Color.LightSalmon;
             }

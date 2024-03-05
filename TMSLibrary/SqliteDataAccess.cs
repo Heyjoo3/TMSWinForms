@@ -9,7 +9,8 @@
     using System.Threading.Tasks;
     using System;
 
-    public class SqliteDataAccess
+
+    public class SqliteDataAccess : IDataAccess
     {
         //SQLite connection string
         private static string LoadConnectionString(string id = "Default")
@@ -20,7 +21,7 @@
 
 
         //User CRUD
-        public static async Task<List<UserModel>> LoadUsers()
+        public  async Task<List<UserModel>> LoadUsers()
         {
             try
             {
@@ -38,7 +39,7 @@
             }
         }
 
-        public static async Task<bool> CheckUser(string email, string password)
+        public  async Task<bool> CheckUser(string email, string password)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -63,7 +64,7 @@
             }
         }
 
-        public static async Task<UserModel> GetUser(string email, string password)
+        public  async Task<UserModel> GetUser(string email, string password)
         {
             try
             {
@@ -81,7 +82,7 @@
             }
         }
 
-        public static async Task<bool> SaveUser(UserModel user)
+        public  async Task<bool> SaveUser(UserModel user)
         {   
             try
             {
@@ -107,7 +108,7 @@
             
         }
 
-        public static async Task UpdateUser(UserModel user)
+        public  async Task UpdateUser(UserModel user)
         {
             try
             {
@@ -124,7 +125,7 @@
             
         }
 
-        public static async Task DeleteUser(int id)
+        public  async Task DeleteUser(int id)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -140,7 +141,7 @@
             
         }
 
-        public static async Task<UserModel> GetUserByName (string name)
+        public  async Task<UserModel> GetUserByName (string name)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -161,7 +162,7 @@
 
 
         //Ticket CRUD
-        public static async Task<List<TicketModel>> LoadTickets()
+        public  async Task<List<TicketModel>> LoadTickets()
         {
             try
             {
@@ -180,7 +181,7 @@
             
         }
 
-        public static async Task SaveTicket(TicketModel ticket)
+        public  async Task SaveTicket(TicketModel ticket)
         {   
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -196,7 +197,7 @@
             
         }
 
-        public static async Task UpdateTicket(TicketModel ticket)
+        public  async Task UpdateTicket(TicketModel ticket)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -212,7 +213,7 @@
             
         }
 
-        public static async Task DeleteTicket(int id)
+        public async Task DeleteTicket(int id)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -228,7 +229,7 @@
             
         }
 
-        public static async Task ChangeAssignedUser(int ticketId, int userId, string userName)
+        public async Task ChangeAssignedUser(int ticketId, int userId, string userName)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -244,7 +245,7 @@
             
         }
 
-        public static async Task ChangeTicketStatus(int ticketId, string status)
+        public async Task ChangeTicketStatus(int ticketId, string status)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -260,7 +261,7 @@
             
         }
 
-        public static async Task UpdateUnfinishedTicketsbyUserId(int userId)
+        public async Task UpdateUnfinishedTicketsbyUserId(int userId)
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -278,7 +279,7 @@
 
         //Join Queries
 
-        public static async Task<List<TicketModel>> GetTicketsAndUserNames()
+        public  async Task<List<TicketModel>> GetTicketsAndUserNames()
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -297,7 +298,7 @@
             
         }
 
-        public static async Task<List<TicketModel>> SortTicketsAndUserByPriority()
+        public  async Task<List<TicketModel>> SortTicketsAndUserByPriority()
         {
             try
             {
@@ -315,7 +316,7 @@
             }
         }
 
-        public static async Task<List<TicketModel>> SortTicketsAndUserByName()
+        public  async Task<List<TicketModel>> SortTicketsAndUserByName()
         {
             try
             {
@@ -334,7 +335,7 @@
             
         }
 
-        public static async Task<List<TicketModel>> SortTicketsAndUserByTitle()
+        public  async Task<List<TicketModel>> SortTicketsAndUserByTitle()
         {
             try {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
