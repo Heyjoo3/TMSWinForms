@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TMSLibrary;
 
-namespace TMSBLL
+namespace TMSBLL.Interfaces
 {
-    internal class Program
+    internal interface IUserDetail
     {
-        static void Main(string[] args)
-        {
-       
-        }
     }
 }

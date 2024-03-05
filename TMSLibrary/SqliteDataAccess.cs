@@ -15,7 +15,17 @@
         //SQLite connection string
         private static string LoadConnectionString(string id = "Default")
         {
-            return ConfigurationManager.ConnectionStrings[id].ConnectionString;
+            try
+            {
+               
+                return ConfigurationManager.ConnectionStrings[id].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while loading connection string: " + ex.Message);
+                return null;
+            }
+            
         }
 
 
@@ -27,6 +37,8 @@
             {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
                 {
+                    Console.WriteLine("Connection string: " + LoadConnectionString());
+
                     var output = await cnn.QueryAsync<UserModel>("select * from UserTable", new DynamicParameters());
                     return output.ToList();
                 }
@@ -35,6 +47,8 @@
             {
                 // Handle the exception here
                 Console.WriteLine("An error occurred while loading users: " + ex.Message);
+                Console.WriteLine("Fuck");
+                
                 return new List<UserModel>(); // Return an empty list or null, depending on your requirements
             }
         }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMSLibrary;
+using TMSBLL.Interfaces;
+
 
 
 namespace TMSBLL
@@ -15,6 +17,11 @@ namespace TMSBLL
         private List<UserModel> allUsers;
         private List<TicketModel> allTickets;
         private readonly IDataAccess dataAccess;
+        
+        //interfaces
+        private readonly IUserDetail userDetail;
+        private readonly ITicketTile ticketTile;
+        private readonly ILoginRegisterGUI loginRegisterGUI;
         
 
         //properties

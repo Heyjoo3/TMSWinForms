@@ -3,9 +3,11 @@
     using System;
     using System.Windows.Forms;
     using TMSLibrary;
+    using TMSBLL.Interfaces;
+    using Microsoft.Win32;
 
 
-    public partial class LoginReigsterGUI : Form
+    public partial class LoginReigsterGUI : Form, ILoginRegisterGUI
     {
         private readonly IDataAccess dataAccess;
 
@@ -15,66 +17,50 @@
             this.dataAccess = dataAccess;
         }
 
-        private async void registerButton_Click(object sender, EventArgs e)
+        //events
+        public event Action<string, string> LoginRequested;
+        public event Action<string, string, string, bool> RegisterRequested;
+
+
+        //methods
+        private void registerButton_Click(object sender, EventArgs e)
         {
+           RegisterRequested?.Invoke(registerNameTextBox.Text.Trim(), registerEmailTextBox.Text.Trim(), registerPasswordTextBox.Text.Trim(), repeatPasswordTextBox.Text.Trim(), adminRollCheckBox.Checked);
 
-            if (this.registerNameTextBox.Text.Trim() == "" || this.registerEmailTextBox.Text.Trim() == "" || this.registerPasswordTextBox.Text.Trim() == "" || this.repeatPasswordTextBox.Text.Trim() == "")
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            LoginRequested?.Invoke(loginEmailTextBox.Text, loginPasswordTextBox.Text);
+ 
+        }
+
+        private async void registerNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+           if ( await dataAccess.GetUserByName(registerNameTextBox.Text.Trim()) != null)
             {
-                MessageBox.Show("Please fill out all fields");
+                this.registerNameTextBox.BackColor = System.Drawing.Color.LightSalmon;
             }
-            else if (this.registerPasswordTextBox.Text.Trim() != this.repeatPasswordTextBox.Text.Trim())
+           else
             {
-                MessageBox.Show("Passwords do not match");
-            }
-            else if (IsValidPassword(registerPasswordTextBox.Text.Trim()) == false)
-            {
-                MessageBox.Show("Password must contain at least 8 characters, a number, a capital letter, a small letter and a special sign");
-            }
-            else
-            {
-                UserModel user = new UserModel();
-                user.Name = registerNameTextBox.Text.Trim();
-                user.Email = registerEmailTextBox.Text.Trim();
-                user.Password = registerPasswordTextBox.Text.Trim();
-                user.Roll = adminRollCheckBox.Checked ? "Admin" : "User";
-
-
-                if (await dataAccess.SaveUser(user))
-                {
-                    Program.manageStates.LoggedUser = user; 
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                    
-                }
-
-                else
-                {
-                    MessageBox.Show("Email already exists");
-                } 
+                this.registerNameTextBox.BackColor = System.Drawing.Color.LightGreen;
             }
         }
 
 
-        private async void loginButton_Click(object sender, EventArgs e)
-        {
 
-            if (loginEmailTextBox.Text == "" || loginPasswordTextBox.Text == "")
-            {
-                MessageBox.Show("Please fill out all fields");
-            }
-            else
-            {
-                if (await dataAccess.CheckUser(loginEmailTextBox.Text, loginPasswordTextBox.Text))
-                {
-                    Program.manageStates.LoggedUser = await dataAccess.GetUser(loginEmailTextBox.Text, loginPasswordTextBox.Text);
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Login! Please try again");
-                }
-            }
+
+
+
+        // methods with no effect outside of the class
+        public void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
+        public void CloseView()
+        {
+            this.Close();
         }
 
         public static bool IsValidPassword(string password)
@@ -146,18 +132,6 @@
             else
             {
                 this.loginPasswordTextBox.PasswordChar = '*';
-            }
-        }
-
-        private async void registerNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-           if ( await dataAccess.GetUserByName(registerNameTextBox.Text.Trim()) != null)
-            {
-                this.registerNameTextBox.BackColor = System.Drawing.Color.LightSalmon;
-            }
-           else
-            {
-                this.registerNameTextBox.BackColor = System.Drawing.Color.LightGreen;
             }
         }
     }

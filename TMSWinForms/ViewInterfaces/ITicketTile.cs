@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TMSLibrary;
 
-namespace TMSBLL
+namespace TMSWinForms.Interfaces
 {
-    internal class Program
+    internal interface ITicketTile
     {
-        static void Main(string[] args)
-        {
-       
-        }
     }
 }

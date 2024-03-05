@@ -47,9 +47,17 @@
     <Compile Include="Enumerations\SortEnum.cs" />
     <Compile Include="Enumerations\StatusEnum.cs" />
     <Compile Include="IStateManagementService.cs" />
+    <Compile Include="ManageEvents.cs" />
     <Compile Include="ManageStates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewInterfaces\IEditUser.cs" />
+    <Compile Include="ViewInterfaces\ILoginRegisterGUI.cs" />
+    <Compile Include="ViewInterfaces\INewTicket.cs" />
+    <Compile Include="ViewInterfaces\ITicketTile.cs" />
+    <Compile Include="ViewInterfaces\IUserDetail.cs" />
+    <Compile Include="ViewInterfaces\TicketDetails.cs" />
+    <Compile Include="ViewInterfaces\TicketGUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TMSLibrary\TMSLibrary.csproj">
