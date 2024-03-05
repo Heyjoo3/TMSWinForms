@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TMSWinForms.Model.Enumerations                
+namespace TMSBLL.Enumerations                
 {
-    internal enum PriorityEnum
+    public enum PriorityEnum
     {
         Low = 1,
         Medium = 2,

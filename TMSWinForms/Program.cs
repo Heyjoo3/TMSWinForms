@@ -1,9 +1,10 @@
 ﻿namespace TMSWinForms
 {
     using System.Windows.Forms;
-    using TMSWinForms.Model;
     using TMSWinForms.View;
     using TMSLibrary;
+    using TMSBLL;
+    using TMSBLL.Enumerations;
 
     public class Program
     {

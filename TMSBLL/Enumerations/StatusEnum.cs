@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TMSWinForms.Model.Enumerations
+namespace TMSBLL.Enumerations
 
 {
-    enum StatusEnum
+    public enum StatusEnum
     {
         Unassigned,
         Assigned,

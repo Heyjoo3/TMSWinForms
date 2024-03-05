@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMSLibrary;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
-namespace TMSWinForms.Model
+namespace TMSBLL
 {
     public interface IStateManagementService
     {

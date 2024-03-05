@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSWinForms", "TMSWinForms\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSLibrary", "TMSLibrary\TMSLibrary.csproj", "{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSBLL", "TMSBLL\TMSBLL.csproj", "{52B223AC-FB92-465D-A4CD-BFEEC434BC63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B0D7C8-243D-4C5F-95AB-67CF241DDF02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B223AC-FB92-465D-A4CD-BFEEC434BC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B223AC-FB92-465D-A4CD-BFEEC434BC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B223AC-FB92-465D-A4CD-BFEEC434BC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B223AC-FB92-465D-A4CD-BFEEC434BC63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

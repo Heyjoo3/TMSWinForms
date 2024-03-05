@@ -5,8 +5,8 @@
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using TMSLibrary;
-    using TMSWinForms.Model;
-    using TMSWinForms.Model.Enumerations;
+    using TMSBLL;
+    using TMSBLL.Enumerations;
 
     public partial class TicketGUI : Form
     {
