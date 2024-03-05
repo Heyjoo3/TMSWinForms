@@ -46,7 +46,7 @@
 
             foreach (TicketModel ticket in Program.manageStates.AllTickets)
             {
-                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority, ticket.Id, ticket.Status.ToString());
+                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority, ticket.Id, ticket.Status.ToString(), new SqliteDataAccess());
 
                 if (ticket.Status == StatusEnum.Unassigned.ToString())
                 {
@@ -83,7 +83,7 @@
 
         private async void newUserButton_Click(object sender, EventArgs e)
         {
-            EditUserForm editUserForm = new EditUserForm();
+            EditUserForm editUserForm = new EditUserForm(new SqliteDataAccess());
             editUserForm.ShowDialog();
 
             if (editUserForm.DialogResult == DialogResult.OK)
@@ -97,7 +97,7 @@
 
         private void newTicketButton_Click(object sender, EventArgs e)
         {
-            NewTicketForm newTicketForm = new NewTicketForm();
+            NewTicketForm newTicketForm = new NewTicketForm(new SqliteDataAccess());
             newTicketForm.ShowDialog();
             if (newTicketForm.DialogResult == DialogResult.OK)
             {
@@ -170,7 +170,7 @@
             List<TicketModel> ticketsByUser = Program.manageStates.AllTickets.FindAll(ticket => ticket.AssignedUserId == selectedUser.Id);
 
             //Open UserDetailForm
-            UserDetailsForm userDetailForm = new UserDetailsForm(selectedUser, ticketsByUser);
+            UserDetailsForm userDetailForm = new UserDetailsForm(selectedUser, ticketsByUser, new SqliteDataAccess());
             userDetailForm.ShowDialog();
 
             if (userDetailForm.DialogResult == DialogResult.OK)

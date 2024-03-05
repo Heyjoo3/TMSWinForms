@@ -8,9 +8,13 @@
 
     public partial class TicketTile : UserControl
     {
-        public TicketTile()
+        private readonly IDataAccess dataAccess;
+
+        public TicketTile(IDataAccess dataAccess)
         {
+            this.dataAccess = dataAccess;
             InitializeComponent();
+           
         }
 
         private int ticketID = 0;
@@ -21,8 +25,9 @@
             set { ticketID = value; }
         }
 
-        public TicketTile(string taskName, string assignedPerson, string date, int priority, int ticketID, string status)
+        public TicketTile(string taskName, string assignedPerson, string date, int priority, int ticketID, string status, IDataAccess dataAccess)
         {
+            this.dataAccess = dataAccess;
             InitializeComponent();
             this.ticketTitleLabel.Text = taskName;
             this.dateLabel.Text = date;
@@ -85,7 +90,7 @@
                     break;
 
                 case "Finished":
-                        await SqliteDataAccess.ChangeTicketStatus(TicketID, "Finished");
+                        await dataAccess.ChangeTicketStatus(TicketID, "Finished");
                     break;
             }
             Program.ticketForm.RefreshPanels();
@@ -94,7 +99,7 @@
 
         private void detailsButton_Click(object sender, EventArgs e)
         {
-            TicketDetailsForm ticketDetailsForm = new TicketDetailsForm(TicketID);  
+            TicketDetailsForm ticketDetailsForm = new TicketDetailsForm(TicketID, new SqliteDataAccess());  
             ticketDetailsForm.ShowDialog();
         }
 
@@ -107,14 +112,14 @@
             {
                 if (user.Name == assignedUserName)
                 {
-                    await SqliteDataAccess.ChangeTicketStatus(TicketID, status);
-                    await SqliteDataAccess.ChangeAssignedUser(TicketID, user.Id, assignedUserName);
+                    await dataAccess.ChangeTicketStatus(TicketID, status);
+                    await dataAccess.ChangeAssignedUser(TicketID, user.Id, assignedUserName);
                     return;
                 }
                 else
                 {
-                    await SqliteDataAccess.ChangeTicketStatus(TicketID, status);
-                    await SqliteDataAccess.ChangeAssignedUser(TicketID, 0, "");
+                    await dataAccess.ChangeTicketStatus(TicketID, status);
+                    await dataAccess.ChangeAssignedUser(TicketID, 0, "");
                 }
             }
         }

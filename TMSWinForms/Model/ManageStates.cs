@@ -14,6 +14,7 @@ namespace TMSWinForms.Model
         private UserModel loggedUser;
         private List<UserModel> allUsers;
         private List<TicketModel> allTickets;
+        private readonly IDataAccess dataAccess;
 
         //properties
         public UserModel LoggedUser
@@ -33,19 +34,21 @@ namespace TMSWinForms.Model
         }
 
         //constructor
-        public ManageStates()
+        public ManageStates(IDataAccess dataAccess)
         {
             loggedUser = new UserModel();
             //allUsers = new List<UserModel>();
             //allTickets = new List<TicketModel>();
+            this.dataAccess = dataAccess;
             InitializeData();
+           
         }
 
         //methods
         private async void InitializeData()
         {
-            allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
-            allUsers = await SqliteDataAccess.LoadUsers();
+            allTickets = await dataAccess.GetTicketsAndUserNames();
+            allUsers = await dataAccess.LoadUsers();
         }
 
         public async Task UpdateAll()
@@ -56,20 +59,20 @@ namespace TMSWinForms.Model
 
         public async Task UpdateAllUsers()
         {
-            allUsers = await SqliteDataAccess.LoadUsers();
+            allUsers = await dataAccess.LoadUsers();
         }
 
         public async Task UpdateAllTickets()
         {
-            allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
+            allTickets = await dataAccess.GetTicketsAndUserNames();
         }
 
         public async Task SortByPriority() {
-            allTickets = await SqliteDataAccess.SortTicketsAndUserByPriority();
+            allTickets = await dataAccess.SortTicketsAndUserByPriority();
         }
 
         public async Task SortByDate() {        
-            allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
+            allTickets = await dataAccess.GetTicketsAndUserNames();
 
             for (int i = 0; i < allTickets.Count; i++)
             {
@@ -87,11 +90,11 @@ namespace TMSWinForms.Model
         }
 
         public async Task SortByName() {
-            allTickets = await SqliteDataAccess.SortTicketsAndUserByName();
+            allTickets = await dataAccess.SortTicketsAndUserByName();
         }
 
         public async Task SortByTitle() {
-            allTickets = await SqliteDataAccess.SortTicketsAndUserByTitle(); 
+            allTickets = await dataAccess.SortTicketsAndUserByTitle(); 
         }
 
         public TicketModel GetTicketById(int id)

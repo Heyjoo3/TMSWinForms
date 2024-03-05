@@ -11,8 +11,10 @@ using TMSLibrary;
 
 namespace TMSWinForms.View
 {
+  
     public partial class UserDetailsForm : Form
     {
+        private readonly IDataAccess dataAccess;
         private UserModel selectedUser;
         private List<TicketModel> selectedUserTickets;
 
@@ -28,8 +30,10 @@ namespace TMSWinForms.View
             set { selectedUserTickets = value; }
         }
 
-        public UserDetailsForm(UserModel selectedUser, List<TicketModel> selectedUserTickets)
+        public UserDetailsForm(UserModel selectedUser, List<TicketModel> selectedUserTickets, IDataAccess dataAccess)
         {
+
+            this.dataAccess = dataAccess;
             InitializeComponent();
 
             this.SelectedUser = selectedUser;
@@ -43,15 +47,17 @@ namespace TMSWinForms.View
 
             foreach (TicketModel ticket in SelectedUserTickets)
             {
-                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority, ticket.Id, ticket.Status.ToString());
+                TicketTile ticketTile = new TicketTile(ticket.Title, ticket.AssignedUserName, ticket.DueDate, ticket.Priority, ticket.Id, ticket.Status.ToString(), new SqliteDataAccess());
                 this.assignedTicketsflowLayoutPanel.Controls.Add(ticketTile);
             }
+
+            
         }
 
         private async void deleteUserButton_Click(object sender, EventArgs e)
         {
-            await SqliteDataAccess.UpdateUnfinishedTicketsbyUserId(SelectedUser.Id);
-            await SqliteDataAccess.DeleteUser(SelectedUser.Id);
+            await dataAccess.UpdateUnfinishedTicketsbyUserId(SelectedUser.Id);
+            await dataAccess.DeleteUser(SelectedUser.Id);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -59,7 +65,7 @@ namespace TMSWinForms.View
         private async void resetPasswordButton_Click(object sender, EventArgs e)
         {
             selectedUser.Password = "12345678";
-            await SqliteDataAccess.UpdateUser(selectedUser);
+            await dataAccess.UpdateUser(selectedUser);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

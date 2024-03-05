@@ -5,13 +5,12 @@
     using System.Windows.Forms;
     using TMSWinForms.Model.Enumerations;
     using TMSLibrary;
-    using DevExpress.XtraPrinting.Native;
 
     public partial class TicketDetailsForm : Form
     {   
         //fields
         private int ticketID = 0;
-
+        private readonly IDataAccess dataAccess;
 
         //properties
         public int TicketID
@@ -21,10 +20,12 @@
         }   
 
         //constructor
-        public TicketDetailsForm(int ticketID)
+        public TicketDetailsForm(int ticketID, IDataAccess dataAccess)
         {
+            this.dataAccess = dataAccess;
             InitializeComponent();
             this.TicketID = ticketID;
+            
             TicketModel tempTicket = Program.manageStates.GetTicketById(TicketID);
 
             titleTextBox.Text = tempTicket.Title;
@@ -62,7 +63,7 @@
         //methods
         private async void deleteButton_Click(object sender, EventArgs e)
         {
-            await SqliteDataAccess.DeleteTicket(TicketID);
+            await dataAccess.DeleteTicket(TicketID);
             Program.ticketForm.RefreshPanels();
             this.Close();
         }
@@ -83,9 +84,9 @@
                 status = "Assigned";
             }
 
-            UserModel user = await SqliteDataAccess.GetUserByName(assignedUser);
+            UserModel user = await dataAccess.GetUserByName(assignedUser);
 
-            await SqliteDataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, user.Id, assignedUser));
+            await dataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, user.Id, assignedUser));
 
             await Program.manageStates.UpdateAll();
 

@@ -15,7 +15,7 @@
         static void Main()
         {
             // Create an instance of the ManageStates class
-            manageStates = new ManageStates();
+            manageStates = new ManageStates(new SqliteDataAccess());
 
 
     

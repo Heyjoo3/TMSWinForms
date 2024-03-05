@@ -5,12 +5,16 @@
     using TMSLibrary;
     public partial class EditUserForm : Form
     {
-        public EditUserForm()
+        private readonly IDataAccess dataAccess;
+
+        public EditUserForm(IDataAccess dataAccess)
         {
+            this.dataAccess = dataAccess;
             InitializeComponent();
 
             emailTextBox.Text = Program.manageStates.LoggedUser.Email;
             nameTextBox.Text = Program.manageStates.LoggedUser.Name;
+            
         }
 
         private async void saveAccountEditButton_Click(object sender, EventArgs e)
@@ -20,7 +24,7 @@
                 Program.manageStates.LoggedUser.Email = emailTextBox.Text;
                 Program.manageStates.LoggedUser.Name = nameTextBox.Text;
 
-                await SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
+                await dataAccess.UpdateUser(Program.manageStates.LoggedUser);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -33,7 +37,7 @@
                     Program.manageStates.LoggedUser.Name = nameTextBox.Text;
                     Program.manageStates.LoggedUser.Password = passwordTextBox.Text;
 
-                    await SqliteDataAccess.UpdateUser(Program.manageStates.LoggedUser);
+                    await dataAccess.UpdateUser(Program.manageStates.LoggedUser);
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -55,8 +59,8 @@
         }
         private async void deleteAccountButton_Click(object sender, EventArgs e)
         {
-            await SqliteDataAccess.UpdateUnfinishedTicketsbyUserId(Program.manageStates.LoggedUser.Id);
-            await SqliteDataAccess.DeleteUser(Program.manageStates.LoggedUser.Id);
+            await dataAccess.UpdateUnfinishedTicketsbyUserId(Program.manageStates.LoggedUser.Id);
+            await dataAccess.DeleteUser(Program.manageStates.LoggedUser.Id);
             this.Close();
             Application.Exit();
 
