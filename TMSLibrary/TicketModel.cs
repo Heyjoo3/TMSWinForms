@@ -51,7 +51,6 @@ namespace TMSLibrary
             get { return assignedUserID; }
             set { assignedUserID = value; }
         }
-
         public string AssignedUserName
         {
             get { return assignedUserName; }

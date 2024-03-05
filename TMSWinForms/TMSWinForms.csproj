@@ -147,7 +147,6 @@
     <Content Include="Database.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="MyApp\App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\TMSWinForms.Controller.TicketPresenter.datasource" />

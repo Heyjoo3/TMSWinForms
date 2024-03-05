@@ -16,9 +16,8 @@
             manageStates = new ManageStates();
 
 
-            // Enable visual styles for the application
+    
             Application.EnableVisualStyles();
-            // Set the default text rendering to be compatible with the application
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Create an instance of the LoginReigsterGUI form

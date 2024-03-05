@@ -26,6 +26,8 @@
             InitializeComponent();
             this.ticketTitleLabel.Text = taskName;
             this.dateLabel.Text = date;
+            this.assignedUserComboBox.MouseWheel += mouseWheelEvent;
+            this.StatusComboBox.MouseWheel += mouseWheelEvent;
 
             PriorityEnum priorityEnum = (PriorityEnum)priority;
             string priorityString = priorityEnum.ToString();
@@ -115,6 +117,11 @@
                     await SqliteDataAccess.ChangeAssignedUser(TicketID, 0, "");
                 }
             }
+        }
+
+        private void mouseWheelEvent(object sender, MouseEventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
         }
     }
 }

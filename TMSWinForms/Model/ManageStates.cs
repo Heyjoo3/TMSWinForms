@@ -21,13 +21,11 @@ namespace TMSWinForms.Model
             get { return loggedUser; }
             set { loggedUser = value; }
         }
-
         public List<UserModel> AllUsers
         {
             get { return allUsers; }
             set { allUsers = value; }
         }
-
         public List<TicketModel> AllTickets
         {
             get { return allTickets; }
@@ -43,13 +41,19 @@ namespace TMSWinForms.Model
             InitializeData();
         }
 
+        //methods
         private async void InitializeData()
         {
             allTickets = await SqliteDataAccess.GetTicketsAndUserNames();
             allUsers = await SqliteDataAccess.LoadUsers();
         }
 
-        //methods
+        public async Task UpdateAll()
+        {
+            await UpdateAllUsers();
+            await UpdateAllTickets();
+        }
+
         public async Task UpdateAllUsers()
         {
             allUsers = await SqliteDataAccess.LoadUsers();
@@ -88,12 +92,6 @@ namespace TMSWinForms.Model
 
         public async Task SortByTitle() {
             allTickets = await SqliteDataAccess.SortTicketsAndUserByTitle(); 
-        }
-
-        public async Task UpdateAll()
-        {
-            await UpdateAllUsers();
-            await UpdateAllTickets();
         }
 
         public TicketModel GetTicketById(int id)
