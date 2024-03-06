@@ -9,13 +9,13 @@
 
     public partial class NewTicketForm : Form
     {
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
         public NewTicketForm(IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
             InitializeComponent();
 
-            List<UserModel> users = Program.manageStates.AllUsers;
+            List<UserModel> users = TMSWinForms.Program.manageStates.AllUsers;
 
             this.assignedUserComboBox.DataSource = users;
             this.assignedUserComboBox.DisplayMember = "Name";
@@ -46,7 +46,7 @@
                 }
                 else
                 {
-                    TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName, Program.manageStates.AllUsers);
+                    TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName, TMSWinForms.Program.manageStates.AllUsers);
                     await dataAccess.SaveTicket(newTicket);
                     this.DialogResult = DialogResult.OK;
                     this.Close();

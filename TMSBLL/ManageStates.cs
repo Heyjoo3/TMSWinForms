@@ -16,12 +16,12 @@ namespace TMSBLL
         private UserModel loggedUser;
         private List<UserModel> allUsers;
         private List<TicketModel> allTickets;
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
         
         //interfaces
-        private readonly IUserDetail userDetail;
-        private readonly ITicketTile ticketTile;
-        private readonly ILoginRegisterGUI loginRegisterGUI;
+        private  IUserDetail userDetail;
+        private  ITicketTile ticketTile;
+        private  ILoginRegisterGUI loginRegisterGUI;
         
 
         //properties

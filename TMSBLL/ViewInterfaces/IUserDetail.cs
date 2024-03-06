@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TMSBLL.Interfaces
 {
-    internal interface IUserDetail
+    public interface IUserDetail
     {
     }
 }

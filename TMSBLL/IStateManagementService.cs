@@ -12,9 +12,9 @@ namespace TMSBLL
     // It is used to store the current user and all the tickets in the system.
     // It is also used to sort the tickets by different criteria.
     {
-        List<TicketModel> AllTickets { get; }
-        List<UserModel> AllUsers { get; }
-        UserModel LoggedUser { get; }
+        List<TicketModel> AllTickets { get; set; }
+        List<UserModel> AllUsers { get; set; }
+        UserModel LoggedUser { get; set; }
         Task UpdateAll();
         Task SortByDate();
         Task SortByPriority();

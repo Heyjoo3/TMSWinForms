@@ -9,7 +9,7 @@
 
     public partial class LoginReigsterGUI : Form, ILoginRegisterGUI
     {
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
 
         public LoginReigsterGUI(IDataAccess dataAccess)
         {
@@ -19,22 +19,22 @@
 
         //events
         public event Action<string, string> LoginRequested;
-        public event Action<string, string, string, bool> RegisterRequested;
+        public event Action<string, string, string, string, bool> RegistrationRequested;
 
 
-        //methods
+        //methods to handle events
         private void registerButton_Click(object sender, EventArgs e)
         {
-           RegisterRequested?.Invoke(registerNameTextBox.Text.Trim(), registerEmailTextBox.Text.Trim(), registerPasswordTextBox.Text.Trim(), repeatPasswordTextBox.Text.Trim(), adminRollCheckBox.Checked);
-
+            RegistrationRequested?.Invoke(registerNameTextBox.Text, registerEmailTextBox.Text, registerPasswordTextBox.Text, repeatPasswordTextBox.Text, adminRollCheckBox.Checked);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             LoginRequested?.Invoke(loginEmailTextBox.Text, loginPasswordTextBox.Text);
- 
         }
 
+
+        //TODO
         private async void registerNameTextBox_TextChanged(object sender, EventArgs e)
         {
            if ( await dataAccess.GetUserByName(registerNameTextBox.Text.Trim()) != null)
@@ -48,11 +48,7 @@
         }
 
 
-
-
-
-
-        // methods with no effect outside of the class
+        // other methods from interface
         public void ShowErrorMessage(string message)
         {
             MessageBox.Show(message);
@@ -63,40 +59,14 @@
             this.Close();
         }
 
-        public static bool IsValidPassword(string password)
+        DialogResult ILoginRegisterGUI.DialogResult()
         {
-            if (password.Length < 8)
-            {
-                return false;
-            }
-
-            bool hasNumber = false;
-            bool hasCapitalLetter = false;
-            bool hasSmallLetter = false;
-            bool hasSpecialSign = false;
-
-            foreach (char c in password)
-            {
-                if (char.IsDigit(c))
-                {
-                    hasNumber = true;
-                }
-                else if (char.IsUpper(c))
-                {
-                    hasCapitalLetter = true;
-                }
-                else if (char.IsLower(c))
-                {
-                    hasSmallLetter = true;
-                }
-                else if (!char.IsLetterOrDigit(c))
-                {
-                    hasSpecialSign = true;
-                }
-            }
-
-            return hasNumber && hasCapitalLetter && hasSmallLetter && hasSpecialSign;
+            DialogResult = DialogResult.OK;
+            return this.DialogResult;
         }
+
+
+        //other methods - just for show/hide password
 
         private void showPasswordButton_Click(object sender, EventArgs e)
         {
@@ -134,5 +104,7 @@
                 this.loginPasswordTextBox.PasswordChar = '*';
             }
         }
+
+        
     }
 }

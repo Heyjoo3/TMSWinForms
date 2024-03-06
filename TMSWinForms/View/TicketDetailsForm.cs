@@ -11,7 +11,7 @@
     {   
         //fields
         private int ticketID = 0;
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
 
         //properties
         public int TicketID
@@ -27,7 +27,7 @@
             InitializeComponent();
             this.TicketID = ticketID;
             
-            TicketModel tempTicket = Program.manageStates.GetTicketById(TicketID);
+            TicketModel tempTicket = TMSWinForms.Program.manageStates.GetTicketById(TicketID);
 
             titleTextBox.Text = tempTicket.Title;
             assignedUserComboBox.Text = tempTicket.AssignedUserName;
@@ -46,7 +46,7 @@
             this.priorityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
-            List<UserModel> allUsers = Program.manageStates.AllUsers;
+            List<UserModel> allUsers = TMSWinForms.Program.manageStates.AllUsers;
 
             this.assignedUserComboBox.DataSource = allUsers;
             this.assignedUserComboBox.DisplayMember = "Name";
@@ -65,7 +65,7 @@
         private async void deleteButton_Click(object sender, EventArgs e)
         {
             await dataAccess.DeleteTicket(TicketID);
-            Program.ticketForm.RefreshPanels();
+            TMSWinForms.Program.ticketForm.RefreshPanels();
             this.Close();
         }
 
@@ -89,10 +89,10 @@
 
             await dataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, user.Id, assignedUser));
 
-            await Program.manageStates.UpdateAll();
+            await TMSWinForms.Program.manageStates.UpdateAll();
 
-            Program.ticketForm.RefreshPanels();
-            Program.ticketForm.RefreshUserList();
+            TMSWinForms.Program.ticketForm.RefreshPanels();
+            TMSWinForms.Program.ticketForm.RefreshUserList();
 
             this.Close();
         }

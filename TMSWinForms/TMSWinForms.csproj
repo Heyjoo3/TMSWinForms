@@ -88,13 +88,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewInterfaces\IEditUser.cs" />
-    <Compile Include="ViewInterfaces\ILoginRegisterGUI.cs" />
-    <Compile Include="ViewInterfaces\INewTicket.cs" />
-    <Compile Include="ViewInterfaces\ITicketTile.cs" />
-    <Compile Include="ViewInterfaces\IUserDetail.cs" />
-    <Compile Include="ViewInterfaces\TicketDetails.cs" />
-    <Compile Include="ViewInterfaces\TicketGUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

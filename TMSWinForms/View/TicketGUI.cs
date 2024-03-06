@@ -7,14 +7,15 @@
     using TMSLibrary;
     using TMSBLL;
     using TMSBLL.Enumerations;
+    using TMSBLL.Interfaces;
 
     public partial class TicketGUI : Form
     {
         //fields
         private bool showOnlyMyTickets = false;
         private string sortBy = "";
-        private readonly IStateManagementService manageStates = Program.manageStates;
-
+        private IStateManagementService manageStates = TMSWinForms.Program.manageStates;
+        //private ITicketGUI ticketGUIServices;
         //properties
         public bool ShowOnlyMyTickets
         {
@@ -29,8 +30,10 @@
         }
 
         //constructor
+        //public TicketGUI(ITicketGUI ticketGUIServices)
         public TicketGUI()
         {
+            //this.ticketGUIServices = ticketGUIServices;
             InitializeComponent();
             InitializeTaskTiles();
             RefreshUserList();
@@ -72,6 +75,14 @@
             }
         }
 
+        public void RefreshPanels()
+        {
+            unassingedflowLayoutPanel.Controls.Clear();
+            assignedflowLayoutPanel.Controls.Clear();
+            finishedflowLayoutPanel.Controls.Clear();
+            InitializeTaskTiles();
+        }
+
         public void RefreshUserList()
         {
             userListBox.Items.Clear();
@@ -81,6 +92,32 @@
                 userListBox.Items.Add(user.Name);
             }
         }
+
+        private async Task UpdateBySort()
+        {
+
+            if (sortBy == SortEnum.Date.ToString())
+            {
+                await manageStates.SortByDate();
+            }
+            else if (sortBy == SortEnum.Priority.ToString())
+            {
+                await manageStates.SortByPriority();
+            }
+            else if (sortBy == SortEnum.Name.ToString())
+            {
+                await manageStates.SortByName();
+            }
+            else if (sortBy == SortEnum.Title.ToString())
+            {
+                await manageStates.SortByTitle();
+            }
+            else
+            {
+                await manageStates.UpdateAllTickets();
+            }
+        }
+
 
         private async void newUserButton_Click(object sender, EventArgs e)
         {
@@ -119,47 +156,15 @@
 
         private async void refreshButton_Click(object sender, EventArgs e)
         {
-            await Program.manageStates.UpdateAll();
+            await TMSWinForms.Program.manageStates.UpdateAll();
             RefreshPanels();
             RefreshUserList();
-        }
-
-        public void RefreshPanels()
-        {
-            unassingedflowLayoutPanel.Controls.Clear();
-            assignedflowLayoutPanel.Controls.Clear();
-            finishedflowLayoutPanel.Controls.Clear();
-            InitializeTaskTiles();
         }
 
         private void sortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.sortBy = sortingComboBox.SelectedItem.ToString();
             RefreshPanels(); 
-        }
-
-        private async Task UpdateBySort()
-        {
-            if (SortBy == SortEnum.Date.ToString())
-            {
-                await manageStates.SortByDate();
-            }
-            else if (SortBy == SortEnum.Priority.ToString())
-            {
-                await manageStates.SortByPriority();
-            }
-            else if (SortBy == SortEnum.Name.ToString())
-            {
-                await manageStates.SortByName();
-            }
-            else if (SortBy == SortEnum.Title.ToString())
-            {
-                await manageStates.SortByTitle();
-            }
-            else
-            {
-                await manageStates.UpdateAllTickets();
-            }
         }
 
         private void userListBox_SelectedIndexChanged(object sender, EventArgs e)

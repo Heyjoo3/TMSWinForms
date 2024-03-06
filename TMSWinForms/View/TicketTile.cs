@@ -9,7 +9,7 @@
 
     public partial class TicketTile : UserControl
     {
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
 
         public TicketTile(IDataAccess dataAccess)
         {
@@ -45,7 +45,7 @@
             this.StatusComboBox.Text = status;
             this.StatusComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<UserModel> users = Program.manageStates.AllUsers;
+            List<UserModel> users = TMSWinForms.Program.manageStates.AllUsers;
             this.assignedUserComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.assignedUserComboBox.DataSource = users;
             this.assignedUserComboBox.DisplayMember = "Name";
@@ -65,7 +65,7 @@
         private async void changeStatusButton_Click(object sender, EventArgs e)
         {
             string status = this.StatusComboBox.Text;
-            string currentStatus = Program.manageStates.GetTicketById(TicketID).Status;
+            string currentStatus = TMSWinForms.Program.manageStates.GetTicketById(TicketID).Status;
             switch (status)
             {
                 case "Unassigned":
@@ -94,7 +94,7 @@
                         await dataAccess.ChangeTicketStatus(TicketID, "Finished");
                     break;
             }
-            Program.ticketForm.RefreshPanels();
+            TMSWinForms.Program.ticketForm.RefreshPanels();
         }
 
 
@@ -107,7 +107,7 @@
         private async void ChangeStatusAndAssignedUser(string status, string assignedUserName)
         {
             //List<UserModel> allUsers= await SqliteDataAccess.LoadUsers();
-            List<UserModel> allUsers = Program.manageStates.AllUsers;
+            List<UserModel> allUsers = TMSWinForms.Program.manageStates.AllUsers;
             
             foreach (UserModel user in allUsers)
             {

@@ -14,7 +14,7 @@ namespace TMSWinForms.View
   
     public partial class UserDetailsForm : Form
     {
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
         private UserModel selectedUser;
         private List<TicketModel> selectedUserTickets;
 

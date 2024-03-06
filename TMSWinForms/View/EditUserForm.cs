@@ -2,18 +2,21 @@
 {
     using System;
     using System.Windows.Forms;
+    using TMSBLL;
+    using TMSBLL.Interfaces;
+    using TMSBLL.Services;
     using TMSLibrary;
     public partial class EditUserForm : Form
     {
-        private readonly IDataAccess dataAccess;
+        private IDataAccess dataAccess;
 
         public EditUserForm(IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
             InitializeComponent();
 
-            emailTextBox.Text = Program.manageStates.LoggedUser.Email;
-            nameTextBox.Text = Program.manageStates.LoggedUser.Name;
+            emailTextBox.Text = TMSWinForms.Program.manageStates.LoggedUser.Email;
+            nameTextBox.Text = TMSWinForms.Program.manageStates.LoggedUser.Name;
             
         }
 
@@ -21,23 +24,23 @@
         {
             if (passwordTextBox.Text == "" && repeatPasswordTextBox.Text == "")
             {
-                Program.manageStates.LoggedUser.Email = emailTextBox.Text;
-                Program.manageStates.LoggedUser.Name = nameTextBox.Text;
+                TMSWinForms.Program.manageStates.LoggedUser.Email = emailTextBox.Text;
+                TMSWinForms.Program.manageStates.LoggedUser.Name = nameTextBox.Text;
 
-                await dataAccess.UpdateUser(Program.manageStates.LoggedUser);
+                await dataAccess.UpdateUser(TMSWinForms.Program.manageStates.LoggedUser);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            else if (passwordTextBox.Text == repeatPasswordTextBox.Text && oldPasswordTextBox.Text == Program.manageStates.LoggedUser.Password)
+            else if (passwordTextBox.Text == repeatPasswordTextBox.Text && oldPasswordTextBox.Text == TMSWinForms.Program.manageStates.LoggedUser.Password)
             {
-                if (LoginReigsterGUI.IsValidPassword(passwordTextBox.Text))
+                if (ManageLoginEvents.IsValidPassword(passwordTextBox.Text))
                 {
-                    Program.manageStates.LoggedUser.Email = emailTextBox.Text;
-                    Program.manageStates.LoggedUser.Name = nameTextBox.Text;
-                    Program.manageStates.LoggedUser.Password = passwordTextBox.Text;
+                    TMSWinForms.Program.manageStates.LoggedUser.Email = emailTextBox.Text;
+                    TMSWinForms.Program.manageStates.LoggedUser.Name = nameTextBox.Text;
+                    TMSWinForms.Program.manageStates.LoggedUser.Password = passwordTextBox.Text;
 
-                    await dataAccess.UpdateUser(Program.manageStates.LoggedUser);
+                    await dataAccess.UpdateUser(TMSWinForms.Program.manageStates.LoggedUser);
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -48,7 +51,7 @@
                 }
                 
             }
-            else if (oldPasswordTextBox.Text != Program.manageStates.LoggedUser.Password)
+            else if (oldPasswordTextBox.Text != TMSWinForms.Program.manageStates.LoggedUser.Password)
             {
                 MessageBox.Show("Old password is incorrect");
             }
@@ -59,8 +62,8 @@
         }
         private async void deleteAccountButton_Click(object sender, EventArgs e)
         {
-            await dataAccess.UpdateUnfinishedTicketsbyUserId(Program.manageStates.LoggedUser.Id);
-            await dataAccess.DeleteUser(Program.manageStates.LoggedUser.Id);
+            await dataAccess.UpdateUnfinishedTicketsbyUserId(TMSWinForms.Program.manageStates.LoggedUser.Id);
+            await dataAccess.DeleteUser(TMSWinForms.Program.manageStates.LoggedUser.Id);
             this.Close();
             Application.Exit();
 
