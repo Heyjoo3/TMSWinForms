@@ -43,7 +43,6 @@
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.assignedUserComboBox = new System.Windows.Forms.ComboBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dialogTitleLabel
@@ -217,15 +216,6 @@
             this.dateTimePicker.Size = new System.Drawing.Size(138, 20);
             this.dateTimePicker.TabIndex = 46;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "label1";
-            // 
             // TicketDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,7 +223,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(375, 436);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.assignedUserComboBox);
             this.Controls.Add(this.statusComboBox);
@@ -273,6 +262,5 @@
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.ComboBox assignedUserComboBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.Label label1;
     }
 }

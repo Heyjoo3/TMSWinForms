@@ -86,7 +86,15 @@
             }
 
             UserModel user = await dataAccess.GetUserByName(assignedUser);
+            if (user == null)
+            {
+                user = new UserModel();
+                user.Name = "";
+                user.Id = 0;
+            }
 
+
+            
             await dataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, user.Id, assignedUser));
 
             await TMSWinForms.Program.manageStates.UpdateAll();

@@ -15,32 +15,28 @@
         internal static ManageLoginEvents manageEvents;
         internal static SqliteDataAccess sqliteDataAccess;
 
+        // Declare the form variable as a static field
         internal static TicketGUI ticketForm;
+        internal static LoginReigsterGUI loginForm;
 
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Create an instance of the LoginReigsterGUI form
-            //LoginReigsterGUI loginForm = new LoginReigsterGUI();
+            // Create instances
+       
 
             sqliteDataAccess = new SqliteDataAccess();
             manageStates = new ManageStates(sqliteDataAccess);
 
-            
-
-
-            LoginReigsterGUI loginForm = new LoginReigsterGUI(sqliteDataAccess);
+            loginForm = new LoginReigsterGUI(sqliteDataAccess);
             manageEvents = new ManageLoginEvents(sqliteDataAccess, loginForm, manageStates);
 
             // Show the login form and wait for the user to close it
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                // Create an instance of the TicketGUI form
                 ticketForm = new TicketGUI();
-
-                // Run the ticket form
                 Application.Run(ticketForm);
             }
         }

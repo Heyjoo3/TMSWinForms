@@ -223,7 +223,7 @@
             this.Controls.Add(this.editEmailLabel);
             this.Controls.Add(this.editAccountLabel);
             this.Name = "EditUserForm";
-            this.Text = "EditUserForm";
+            this.Text = "7";
             this.ResumeLayout(false);
             this.PerformLayout();
 

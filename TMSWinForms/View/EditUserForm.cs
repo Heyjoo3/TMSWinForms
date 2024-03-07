@@ -62,11 +62,15 @@
         }
         private async void deleteAccountButton_Click(object sender, EventArgs e)
         {
-            await dataAccess.UpdateUnfinishedTicketsbyUserId(TMSWinForms.Program.manageStates.LoggedUser.Id);
-            await dataAccess.DeleteUser(TMSWinForms.Program.manageStates.LoggedUser.Id);
-            this.Close();
-            Application.Exit();
-
+            DialogResult result = MessageBox.Show("Are you sure you want to delete your account?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                //MessageBox.Show((TMSWinForms.Program.manageStates.LoggedUser.Id).ToString());
+                await dataAccess.UpdateUnfinishedTicketsbyUserId(TMSWinForms.Program.manageStates.LoggedUser.Id);
+                await dataAccess.DeleteUser(TMSWinForms.Program.manageStates.LoggedUser.Id);
+                this.Close();
+                Application.Exit();
+            }
         }
 
         private void showPasswordButton_Click(object sender, EventArgs e)
