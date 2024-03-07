@@ -11,18 +11,15 @@ using TMSBLL.Interfaces;
 namespace TMSBLL
 {
     public class ManageStates: IStateManagementService
+    // implementation of the IStateManagementService interface
+    // manages users
+    // manages tickets, espeacially sorting 
     {
         //fields 
         private UserModel loggedUser;
         private List<UserModel> allUsers;
         private List<TicketModel> allTickets;
         private IDataAccess dataAccess;
-        
-        //interfaces
-        private  IUserDetail userDetail;
-        private  ITicketTile ticketTile;
-        private  ILoginRegisterGUI loginRegisterGUI;
-        
 
         //properties
         public UserModel LoggedUser
@@ -45,11 +42,8 @@ namespace TMSBLL
         public ManageStates(IDataAccess dataAccess)
         {
             loggedUser = new UserModel();
-            //allUsers = new List<UserModel>();
-            //allTickets = new List<TicketModel>();
             this.dataAccess = dataAccess;
             InitializeData();
-           
         }
 
         //methods
@@ -82,6 +76,7 @@ namespace TMSBLL
         public async Task SortByDate() {        
             allTickets = await dataAccess.GetTicketsAndUserNames();
 
+            //bubble sort by date because sql has no option to sort by date
             for (int i = 0; i < allTickets.Count; i++)
             {
                 for (int j = 0; j < allTickets.Count - 1; j++)
@@ -94,7 +89,6 @@ namespace TMSBLL
                     }
                 }
             }
-
         }
 
         public async Task SortByName() {

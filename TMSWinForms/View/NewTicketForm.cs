@@ -10,6 +10,8 @@
     public partial class NewTicketForm : Form
     {
         private IDataAccess dataAccess;
+
+        //constructor
         public NewTicketForm(IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
@@ -17,6 +19,7 @@
 
             List<UserModel> users = TMSWinForms.Program.manageStates.AllUsers;
 
+            //set up comboboxes
             this.assignedUserComboBox.DataSource = users;
             this.assignedUserComboBox.DisplayMember = "Name";
             this.assignedUserComboBox.ValueMember = "Name";
@@ -32,18 +35,20 @@
 
         private async void saveNewTicketButton_Click(object sender, EventArgs e)
         {
-
+            //get values from form and format them
             string title = this.titleTextBox.Text.Trim();
             string description = this.descriptionTextBox.Text.Trim();
             string assignedUserName = this.assignedUserComboBox.Text.Trim();
             string date = this.dateTimePicker.Value.ToString("dd/MM/yyyy");
             int priority = (int)this.priorityComboBox.SelectedItem;
  
-
+                
+                //check if title is empty
                 if (title == "")
                 {
                     MessageBox.Show("Every ticket needs a title.");
                 }
+                //new ticket
                 else
                 {
                     TicketModel newTicket = new TicketModel(title, description, priority,date,  assignedUserName, TMSWinForms.Program.manageStates.AllUsers);

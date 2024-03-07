@@ -70,6 +70,7 @@ namespace TMSLibrary
             this.AssignedUserName = "";
         }
 
+        //all fileds constructor e.g. für editnng
         public TicketModel(int id, string title, string description, string status, int priority, string dueDate, int assignedUserId, string assignedUserName)
         {
             this.Id = id;
@@ -82,6 +83,7 @@ namespace TMSLibrary
             this.AssignedUserName = assignedUserName;
         }
 
+        //new ticket constructor, assigns user id based on username, automatically sets status
         public TicketModel(string title, string description, int priority, string dueDate, string assignedUserName, List<UserModel> userList)
         {
             this.Id = 0;
@@ -99,8 +101,6 @@ namespace TMSLibrary
             {
                 this.Status = "Assigned";
             }
-
-            //List<UserModel> users = SqliteDataAccess.LoadUsers();
 
             foreach (UserModel user in userList)
             {

@@ -37,8 +37,6 @@
             {
                 using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
                 {
-                    Console.WriteLine("Connection string: " + LoadConnectionString());
-
                     var output = await cnn.QueryAsync<UserModel>("select * from UserTable", new DynamicParameters());
                     return output.ToList();
                 }
@@ -53,6 +51,8 @@
             }
         }
 
+        //Login
+        //Checks if user exisist
         public  async Task<bool> CheckUser(string email, string password)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -78,6 +78,7 @@
             }
         }
 
+        //Gets logged user
         public  async Task<UserModel> GetUser(string email, string password)
         {
             try
@@ -95,7 +96,8 @@
                 return null; // Return an empty list or null, depending on your requirements
             }
         }
-
+       
+        //Register
         public  async Task<bool> SaveUser(UserModel user)
         {   
             try
@@ -105,7 +107,6 @@
                     var existingUser = await cnn.QueryFirstOrDefaultAsync<UserModel>("select * from UserTable where Email = @Email", new { Email = user.Email });
                     if (existingUser != null)
                     {
-                        //throw new Exception("Email already exists");
                         return false;
                     }
 
@@ -275,6 +276,7 @@
             
         }
 
+        //Update unfinished tickets after changes in user
         public async Task UpdateUnfinishedTicketsbyUserId(int userId)
         {
             try {
@@ -292,7 +294,6 @@
 
 
         //Join Queries
-
         public  async Task<List<TicketModel>> GetTicketsAndUserNames()
         {
             try {

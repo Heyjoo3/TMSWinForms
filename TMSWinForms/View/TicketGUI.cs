@@ -16,13 +16,14 @@
         private string sortBy = "";
         private IStateManagementService manageStates = TMSWinForms.Program.manageStates;
         //private ITicketGUI ticketGUIServices;
+
+
         //properties
         public bool ShowOnlyMyTickets
         {
             get { return showOnlyMyTickets; }
             set { showOnlyMyTickets = value; }
         }
-
         public string SortBy
         {
             get { return sortBy; }
@@ -44,6 +45,7 @@
         }
 
         //methods
+        //initializes task tiles ordered by sortby and status
         public async void InitializeTaskTiles()
         {   
             await UpdateBySort();
@@ -75,6 +77,7 @@
             }
         }
 
+        //Clears and refreshes panels
         public void RefreshPanels()
         {
             unassingedflowLayoutPanel.Controls.Clear();
@@ -82,6 +85,7 @@
             finishedflowLayoutPanel.Controls.Clear();
             InitializeTaskTiles();
         }
+
 
         public void RefreshUserList()
         {
@@ -93,22 +97,22 @@
             }
         }
 
+        //sortes tickets by sortby property
         private async Task UpdateBySort()
         {
-
-            if (sortBy == SortEnum.Date.ToString())
+            if (SortBy == SortEnum.Date.ToString())
             {
                 await manageStates.SortByDate();
             }
-            else if (sortBy == SortEnum.Priority.ToString())
+            else if (SortBy == SortEnum.Priority.ToString())
             {
                 await manageStates.SortByPriority();
             }
-            else if (sortBy == SortEnum.Name.ToString())
+            else if (SortBy == SortEnum.Name.ToString())
             {
                 await manageStates.SortByName();
             }
-            else if (sortBy == SortEnum.Title.ToString())
+            else if (SortBy == SortEnum.Title.ToString())
             {
                 await manageStates.SortByTitle();
             }
@@ -161,12 +165,15 @@
             RefreshUserList();
         }
 
+        //updates sortby property and refreshes panels
         private void sortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.sortBy = sortingComboBox.SelectedItem.ToString();
+            this.SortBy = sortingComboBox.SelectedItem.ToString();
             RefreshPanels(); 
         }
 
+
+        // opens user details form for admin
         private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Program.manageStates.LoggedUser.Roll == "Admin")

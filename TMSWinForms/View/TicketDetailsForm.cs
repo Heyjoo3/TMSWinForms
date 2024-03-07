@@ -27,8 +27,10 @@
             InitializeComponent();
             this.TicketID = ticketID;
             
+            //get ticket by id
             TicketModel tempTicket = TMSWinForms.Program.manageStates.GetTicketById(TicketID);
 
+            //fill form with ticket data
             titleTextBox.Text = tempTicket.Title;
             assignedUserComboBox.Text = tempTicket.AssignedUserName;
             assignedUserComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -41,13 +43,15 @@
             string priorityString = priorityEnum.ToString();
             priorityComboBox.Text = priorityString;
 
+            //set up combobox
             this.priorityComboBox.DataSource = Enum.GetValues(typeof(PriorityEnum));
             this.priorityComboBox.SelectedItem = priorityEnum;
             this.priorityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-
+            //get all users fpr combobox
             List<UserModel> allUsers = TMSWinForms.Program.manageStates.AllUsers;
 
+            //set up combobox
             this.assignedUserComboBox.DataSource = allUsers;
             this.assignedUserComboBox.DisplayMember = "Name";
 
@@ -73,19 +77,22 @@
         {
             this.TicketID = ticketID;
 
+            //get values from form and format them
             string title =  titleTextBox.Text.Trim();
             string assignedUser = assignedUserComboBox.Text.Trim();
             string date = dateTimePicker.Value.ToString("dd/MM/yyyy").Trim();
             int priority = (int)priorityComboBox.SelectedItem;
             string description = descriptionTextBox.Text.Trim();
             string status = statusComboBox.Text.Trim();
-
+            
+            //change status automatically if user is assigned
             if (status == "Unassigned" && assignedUser != "") 
             {                 
                 status = "Assigned";
             }
 
             UserModel user = await dataAccess.GetUserByName(assignedUser);
+
             if (user == null)
             {
                 user = new UserModel();
@@ -93,10 +100,10 @@
                 user.Id = 0;
             }
 
-
-            
+            //update ticket
             await dataAccess.UpdateTicket(new TicketModel(ticketID, title, description, status, priority, date, user.Id, assignedUser));
 
+            //update all other forms and related data
             await TMSWinForms.Program.manageStates.UpdateAll();
 
             TMSWinForms.Program.ticketForm.RefreshPanels();

@@ -10,9 +10,7 @@ namespace TMSLibrary
     {
         static async Task Main(string[] args)
         {
-            // This is the main method of the TMSLibrary project.
-            // This is where the program starts.
-            //Write a test to see if the program is working
+            //Used for testing the database
 
             SqliteDataAccess db = new SqliteDataAccess();
             List<TicketModel> tickets = await db.LoadTickets();

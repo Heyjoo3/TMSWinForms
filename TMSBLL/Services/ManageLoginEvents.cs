@@ -5,26 +5,28 @@ using TMSLibrary;
 namespace TMSBLL.Services
 {
     public class ManageLoginEvents
+    // implements the events happening in the login view 
     {
         private IDataAccess dataAccess;
         private ILoginRegisterGUI loginRegisterView;
         private IStateManagementService manageStates;
 
+        //constructor
         public ManageLoginEvents(IDataAccess dataAccess, ILoginRegisterGUI loginRegisterView, IStateManagementService manageStates)
         {
             this.dataAccess = dataAccess;
             this.loginRegisterView = loginRegisterView;
             this.manageStates = manageStates;
 
+            // subscribe methods to events
             this.loginRegisterView.LoginRequested += HandleLoginRequested;
             this.loginRegisterView.RegistrationRequested += HandleRegisterRequested;
           
         }
 
+        //methods
         private async void HandleLoginRequested(string email, string password)
         {
-            Console.WriteLine("Login requested");
-
             if (email == "" || email == "")
             {
                 loginRegisterView.ShowErrorMessage("Please fill out all fields");
@@ -32,8 +34,7 @@ namespace TMSBLL.Services
             else
             {
                 if (await dataAccess.CheckUser(email, password))
-                {
-                    
+                {   
                     manageStates.LoggedUser = await dataAccess.GetUser(email, password);
                     loginRegisterView.DialogResult();
                     loginRegisterView.CloseView();
@@ -47,8 +48,6 @@ namespace TMSBLL.Services
 
         private async void HandleRegisterRequested(string name, string email, string password, string passwordRepeat, bool isAdmin)
         {
-            Console.WriteLine("Register requested");
-
             if (name == "" || email == "" || password == "" || passwordRepeat == "")
             {
                 loginRegisterView.ShowErrorMessage("Please fill out all fields");
@@ -69,17 +68,13 @@ namespace TMSBLL.Services
                 user.Password = password;
                 user.Roll = isAdmin ? "Admin" : "User";
 
-
+                // make shue that the email is not already in use
                 if (await dataAccess.SaveUser(user))
                 {
                     manageStates.LoggedUser = user;
                     loginRegisterView.DialogResult();
-                    //loginRegisterView.DialogResult = DialogResult.OK;
-                  
                     loginRegisterView.CloseView();
-
                 }
-
                 else
                 {
                     loginRegisterView.ShowErrorMessage("Email already exists");

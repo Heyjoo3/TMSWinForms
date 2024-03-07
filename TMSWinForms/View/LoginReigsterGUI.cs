@@ -8,9 +8,12 @@
 
 
     public partial class LoginReigsterGUI : Form, ILoginRegisterGUI
+    //implements interface
     {
-        private IDataAccess dataAccess;
-
+        //fields
+        private IDataAccess dataAccess; //dependency injection
+        
+        //constructor
         public LoginReigsterGUI(IDataAccess dataAccess)
         {
             InitializeComponent();
@@ -26,11 +29,14 @@
         private void registerButton_Click(object sender, EventArgs e)
         {
             RegistrationRequested?.Invoke(registerNameTextBox.Text, registerEmailTextBox.Text, registerPasswordTextBox.Text, repeatPasswordTextBox.Text, adminRollCheckBox.Checked);
-        }
+            //invoke event with parameters from view
+            //By invoking the event, the code triggers the execution of the event handlers, allowing them to perform specific actions or respond to the event in some way.
 
+        }
         private void loginButton_Click(object sender, EventArgs e)
         {
             LoginRequested?.Invoke(loginEmailTextBox.Text, loginPasswordTextBox.Text);
+            //By invoking the event, the code triggers the execution of the event handlers, allowing them to perform specific actions or respond to the event in some way.
         }
 
 
@@ -53,12 +59,10 @@
         {
             MessageBox.Show(message);
         }
-
         public void CloseView()
         {
             this.Close();
         }
-
         DialogResult ILoginRegisterGUI.DialogResult()
         {
             DialogResult = DialogResult.OK;
@@ -66,8 +70,7 @@
         }
 
 
-        //other methods - just for show/hide password
-
+        //other methods - just for show/hide password in view
         private void showPasswordButton_Click(object sender, EventArgs e)
         {
             if (this.registerPasswordTextBox.PasswordChar == '*')
@@ -79,7 +82,6 @@
                 this.registerPasswordTextBox.PasswordChar = '*';
             }
         }
-
         private void showPasswordRepeatButton_Click(object sender, EventArgs e)
         {
             if (this.repeatPasswordTextBox.PasswordChar == '*')
@@ -91,7 +93,6 @@
                 this.repeatPasswordTextBox.PasswordChar = '*';
             }
         }
-
         private void showLoginPasswordButton1_Click(object sender, EventArgs e)
         {
 

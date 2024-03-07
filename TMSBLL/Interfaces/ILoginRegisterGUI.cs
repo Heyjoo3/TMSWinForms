@@ -9,16 +9,13 @@ namespace TMSBLL.Interfaces
 {
     public interface ILoginRegisterGUI
     {
-        // This is an interface for the LoginRegisterGUI class
-        // This interface is used to define the methods that the LoginRegisterGUI class must implement
-        // The LoginRegisterGUI class is used to handle the login and registration of users
+    // define the events that the view will raise 
         event Action<string, string> LoginRequested;
         event Action<string, string, string, string, bool> RegistrationRequested;
        
-
+    // define the methods that the view will implement
         void ShowErrorMessage(string message);
         void CloseView();
-
         DialogResult DialogResult();
     }
 }

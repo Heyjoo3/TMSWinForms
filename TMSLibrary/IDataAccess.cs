@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace TMSLibrary
 {
-
 public interface IDataAccess
+// describes the methods that the data access layer must implement
     {
         Task<List<UserModel>> LoadUsers();
         Task<bool> CheckUser(string email, string password);
@@ -29,6 +29,5 @@ public interface IDataAccess
         Task<List<TicketModel>> SortTicketsAndUserByName();
         Task<List<TicketModel>> SortTicketsAndUserByTitle();
     }
-
 }
 

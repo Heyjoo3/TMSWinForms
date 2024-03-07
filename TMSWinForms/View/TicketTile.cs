@@ -10,14 +10,6 @@
     public partial class TicketTile : UserControl
     {
         private IDataAccess dataAccess;
-
-        public TicketTile(IDataAccess dataAccess)
-        {
-            this.dataAccess = dataAccess;
-            InitializeComponent();
-           
-        }
-
         private int ticketID = 0;
        
         public int TicketID
@@ -26,10 +18,13 @@
             set { ticketID = value; }
         }
 
+        //constructor
         public TicketTile(string taskName, string assignedPerson, string date, int priority, int ticketID, string status, IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
             InitializeComponent();
+
+            //fill form with ticket data and set up comboboxes
             this.ticketTitleLabel.Text = taskName;
             this.dateLabel.Text = date;
             this.assignedUserComboBox.MouseWheel += mouseWheelEvent;
@@ -61,18 +56,22 @@
             }
         }
 
-
+        //events
         private async void changeStatusButton_Click(object sender, EventArgs e)
         {
             string status = this.StatusComboBox.Text;
             string currentStatus = TMSWinForms.Program.manageStates.GetTicketById(TicketID).Status;
+
+            //change status and assigned user
             switch (status)
             {
                 case "Unassigned":
+                    //unassigned and user --> assigned
                     if (assignedUserComboBox.Text.Trim() != "" && currentStatus == "Unassigned")
                     {
                         ChangeStatusAndAssignedUser("Assigned", assignedUserComboBox.Text);
                     }
+                    //unassinged and no user --> unassigned
                     else
                     {
                         ChangeStatusAndAssignedUser("Unassigned", "");
@@ -80,10 +79,12 @@
                     break;
 
                 case "Assigned":
+                    //assigned and user --> assigned
                     if (assignedUserComboBox.Text.Trim() != "")
                     {
                         ChangeStatusAndAssignedUser("Assigned", assignedUserComboBox.Text);
                     }
+                    //assigned and no user --> unassigned
                     else
                     {
                         ChangeStatusAndAssignedUser("Unassigned", "");
@@ -97,37 +98,42 @@
             TMSWinForms.Program.ticketForm.RefreshPanels();
         }
 
-
+        //opens ticket details form for editing
         private void detailsButton_Click(object sender, EventArgs e)
         {
             TicketDetailsForm ticketDetailsForm = new TicketDetailsForm(TicketID, new SqliteDataAccess());  
             ticketDetailsForm.ShowDialog();
         }
 
+        //prevent scrolling in comboboxes
+        private void mouseWheelEvent(object sender, MouseEventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        //methods
         private async void ChangeStatusAndAssignedUser(string status, string assignedUserName)
         {
             //List<UserModel> allUsers= await SqliteDataAccess.LoadUsers();
             List<UserModel> allUsers = TMSWinForms.Program.manageStates.AllUsers;
-            
+
             foreach (UserModel user in allUsers)
+
             {
+                //if user exists it gets assigned
                 if (user.Name == assignedUserName)
                 {
                     await dataAccess.ChangeTicketStatus(TicketID, status);
                     await dataAccess.ChangeAssignedUser(TicketID, user.Id, assignedUserName);
                     return;
                 }
+                //user does not exist
                 else
                 {
                     await dataAccess.ChangeTicketStatus(TicketID, status);
                     await dataAccess.ChangeAssignedUser(TicketID, 0, "");
                 }
             }
-        }
-
-        private void mouseWheelEvent(object sender, MouseEventArgs e)
-        {
-            ((HandledMouseEventArgs)e).Handled = true;
         }
     }
 }

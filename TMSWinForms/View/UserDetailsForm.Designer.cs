@@ -37,13 +37,14 @@
             this.deleteUserButton = new System.Windows.Forms.Button();
             this.resetPasswordButton = new System.Windows.Forms.Button();
             this.roleLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.nameLabel.Location = new System.Drawing.Point(48, 71);
+            this.nameLabel.Location = new System.Drawing.Point(50, 60);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(61, 24);
             this.nameLabel.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             this.idLabel.AutoSize = true;
             this.idLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.idLabel.Location = new System.Drawing.Point(234, 43);
+            this.idLabel.Location = new System.Drawing.Point(236, 32);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(57, 20);
             this.idLabel.TabIndex = 1;
@@ -63,7 +64,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(48, 95);
+            this.emailLabel.Location = new System.Drawing.Point(50, 84);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(48, 20);
             this.emailLabel.TabIndex = 2;
@@ -72,7 +73,7 @@
             // ticketAmountLabel
             // 
             this.ticketAmountLabel.AutoSize = true;
-            this.ticketAmountLabel.Location = new System.Drawing.Point(223, 142);
+            this.ticketAmountLabel.Location = new System.Drawing.Point(225, 131);
             this.ticketAmountLabel.Name = "ticketAmountLabel";
             this.ticketAmountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ticketAmountLabel.Size = new System.Drawing.Size(68, 20);
@@ -83,7 +84,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 142);
+            this.label5.Location = new System.Drawing.Point(50, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 20);
             this.label5.TabIndex = 4;
@@ -95,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.assignedTicketsflowLayoutPanel.AutoScroll = true;
             this.assignedTicketsflowLayoutPanel.BackColor = System.Drawing.Color.Lavender;
-            this.assignedTicketsflowLayoutPanel.Location = new System.Drawing.Point(52, 165);
+            this.assignedTicketsflowLayoutPanel.Location = new System.Drawing.Point(54, 154);
             this.assignedTicketsflowLayoutPanel.Name = "assignedTicketsflowLayoutPanel";
             this.assignedTicketsflowLayoutPanel.Size = new System.Drawing.Size(239, 295);
             this.assignedTicketsflowLayoutPanel.TabIndex = 5;
@@ -106,7 +107,7 @@
             this.deleteUserButton.FlatAppearance.BorderSize = 0;
             this.deleteUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteUserButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.deleteUserButton.Location = new System.Drawing.Point(52, 466);
+            this.deleteUserButton.Location = new System.Drawing.Point(54, 455);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(107, 31);
             this.deleteUserButton.TabIndex = 6;
@@ -120,7 +121,7 @@
             this.resetPasswordButton.FlatAppearance.BorderSize = 0;
             this.resetPasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetPasswordButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.resetPasswordButton.Location = new System.Drawing.Point(184, 466);
+            this.resetPasswordButton.Location = new System.Drawing.Point(186, 455);
             this.resetPasswordButton.Name = "resetPasswordButton";
             this.resetPasswordButton.Size = new System.Drawing.Size(107, 31);
             this.resetPasswordButton.TabIndex = 7;
@@ -131,17 +132,27 @@
             // roleLabel
             // 
             this.roleLabel.AutoSize = true;
-            this.roleLabel.Location = new System.Drawing.Point(48, 115);
+            this.roleLabel.Location = new System.Drawing.Point(50, 104);
             this.roleLabel.Name = "roleLabel";
             this.roleLabel.Size = new System.Drawing.Size(36, 20);
             this.roleLabel.TabIndex = 8;
             this.roleLabel.Text = "Roll";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 489);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(327, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Delete user or reset password to \"12345678\"";
+            // 
             // UserDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 524);
+            this.ClientSize = new System.Drawing.Size(348, 555);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.roleLabel);
             this.Controls.Add(this.resetPasswordButton);
             this.Controls.Add(this.deleteUserButton);
@@ -171,5 +182,6 @@
         private System.Windows.Forms.Button deleteUserButton;
         private System.Windows.Forms.Button resetPasswordButton;
         private System.Windows.Forms.Label roleLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

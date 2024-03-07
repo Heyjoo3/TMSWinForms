@@ -10,6 +10,7 @@
     {
         private IDataAccess dataAccess;
 
+        //constructor
         public EditUserForm(IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
@@ -20,8 +21,11 @@
             
         }
 
+
+        //events
         private async void saveAccountEditButton_Click(object sender, EventArgs e)
         {
+            //no password change
             if (passwordTextBox.Text == "" && repeatPasswordTextBox.Text == "")
             {
                 TMSWinForms.Program.manageStates.LoggedUser.Email = emailTextBox.Text;
@@ -32,8 +36,10 @@
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+            //password change
             else if (passwordTextBox.Text == repeatPasswordTextBox.Text && oldPasswordTextBox.Text == TMSWinForms.Program.manageStates.LoggedUser.Password)
             {
+                //password is valid
                 if (ManageLoginEvents.IsValidPassword(passwordTextBox.Text))
                 {
                     TMSWinForms.Program.manageStates.LoggedUser.Email = emailTextBox.Text;
@@ -45,12 +51,14 @@
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                //password is not valid
                 else
                 {
                     MessageBox.Show("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character");
                 }
                 
             }
+            //passwords do not match
             else if (oldPasswordTextBox.Text != TMSWinForms.Program.manageStates.LoggedUser.Password)
             {
                 MessageBox.Show("Old password is incorrect");
@@ -65,7 +73,6 @@
             DialogResult result = MessageBox.Show("Are you sure you want to delete your account?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                //MessageBox.Show((TMSWinForms.Program.manageStates.LoggedUser.Id).ToString());
                 await dataAccess.UpdateUnfinishedTicketsbyUserId(TMSWinForms.Program.manageStates.LoggedUser.Id);
                 await dataAccess.DeleteUser(TMSWinForms.Program.manageStates.LoggedUser.Id);
                 this.Close();

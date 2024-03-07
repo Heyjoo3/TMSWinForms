@@ -30,12 +30,14 @@ namespace TMSWinForms.View
             set { selectedUserTickets = value; }
         }
 
+        //constructor
         public UserDetailsForm(UserModel selectedUser, List<TicketModel> selectedUserTickets, IDataAccess dataAccess)
         {
 
             this.dataAccess = dataAccess;
             InitializeComponent();
 
+            //fill form with user data
             this.SelectedUser = selectedUser;
             this.SelectedUserTickets = selectedUserTickets;
 
