@@ -30,13 +30,13 @@
         {
             RegistrationRequested?.Invoke(registerNameTextBox.Text, registerEmailTextBox.Text, registerPasswordTextBox.Text, repeatPasswordTextBox.Text, adminRollCheckBox.Checked);
             //invoke event with parameters from view
-            //By invoking the event, the code triggers the execution of the event handlers, allowing them to perform specific actions or respond to the event in some way.
+            //By invoking the event, the code triggers the execution of the event handlers
 
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
             LoginRequested?.Invoke(loginEmailTextBox.Text, loginPasswordTextBox.Text);
-            //By invoking the event, the code triggers the execution of the event handlers, allowing them to perform specific actions or respond to the event in some way.
+           
         }
 
 
@@ -73,36 +73,26 @@
         //other methods - just for show/hide password in view
         private void showPasswordButton_Click(object sender, EventArgs e)
         {
-            if (this.registerPasswordTextBox.PasswordChar == '*')
-            {
-                this.registerPasswordTextBox.PasswordChar = '\0';
-            }
-            else
-            {
-                this.registerPasswordTextBox.PasswordChar = '*';
-            }
+           TogglePasswordVisibility(registerPasswordTextBox);
         }
         private void showPasswordRepeatButton_Click(object sender, EventArgs e)
         {
-            if (this.repeatPasswordTextBox.PasswordChar == '*')
-            {
-                this.repeatPasswordTextBox.PasswordChar = '\0';
-            }
-            else
-            {
-                this.repeatPasswordTextBox.PasswordChar = '*';
-            }
+            TogglePasswordVisibility(repeatPasswordTextBox);
         }
         private void showLoginPasswordButton1_Click(object sender, EventArgs e)
         {
 
-            if (this.loginPasswordTextBox.PasswordChar == '*')
+           TogglePasswordVisibility(loginPasswordTextBox);
+        }
+        private void TogglePasswordVisibility(TextBox passwordTextBox)
+        {
+            if (passwordTextBox.PasswordChar == '*')
             {
-                this.loginPasswordTextBox.PasswordChar = '\0';
+                passwordTextBox.PasswordChar = '\0';
             }
             else
             {
-                this.loginPasswordTextBox.PasswordChar = '*';
+                passwordTextBox.PasswordChar = '*';
             }
         }
 

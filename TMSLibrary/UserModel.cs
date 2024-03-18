@@ -46,14 +46,5 @@
             userPassword = "";
             userRoll = "";
         }
-
-        public UserModel(int id, string name, string email, string password, string roll)
-        {
-            userID = id;
-            userName = name;
-            userEmail = email;
-            userPassword = password;
-            userRoll = roll;
-        }
     }
 }

@@ -57,18 +57,6 @@ namespace TMSLibrary
             set { assignedUserName = value; }
         }
 
-        // constructor
-        public TicketModel()
-        {
-            this.Id = 0;
-            this.Title = "";
-            this.Description = "";
-            this.Status = "";
-            this.Priority = 1;
-            this.DueDate = "";
-            this.AssignedUserId = 0;
-            this.AssignedUserName = "";
-        }
 
         //all fileds constructor e.g. für editnng
         public TicketModel(int id, string title, string description, string status, int priority, string dueDate, int assignedUserId, string assignedUserName)

@@ -168,8 +168,8 @@
         //updates sortby property and refreshes panels
         private void sortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SortBy = sortingComboBox.SelectedItem.ToString();
-            RefreshPanels(); 
+            this.SortBy = sortingComboBox.SelectedItem.ToString(); // sets property
+            RefreshPanels();  // refreshes panels which will include UpdateBySort which sorts tickets before initializing tiles
         }
 
 

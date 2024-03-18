@@ -8,7 +8,7 @@
     using TMSBLL.Services;
     using TMSBLL.Enumerations;
 
-    public class Program
+    public class Program //Entry point of the application
     {
         // Declare the manager variable as a static field
         internal static ManageStates manageStates;
